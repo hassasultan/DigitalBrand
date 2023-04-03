@@ -35,7 +35,7 @@
                     <li class="nav-group-label">Salesman</li>
 
                     <li>
-                        <a class="nav-link" href="/salesman">
+                        <a class="nav-link" href="{{ route('salesman-management.index') }}">
                             <i class="bx bx-user-voice" aria-hidden="true"></i>
                             <span>Salesman</span>
                         </a>

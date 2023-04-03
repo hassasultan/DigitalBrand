@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SalesManController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/', function () {
     return view('admin/pages/login');
@@ -28,9 +29,9 @@ Route::get('/forgot-password', function () {
     return view('admin/pages/forgot-password');
 });
 
-Route::get('/home', function () {
-    return view('admin/pages/home');
-});
+// Route::get('/home', function () {
+//     return view('admin/pages/home');
+// });
 
 // Users & User Role
 Route::get('/users', function () {
@@ -47,10 +48,6 @@ Route::get('/user_role/form', function () {
     return view('admin/pages/users/user_role_form');
 });
 
-// Salesman
-Route::get('/salesman', function () {
-    return view('admin/pages/salesman/salesman');
-});
 
 Route::get('/salesman/form', function () {
     return view('admin/pages/salesman/salesman_form');
@@ -89,3 +86,6 @@ Route::get('/settings', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Salesman
+Route::resource('/salesman-management', SalesManController::class);
+

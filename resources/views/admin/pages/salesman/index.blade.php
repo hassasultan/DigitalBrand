@@ -23,7 +23,7 @@
                         <div class="datatable-header">
                             <div class="row align-items-center mb-3">
                                 <div class="col-12 col-lg-auto mb-3 mb-lg-0">
-                                    <a href="/salesman/form"
+                                    <a href="{{ route('salesman-management.create') }}"
                                        class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add
                                         Salesman</a>
                                 </div>
@@ -81,48 +81,28 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td width="30"><input type="checkbox" name="checkboxRow1"
-                                                      class="checkbox-style-1 p-relative top-2" value=""/></td>
-                                <td>1</td>
-                                <td></td>
-                                <td><a href="#"><strong>Salesman 1</strong></a></td>
-                                <td>salesman@gmail.com</td>
-                                <td>Bahadurabad , Karachi</td>
-                                <td>0123423211</td>
-                                <td>
-                                    <button class="btn btn-success" style="padding: 4px 6px;font-size: 12px;"><i
-                                            class="fas fa-check"></i></button>
-                                    <button class="btn btn-danger" style="padding: 4px 6px;font-size: 12px;"><i
-                                            class="fas fa-trash"></i></button>
-                                    <button class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i
-                                            class="fas fa-pen"></i></button>
-                                    <button class="btn btn-primary" style="padding: 4px 6px;font-size: 12px;"><i
-                                            class="fas fa-eye"></i></button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td width="30"><input type="checkbox" name="checkboxRow1"
-                                                      class="checkbox-style-1 p-relative top-2" value=""/></td>
-                                <td>1</td>
-                                <td></td>
-                                <td><a href="#"><strong>Salesman 2</strong></a></td>
-                                <td>salesman2@gmail.com</td>
-                                <td>Tariq Road , Karachi</td>
-                                <td>76545677654</td>
-                                <td>
-                                    <button class="btn btn-success" style="padding: 4px 6px;font-size: 12px;"><i
-                                            class="fas fa-check"></i></button>
-                                    <button class="btn btn-danger" style="padding: 4px 6px;font-size: 12px;"><i
-                                            class="fas fa-trash"></i></button>
-                                    <button class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i
-                                            class="fas fa-pen"></i></button>
-                                    <button class="btn btn-primary" style="padding: 4px 6px;font-size: 12px;"><i
-                                            class="fas fa-eye"></i></button>
-                                </td>
-                            </tr>
-
+                                @foreach ($salesman as $key => $row)
+                                    <tr>
+                                        <td width="30"><input type="checkbox" name="checkboxRow1"
+                                                            class="checkbox-style-1 p-relative top-2" value=""/></td>
+                                        <td>#{{ $key++ }}</td>
+                                        <td></td>
+                                        <td><a href="#"><strong>{{ $row->user->name }}</strong></a></td>
+                                        <td>{{ $row->user->email }}</td>
+                                        <td>{{ $row->address }}</td>
+                                        <td>{{ $row->phone }}</td>
+                                        <td>
+                                            <button class="btn btn-success" style="padding: 4px 6px;font-size: 12px;"><i
+                                                    class="fas fa-check"></i></button>
+                                            <button class="btn btn-danger" style="padding: 4px 6px;font-size: 12px;"><i
+                                                    class="fas fa-trash"></i></button>
+                                            <button class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i
+                                                    class="fas fa-pen"></i></button>
+                                            <button class="btn btn-primary" style="padding: 4px 6px;font-size: 12px;"><i
+                                                    class="fas fa-eye"></i></button>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                         <hr class="solid mt-5 opacity-4">

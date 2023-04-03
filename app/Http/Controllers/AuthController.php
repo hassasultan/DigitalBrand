@@ -104,6 +104,50 @@ class AuthController extends Controller
         }
 
     }
+    public function salesman_login(Request $request)
+    {
+        try
+        {
+            $request->validate([
+                'email' => 'required|string|email',
+                'password' => 'required|string',
+                'role' => 'required|numeric|In:4',
+            ]);
+            $credentials = $request->only('email', 'password');
+            $check = User::where('email',$request->email)->where('role', $request->role)->first();
+            if($check)
+            {
+                $token = auth('api')->attempt($credentials);
+                if (!$token) {
+                    return response()->json([
+                        'status' => 'error',
+                        'message' => 'Unauthorized',
+                    ], 401);
+                }
+
+                $user = auth('api')->user();
+                return response()->json([
+                        'status' => 'success',
+                        'user' => $user,
+                        'authorisation' => [
+                            'token' => $token,
+                            'type' => 'bearer',
+                        ]
+                    ]);
+            }
+            else
+            {
+                return response()->json(['status' => 'error',
+                'message' => "Invalid Credentials..."]);
+            }
+        }
+        catch(Exception $ex)
+        {
+            return response()->json(['status' => 'error',
+            'message' => $ex->getMessage()]);
+        }
+
+    }
 
     public function register(Request $request)
     {

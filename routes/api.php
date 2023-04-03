@@ -22,6 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::controller(AuthController::class)->group(function () {
     Route::post('seller/login', 'seller_login');
     Route::post('cutomer/login', 'customer_login');
+    Route::post('salesman/login', 'salesman_login');
     Route::post('register', 'register');
     Route::post('logout', 'logout');
     Route::post('refresh', 'refresh');
