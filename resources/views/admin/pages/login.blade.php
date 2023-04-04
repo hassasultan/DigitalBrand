@@ -14,11 +14,12 @@
                 </a>
             </div>
             <div class="card-body">
-                <form action="home">
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
                     <div class="form-group mb-3">
-                        <label>Username</label>
+                        <label>Email</label>
                         <div class="input-group">
-                            <input name="username" type="text" class="form-control form-control-lg" />
+                            <input name="email" type="text" class="form-control form-control-lg" />
                             <span class="input-group-text">
 										<i class="bx bx-user text-4"></i>
                             </span>
@@ -31,7 +32,7 @@
                             <a href="forgot-password" class="float-end">Lost Password?</a>
                         </div>
                         <div class="input-group">
-                            <input name="pwd" type="password" class="form-control form-control-lg" />
+                            <input name="password" type="password" class="form-control form-control-lg" />
                             <span class="input-group-text">
 										<i class="bx bx-lock text-4"></i>
 									</span>

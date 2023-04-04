@@ -336,7 +336,13 @@
                     <a role="menuitem" tabindex="-1" href="lock" ><i class="bx bx-lock-open-alt"></i> Lock Screen</a>
                 </li>
                 <li>
-                    <a role="menuitem" tabindex="-1" href="/"><i class="bx bx-log-out"></i> Logout</a>
+                    <a role="menuitem" tabindex="-1" href="{{ route('logout') }}" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();"><i class="bx bx-log-out"></i> Logout</a>
+
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
                 </li>
             </ul>
         </div>
