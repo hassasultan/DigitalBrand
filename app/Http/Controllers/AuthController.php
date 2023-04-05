@@ -13,7 +13,7 @@ class AuthController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['seller_login','customer_login','register']]);
+        $this->middleware('auth:api', ['except' => ['seller_login','customer_login','register','salesman_login']]);
     }
 
     public function seller_login(Request $request)
