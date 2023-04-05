@@ -28,7 +28,7 @@ class SalesManController extends Controller
             "name" => $request->first_name." ".$request->last_name,
             "email" => $request->email,
             "role" => 4,
-            "password" => Hash::make($request->password),
+            "password" => Hash::make("12345678"),
         ]);
         $sales_man = new SaleMan();
         $sales_man->user_id = $user->id;
