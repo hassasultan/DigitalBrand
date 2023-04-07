@@ -66,6 +66,11 @@ Route::get('/sellers', function () {
     return view('admin/pages/sellers/sellers');
 });
 
+Route::get('/seller/form', function () {
+    return view('admin/pages/sellers/create');
+});
+
+
 Route::get('/packages', function () {
     return view('admin/pages/premium/packages');
 });
@@ -88,4 +93,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Salesman
 Route::resource('/salesman-management', SalesManController::class);
+
+
+// Seller
 
