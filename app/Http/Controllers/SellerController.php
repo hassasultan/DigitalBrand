@@ -17,7 +17,7 @@ class SellerController extends Controller
     protected function validator($data)
     {
         return Validator::make($data, [
-            'user_id' => ['required', 'numeric', 'exists:users.id'],
+            'user_id' => ['required', 'numeric', 'exists:users,id'],
             'phone' => ['required', 'string'],
             'whatsapp' => ['required', 'string'],
             'business_name' => ['required', 'string'],
@@ -26,7 +26,7 @@ class SellerController extends Controller
             'insta_page' => ['required', 'string'],
             'web_url' => ['required', 'string'],
             'isFeatured' => ['required', 'string'],
-            'logo' => ['required', 'image','size:1024'],
+            'logo' => ['required', 'image'],
         ]);
     }
     public function index()
@@ -99,8 +99,8 @@ class SellerController extends Controller
     }
     public function Apistore(Request $request)
     {
-        // dd($request->all());
         $valid = $this->validator($request->all());
+        // dd($valid->errors());
         if(!$valid->errors())
         {
             $check = Seller::find($request->user_id);
