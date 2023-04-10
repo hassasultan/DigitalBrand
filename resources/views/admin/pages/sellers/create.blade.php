@@ -48,84 +48,42 @@
                                         <input type="text" class="form-control" name="phone" id="formGroupExampleInput" placeholder="">
                                     </div>
                                 </div>
-
-                                <div class="col-lg-4">
+                                <div class="col-lg-4 ">
                                     <div class="form-group">
-                                        <label class="col-form-label" for="formGroupExampleInput">Qualification</label>
-                                        <select class="form-control mb-3" name="qualification">
-                                            <option>Matriculation</option>
-                                            <option>Intermediate</option>
-                                            <option>Graduation</option>
-                                        </select>
+                                        <label class="col-form-label" for="formGroupExampleInput">Whatsapp No.</label>
+                                        <input type="text" class="form-control" name="phone" id="formGroupExampleInput" placeholder="">
                                     </div>
                                 </div>
-
+                                <div class="col-lg-4 ">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="formGroupExampleInput">Business Name</label>
+                                        <input type="text" class="form-control" name="phone" id="formGroupExampleInput" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="formGroupExampleInput">Business Address</label>
+                                        <input type="text" class="form-control" name="phone" id="formGroupExampleInput" placeholder="">
+                                    </div>
+                                </div>
                                 <div class="col-lg-4 pb-3">
                                     <div class="form-group">
-                                        <label class="col-form-label" for="formGroupExampleInput">CNIC No</label>
+                                        <label class="col-form-label" for="formGroupExampleInput">Facebook Page</label>
                                         <input type="text" class="form-control" id="formGroupExampleInput" name="cnic" placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group">
-                                        <label class="col-form-label" for="formGroupExampleInput">CNIC</label>
+                                        <label class="col-form-label" for="formGroupExampleInput">Instagram Page</label>
                                         <input type="file" class="form-control" id="formGroupExampleInput" placeholder="" name="cnic_image">
                                     </div>
                                 </div>
-
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label class="col-form-label" for="formGroupExampleInput">Marital Status</label>
-                                        <select class="form-control mb-3" name="marital_status">
-                                            <option>Single</option>
-                                            <option>Married</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label class="col-form-label" for="formGroupExampleInput">Religion</label>
-                                        <select class="form-control mb-3" name="religion">
-                                            <option>Islam</option>
-                                            <option>Other</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-
-
                                 <div class="col-lg-4 pb-3">
                                     <div class="form-group">
-                                        <label class="col-form-label" for="formGroupExampleInput">Work History</label>
+                                        <label class="col-form-label" for="formGroupExampleInput">Website URL</label>
                                         <input type="file" class="form-control" id="formGroupExampleInput" placeholder="" name="work_history">
                                     </div>
                                 </div>
-                                <div class="col-lg-4 pb-3">
-                                    <div class="form-group">
-                                        <label class="col-form-label" for="formGroupExampleInput">Passport Size Picture</label>
-                                        <input type="file" class="form-control" id="formGroupExampleInput" placeholder="" name="picture">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-4 pb-3">
-                                    <div class="form-group">
-                                        <label class="col-form-label" for="formGroupExampleInput">Bank Account Details (if any)</label>
-                                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="bank_account">
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 pb-3">
-                                    <div class="form-group">
-                                        <label class="col-form-label" for="formGroupExampleInput">Age</label>
-                                        <input type="number" class="form-control" id="formGroupExampleInput" placeholder="" name="age">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-4 pb-3">
-                                    <div class="form-group">
-                                        <label class="col-form-label" for="formGroupExampleInput">Address</label>
-                                        <textarea class="form-control" rows="3" id="textareaDefault" name="address"></textarea>                                </div>
-                                </div>
-
                             </div>
                         </div>
                         <footer class="card-footer text-end">
