@@ -14,9 +14,9 @@ class SellerController extends Controller
 {
     //
     use SaveImage;
-    protected function validator($data)
+    public function validator($data)
     {
-        return Validator::make($data, [
+        $valid =  Validator::make($data, [
             'user_id' => ['required', 'numeric', 'exists:users,id'],
             'phone' => ['required', 'string'],
             'whatsapp' => ['required', 'string'],
@@ -28,6 +28,7 @@ class SellerController extends Controller
             'isFeatured' => ['required', 'string'],
             'logo' => ['required', 'image'],
         ]);
+        return $valid;
     }
     public function index()
     {
@@ -100,11 +101,11 @@ class SellerController extends Controller
     public function Apistore(Request $request)
     {
         $valid = $this->validator($request->all());
-        // dd($valid->errors());
-        if(!$valid->errors())
+        if($valid->valid())
         {
-            $check = Seller::find($request->user_id);
-            if($check != null)
+            $check = Seller::where('user_id',$request->user_id)->first();
+
+            if($check == null)
             {
                 $seller = new Seller();
                 $seller->user_id = $request->user_id;
@@ -118,6 +119,7 @@ class SellerController extends Controller
                 $seller->business_name = $request->business_name;
 
             }
+
             if($request->has('business_address') && $request->business_address)
             {
                 $seller->business_address = $request->business_address;
