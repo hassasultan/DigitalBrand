@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SellerController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +20,7 @@ use App\Http\Controllers\AuthController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+Route::post('seller/update',[SellerController::class, 'SellerController@Apistore']);
 Route::controller(AuthController::class)->group(function () {
     Route::post('seller/login', 'seller_login');
     Route::post('cutomer/login', 'customer_login');

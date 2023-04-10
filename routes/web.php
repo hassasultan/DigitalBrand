@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SalesManController;
+use App\Http\Controllers\SellerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,13 +63,13 @@ Route::get('/visitor/form', function () {
     return view('admin/pages/visitors/visitor_form');
 });
 
-Route::get('/sellers', function () {
-    return view('admin/pages/sellers/sellers');
-});
+// Route::get('/sellers', function () {
+//     return view('admin/pages/sellers/sellers');
+// });
 
-Route::get('/seller/form', function () {
-    return view('admin/pages/sellers/create');
-});
+// Route::get('/seller/form', function () {
+//     return view('admin/pages/sellers/create');
+// });
 
 
 Route::get('/packages', function () {
@@ -93,6 +94,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Salesman
 Route::resource('/salesman-management', SalesManController::class);
+Route::resource('/seller-management', SellerController::class);
 
 
 // Seller

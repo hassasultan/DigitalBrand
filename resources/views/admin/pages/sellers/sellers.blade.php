@@ -22,7 +22,7 @@
                         <div class="datatable-header">
                             <div class="row align-items-center mb-3">
                                 <div class="col-12 col-lg-auto mb-3 mb-lg-0">
-                                    <a href="/seller/form" class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add Seller</a>
+                                    <a href="{{ route('seller-management.create') }}" class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add Seller</a>
                                 </div>
                                 <div class="col-8 col-lg-auto ms-auto ml-auto mb-3 mb-lg-0">
                                     <div class="d-flex align-items-lg-center flex-column flex-lg-row">
@@ -71,33 +71,21 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
-                                <td>1</td>
-                                <td><a href="#"><strong>Seller 1</strong></a></td>
-                                <td>seller@gmail.com</td>
-                                <td>0324-2520084</td>
-                                <td>Khaadi</td>
-                                <td>
-                                    <button class="btn btn-danger" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-trash"></i></button>
-                                    <button class="btn btn-warning" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-pen"></i></button>
-                                    <button class="btn btn-primary"  style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-eye"></i></button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
-                                <td>2</td>
-                                <td><a href="ecommerce-orders-detail.html"><strong>Seller 2</strong></a></td>
-                                <td>seller1@gmail.com</td>
-                                <td>0321-2100077</td>
-                                <td>Bata Shoes Store</td>
-                                <td>
-                                    <button class="btn btn-danger" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-trash"></i></button>
-                                    <button class="btn btn-warning" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-pen"></i></button>
-                                    <button class="btn btn-primary"  style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-eye"></i></button>
-                                </td>
-                            </tr>
+                                @foreach ($seller as $key => $row)
+                                    <tr>
+                                        <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
+                                        <td>{{ ++$key }}</td>
+                                        <td><a href="#"><strong>{{ $row->user->name }}</strong></a></td>
+                                        <td>{{ $row->user->email }}</td>
+                                        <td>{{ $row->phone }}</td>
+                                        <td>{{ $row->business_name }}</td>
+                                        <td>
+                                            <button class="btn btn-danger" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-trash"></i></button>
+                                            <button class="btn btn-warning" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-pen"></i></button>
+                                            <button class="btn btn-primary"  style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-eye"></i></button>
+                                        </td>
+                                    </tr>
+                                @endforeach
 
                             </tbody>
                         </table>

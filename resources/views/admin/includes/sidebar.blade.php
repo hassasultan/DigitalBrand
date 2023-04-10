@@ -55,7 +55,7 @@
                     <li class="nav-group-label">Sellers</li>
 
                     <li>
-                        <a class="nav-link" href="/sellers">
+                        <a class="nav-link" href="{{ route('seller-management.index') }}">
                             <i class="bx bx-male-sign" aria-hidden="true"></i>
                             <span>Sellers</span>
                         </a>

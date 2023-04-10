@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Seller extends Model
+{
+    use HasFactory;
+    protected $table = "seller";
+    protected $fillable = [
+        "user_id",
+        "phone",
+        "business_name",
+        "business_address",
+        "faecbook_page",
+        "insta_page",
+        "web_url",
+        "isFeatured",
+        "logo",
+        "status",
+    ];
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id','id');
+    }
+}
