@@ -103,7 +103,7 @@ class SellerController extends Controller
         if(!$valid->errors())
         {
             $seller = new Seller();
-            $seller->user_id = $request->id;
+            $seller->user_id = $request->user_id;
             if($request->has('business_name') && $request->business_name)
             {
                 $seller->business_name = $request->business_name;
