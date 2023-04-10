@@ -19,6 +19,7 @@ class SellerController extends Controller
         return Validator::make($data, [
             'user_id' => ['required', 'numeric', 'exists:users.id'],
             'phone' => ['required', 'string'],
+            'whatsapp' => ['required', 'string'],
             'business_name' => ['required', 'string'],
             'business_address' => ['required', 'string'],
             'faecbook_page' => ['required', 'string'],
