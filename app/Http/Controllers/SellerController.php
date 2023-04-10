@@ -103,8 +103,16 @@ class SellerController extends Controller
         $valid = $this->validator($request->all());
         if(!$valid->errors())
         {
-            $seller = new Seller();
-            $seller->user_id = $request->user_id;
+            $check = Seller::find($request->user_id);
+            if($check != null)
+            {
+                $seller = new Seller();
+                $seller->user_id = $request->user_id;
+            }
+            else
+            {
+                $seller = $check;
+            }
             if($request->has('business_name') && $request->business_name)
             {
                 $seller->business_name = $request->business_name;

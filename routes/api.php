@@ -20,7 +20,7 @@ use App\Http\Controllers\SellerController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::post('seller/update',[SellerController::class, 'SellerController@Apistore']);
+Route::post('seller/update',[SellerController::class, 'Apistore']);
 Route::controller(AuthController::class)->group(function () {
     Route::post('seller/login', 'seller_login');
     Route::post('cutomer/login', 'customer_login');
