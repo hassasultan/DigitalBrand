@@ -19,6 +19,8 @@ class Seller extends Model
         "web_url",
         "isFeatured",
         "logo",
+        "reference",
+        "salesman_id",
         "status",
     ];
     public function user()
