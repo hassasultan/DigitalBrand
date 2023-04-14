@@ -162,7 +162,6 @@ class AuthController extends Controller
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|string|min:6',
                 'role' => 'required|numeric|In:2,3',
-                // 'for' => 'required|string|In:seller,customer',
                 'phone' => 'required|string',
                 'whatsapp' => 'required|string',
                 'business_name' => 'required|string',
@@ -177,7 +176,14 @@ class AuthController extends Controller
 
                     'isFeatured' => 'required|string',
                     'logo' => 'required|image',
+                    'reference' => 'required|string',
                 ]);
+                if($request->reference == "salesman")
+                {
+                    $request->validate([
+                        'salesman_id' => 'required|numeric|exists:salemans,id',
+                    ]);
+                }
             }
             $user = User::create([
                 'name' => $request->name,
@@ -235,6 +241,15 @@ class AuthController extends Controller
                 if($request->has('logo') && $request->logo)
                 {
                     $seller->logo = $this->seller_logo($request->logo);
+                }
+                if($request->has('reference'))
+                {
+                    $seller->reference = $request->reference;
+
+                    if($request->reference == "salesman")
+                    {
+                        $seller->salesman_id = $request->salesman_id;
+                    }
                 }
                 $seller->save();
             }
