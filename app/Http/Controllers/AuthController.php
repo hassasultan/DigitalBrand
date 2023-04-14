@@ -5,12 +5,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Seller;
+use App\Models\Customer;
+use App\Traits\SaveImage;
 use Exception;
 
 
 class AuthController extends Controller
 {
-
+    use SaveImage;
     public function __construct()
     {
         $this->middleware('auth:api', ['except' => ['seller_login','customer_login','register','salesman_login']]);
@@ -159,6 +162,14 @@ class AuthController extends Controller
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|string|min:6',
                 'role' => 'required|numeric|In:2,3',
+                'for' => 'required|string|In:seller,customer',
+                'phone' => 'required|string',
+                'whatsapp' => 'required|string',
+                'business_name' => 'required|string',
+                'business_address' => 'required|string',
+                'faecbook_page' => 'required|string',
+                'insta_page' => 'required|string',
+                'web_url' => 'required|string',
             ]);
             $user = User::create([
                 'name' => $request->name,
@@ -168,6 +179,105 @@ class AuthController extends Controller
             ]);
             $credentials = $request->only('email', 'password');
             $token = auth('api')->attempt($credentials);
+            if($request->for == "seller")
+            {
+                $request->validate([
+
+                    'isFeatured' => 'required|string',
+                    'logo' => 'required|image',
+                ]);
+                $seller = new Seller();
+                $seller->user_id = $user->id;
+                if($request->has('business_name') && $request->business_name)
+                {
+                    $seller->business_name = $request->business_name;
+
+                }
+
+                if($request->has('business_address') && $request->business_address)
+                {
+                    $seller->business_address = $request->business_address;
+
+                }
+                if($request->has('faecbook_page') && $request->faecbook_page)
+                {
+                    $seller->faecbook_page = $request->faecbook_page;
+
+                }
+                if($request->has('insta_page') && $request->insta_page)
+                {
+                    $seller->insta_page = $request->insta_page;
+
+                }
+                if($request->has('phone') && $request->phone)
+                {
+                    $seller->phone = $request->phone;
+
+                }
+                if($request->has('whatsapp') && $request->whatsapp)
+                {
+                    $seller->whatsapp = $request->whatsapp;
+
+                }
+                if($request->has('web_url') && $request->web_url)
+                {
+                    $seller->web_url = $request->web_url;
+
+                }
+                if($request->has('isFeatured') && $request->isFeatured)
+                {
+                    $seller->isFeatured = $request->isFeatured;
+
+                }
+                if($request->has('logo') && $request->logo)
+                {
+                    $seller->logo = $this->seller_logo($request->logo);
+                }
+                $seller->save();
+            }
+            if($request->for == "customer")
+            {
+                $customer = new Customer();
+                $customer->user_id = $user->id;
+                if($request->has('business_name') && $request->business_name)
+                {
+                    $customer->business_name = $request->business_name;
+
+                }
+
+                if($request->has('business_address') && $request->business_address)
+                {
+                    $customer->business_address = $request->business_address;
+
+                }
+                if($request->has('faecbook_page') && $request->faecbook_page)
+                {
+                    $customer->fb_page = $request->faecbook_page;
+
+                }
+                if($request->has('insta_page') && $request->insta_page)
+                {
+                    $customer->insta_page = $request->insta_page;
+
+                }
+                if($request->has('phone') && $request->phone)
+                {
+                    $customer->phone = $request->phone;
+
+                }
+                if($request->has('whatsapp') && $request->whatsapp)
+                {
+                    $customer->whatsapp = $request->whatsapp;
+
+                }
+                if($request->has('web_url') && $request->web_url)
+                {
+                    $customer->web_url = $request->web_url;
+
+                }
+                $customer->save();
+            }
+
             return response()->json([
                 'status' => 'success',
                 'message' => 'User created successfully',
