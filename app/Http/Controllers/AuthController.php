@@ -162,7 +162,7 @@ class AuthController extends Controller
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|string|min:6',
                 'role' => 'required|numeric|In:2,3',
-                'for' => 'required|string|In:seller,customer',
+                // 'for' => 'required|string|In:seller,customer',
                 'phone' => 'required|string',
                 'whatsapp' => 'required|string',
                 'business_name' => 'required|string',
@@ -179,7 +179,7 @@ class AuthController extends Controller
             ]);
             $credentials = $request->only('email', 'password');
             $token = auth('api')->attempt($credentials);
-            if($request->for == "seller")
+            if($request->role == 2)
             {
                 $request->validate([
 
@@ -235,7 +235,7 @@ class AuthController extends Controller
                 }
                 $seller->save();
             }
-            if($request->for == "customer")
+            if($request->role == 3)
             {
                 $customer = new Customer();
                 $customer->user_id = $user->id;
