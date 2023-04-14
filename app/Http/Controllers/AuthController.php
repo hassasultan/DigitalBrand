@@ -171,6 +171,14 @@ class AuthController extends Controller
                 'insta_page' => 'required|string',
                 'web_url' => 'required|string',
             ]);
+            if($request->role == 2)
+            {
+                $request->validate([
+
+                    'isFeatured' => 'required|string',
+                    'logo' => 'required|image',
+                ]);
+            }
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
@@ -181,11 +189,6 @@ class AuthController extends Controller
             $token = auth('api')->attempt($credentials);
             if($request->role == 2)
             {
-                $request->validate([
-
-                    'isFeatured' => 'required|string',
-                    'logo' => 'required|image',
-                ]);
                 $seller = new Seller();
                 $seller->user_id = $user->id;
                 if($request->has('business_name') && $request->business_name)
