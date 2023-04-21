@@ -17,6 +17,11 @@ class SalesManController extends Controller
         $salesman = SaleMan::all();
         return view('admin.pages.salesman.index',compact('salesman'));
     }
+    public function sales_man_list()
+    {
+        $salesman = SaleMan::where('status',1)->get();
+        return $salesman;
+    }
     public function create()
     {
         // $salesman = SaleMan::all();
