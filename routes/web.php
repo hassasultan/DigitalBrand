@@ -15,13 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', function () {
     return view('admin/pages/login');
 });
+
 Route::get('/lock', function () {
     return view('admin/pages/lock');
 });
@@ -29,10 +26,6 @@ Route::get('/lock', function () {
 Route::get('/forgot-password', function () {
     return view('admin/pages/forgot-password');
 });
-
-// Route::get('/home', function () {
-//     return view('admin/pages/home');
-// });
 
 // Users & User Role
 Route::get('/users', function () {
@@ -49,6 +42,9 @@ Route::get('/user_role/form', function () {
     return view('admin/pages/users/user_role_form');
 });
 
+// Route::get('/home', function () {
+//     return view('admin/pages/home');
+// });
 
 Route::get('/salesman/form', function () {
     return view('admin/pages/salesman/salesman_form');
@@ -63,6 +59,8 @@ Route::get('/visitor/form', function () {
     return view('admin/pages/visitors/visitor_form');
 });
 
+// Sellers
+
 // Route::get('/sellers', function () {
 //     return view('admin/pages/sellers/sellers');
 // });
@@ -71,23 +69,58 @@ Route::get('/visitor/form', function () {
 //     return view('admin/pages/sellers/create');
 // });
 
+// -- Offers -- //
 
-Route::get('/packages', function () {
-    return view('admin/pages/premium/packages');
+// categories
+
+Route::get('/offer-categories/form', function () {
+    return view('admin/pages/offers/categories/create');
 });
-Route::get('/banners', function () {
-    return view('admin/pages/premium/banners');
-});
+
 Route::get('/offer-categories', function () {
-    return view('admin/pages/offers/categories');
-});
-Route::get('/offers', function () {
-    return view('admin/pages/offers/offer');
+    return view('admin/pages/offers/categories/index');
 });
 
-Route::get('/settings', function () {
-    return view('admin/pages/settings');
+// sub-categories
+Route::get('/offer-sub-categories/form', function () {
+    return view('admin/pages/offers/sub-categories/create');
 });
+
+Route::get('/offer-sub-categories', function () {
+    return view('admin/pages/offers/sub-categories/index');
+});
+
+// offers
+
+Route::get('/offers/form', function () {
+    return view('admin/pages/offers/offers/create');
+});
+
+Route::get('/offers', function () {
+    return view('admin/pages/offers/offers/index');
+});
+
+// -- Premium -- //
+
+// Packages
+Route::get('/packages', function () {
+    return view('admin/pages/premium/packages/index');
+});
+Route::get('/packages/form', function () {
+    return view('admin/pages/premium/packages/create');
+});
+
+// banners
+Route::get('/banners', function () {
+    return view('admin/pages/premium/banners/index');
+});
+
+Route::get('/banners/form', function () {
+    return view('admin/pages/premium/banners/create');
+});
+
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 

@@ -61,22 +61,6 @@
                         </a>
                     </li>
 
-                    <li class="nav-group-label">Premium</li>
-
-                    <li>
-                        <a class="nav-link" href="/packages">
-                            <i class="bx bx-grid" aria-hidden="true"></i>
-                            <span>Packages</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="nav-link" href="/banners">
-                            <i class="bx bx-carousel" aria-hidden="true"></i>
-                            <span>Banners</span>
-                        </a>
-                    </li>
-
                     <li class="nav-group-label">Offers</li>
 
                     <li>
@@ -99,6 +83,24 @@
                             <span>Offers</span>
                         </a>
                     </li>
+
+                    <li class="nav-group-label">Premium</li>
+
+                    <li>
+                        <a class="nav-link" href="/packages">
+                            <i class="bx bx-grid" aria-hidden="true"></i>
+                            <span>Packages</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="/banners">
+                            <i class="bx bx-carousel" aria-hidden="true"></i>
+                            <span>Banners</span>
+                        </a>
+                    </li>
+
+
 
                     <li class="nav-group-label">Payments</li>
 

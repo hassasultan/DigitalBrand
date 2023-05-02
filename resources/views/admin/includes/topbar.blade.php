@@ -45,6 +45,29 @@
                     </li>
                     <li class="dropdown">
                         <a class="nav-link dropdown-toggle" href="#">
+                            Offers
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="nav-link" href="/offer-categories">
+                                    Categories
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="/offer-sub-categories">
+                                    Sub Categories
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="/offers">
+                                    Offers List
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#">
                             Premium
                         </a>
                         <ul class="dropdown-menu">
@@ -60,23 +83,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="#">
-                            Offers
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="nav-link" href="/offer-categories">
-                                    Categories
-                                </a>
-                            </li>
-                            <li>
-                                <a class="nav-link" href="/offers">
-                                    Offers List
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+
 
                     <li class="dropdown dropdown-mega">
                         <a class="nav-link dropdown-toggle" href="#">Reports</a>

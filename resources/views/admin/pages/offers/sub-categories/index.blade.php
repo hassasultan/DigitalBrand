@@ -3,12 +3,12 @@
 @section('content')
 
     <header class="page-header page-header-left-inline-breadcrumb">
-        <h2 class="font-weight-bold text-6">Packages</h2>
+        <h2 class="font-weight-bold text-6">Offer Sub-Categories</h2>
         <div class="right-wrapper">
             <ol class="breadcrumbs">
                 <li><span>Dashboard</span></li>
-                <li><span>Premium</span></li>
-                <li><span>Packages</span></li>
+                <li><span>Offer</span></li>
+                <li><span>Sub-Categories</span></li>
 
             </ol>
         </div>
@@ -23,7 +23,7 @@
                         <div class="datatable-header">
                             <div class="row align-items-center mb-3">
                                 <div class="col-12 col-lg-auto mb-3 mb-lg-0">
-                                    <a href="ecommerce-category-form.html" class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add Package</a>
+                                    <a href="/offer-sub-categories/form" class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add Sub Category</a>
                                 </div>
                                 <div class="col-8 col-lg-auto ms-auto ml-auto mb-3 mb-lg-0">
                                     <div class="d-flex align-items-lg-center flex-column flex-lg-row">
@@ -62,12 +62,10 @@
 
                             <thead>
                             <tr>
-                                <th width="10%"><input type="checkbox" name="select-all" class="select-all checkbox-style-1 p-relative top-2" value="" /></th>
+                                <th width="5%"><input type="checkbox" name="select-all" class="select-all checkbox-style-1 p-relative top-2" value="" /></th>
                                 <th width="10%">ID</th>
-                                <th width="20%">Package Name</th>
-                                <th width="25%">Short Description</th>
-                                <th width="10%">Duration</th>
-                                <th width="10%">Price</th>
+                                <th width="35%">Sub Category Name</th>
+                                <th width="35%">Category Name</th>
                                 <th width="30" style="text-align: center">Action</th>
                             </tr>
                             </thead>
@@ -76,29 +74,24 @@
                             <tr>
                                 <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
                                 <td>1</td>
-                                <td><strong>Package 1</strong></td>
-                                <td>Short Description</td>
-                                <td>30 days</td>
-                                <td>2000</td>
-
+                                <td><strong>Sub Category Name 1</strong></td>
+                                <td><strong>Category Name 1</strong></td>
                                 <td style="text-align: center">
-                                    <button class="btn btn-danger" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-trash"></i></button>
-                                    <button class="btn btn-warning" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-pen"></i></button>
-                                    <button class="btn btn-primary"  style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-eye"></i></button>
+                                    <button class="btn btn-danger" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></button>
+                                    <button class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></button>
+                                    <button class="btn btn-primary"  style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></button>
                                 </td>
                             </tr>
+
                             <tr>
                                 <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
                                 <td>2</td>
-                                <td><strong>Package 2</strong></td>
-                                <td>Short Description</td>
-                                <td>15 days</td>
-                                <td>1000</td>
-
+                                <td><strong>Sub Category Name 2</strong></td>
+                                <td><strong>Category Name 2</strong></td>
                                 <td style="text-align: center">
-                                    <button class="btn btn-danger" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-trash"></i></button>
-                                    <button class="btn btn-warning" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-pen"></i></button>
-                                    <button class="btn btn-primary"  style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-eye"></i></button>
+                                    <button class="btn btn-danger" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></button>
+                                    <button class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></button>
+                                    <button class="btn btn-primary"  style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></button>
                                 </td>
                             </tr>
 
