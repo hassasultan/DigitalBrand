@@ -23,6 +23,10 @@ Route::get('/lock', function () {
     return view('admin/pages/lock');
 });
 
+Route::get('/settings', function () {
+    return view('admin/pages/settings');
+});
+
 Route::get('/forgot-password', function () {
     return view('admin/pages/forgot-password');
 });
