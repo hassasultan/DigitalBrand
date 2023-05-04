@@ -16,7 +16,8 @@
     <!-- start: page -->
     <div class="row">
         <div class="col-lg-12">
-            <form id="form1" class="form-horizontal">
+            <form id="form1" method="POST" action="{{ route('offer-sub-categories.store') }}" class="form-horizontal">
+                @csrf
                 <section class="card">
                     <header class="card-header">
                         <h2 class="card-title">New Sub-Category</h2>
@@ -26,26 +27,31 @@
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label class="col-form-label" for="formGroupExampleInput">Category Name</label>
-                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+                                    <select name="category_id"  class="form-control" id="formGroupExampleInput" required>
+                                        <option>-- Select Category --</option>
+                                        @foreach ($category as $row)
+                                            <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label class="col-form-label" for="formGroupExampleInput">Sub Category Name</label>
-                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+                                    <input type="text" name="name" class="form-control" id="formGroupExampleInput" placeholder="" required>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label class="col-form-label" for="formGroupExampleInput">Sub Category Code</label>
-                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+                                    <input type="text" name="code" class="form-control" id="formGroupExampleInput" placeholder="" required>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <footer class="card-footer text-end">
-                        <button class="btn btn-danger"><i class="fas fa-sync"></i> Reset</button>
-                        <button class="btn btn-primary"><i class="fas fa-check"></i> Add Category</button>
+                        <button type="button" class="btn btn-danger"><i class="fas fa-sync"></i> Reset</button>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i> Add Category</button>
                     </footer>
                 </section>
             </form>

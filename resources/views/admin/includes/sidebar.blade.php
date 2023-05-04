@@ -64,14 +64,14 @@
                     <li class="nav-group-label">Offers</li>
 
                     <li>
-                        <a class="nav-link" href="/offer-categories">
+                        <a class="nav-link" href="{{ route('offer-categories.index') }}">
                             <i class="bx bx-fullscreen" aria-hidden="true"></i>
                             <span>Categories</span>
                         </a>
                     </li>
 
                     <li>
-                        <a class="nav-link" href="/offer-sub-categories">
+                        <a class="nav-link" href="{{ route('offer-sub-categories.index') }}">
                             <i class="bx bx-customize" aria-hidden="true"></i>
                             <span>Sub Categories</span>
                         </a>

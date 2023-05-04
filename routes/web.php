@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\SalesManController;
 use App\Http\Controllers\SellerController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SubCatogoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -77,22 +79,6 @@ Route::get('/visitor/form', function () {
 
 // categories
 
-Route::get('/offer-categories/form', function () {
-    return view('admin/pages/offers/categories/create');
-});
-
-Route::get('/offer-categories', function () {
-    return view('admin/pages/offers/categories/index');
-});
-
-// sub-categories
-Route::get('/offer-sub-categories/form', function () {
-    return view('admin/pages/offers/sub-categories/create');
-});
-
-Route::get('/offer-sub-categories', function () {
-    return view('admin/pages/offers/sub-categories/index');
-});
 
 // offers
 
@@ -132,6 +118,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Salesman
 Route::resource('/salesman-management', SalesManController::class);
 Route::resource('/seller-management', SellerController::class);
+Route::resource('/offer-categories', CategoryController::class);
+Route::resource('/offer-sub-categories', SubCatogoryController::class);
+
 
 
 // Seller

@@ -23,7 +23,7 @@
                         <div class="datatable-header">
                             <div class="row align-items-center mb-3">
                                 <div class="col-12 col-lg-auto mb-3 mb-lg-0">
-                                    <a href="/offer-categories/form" class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add Category</a>
+                                    <a href="{{ route('offer-categories.create') }}" class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add Category</a>
                                 </div>
                                 <div class="col-8 col-lg-auto ms-auto ml-auto mb-3 mb-lg-0">
                                     <div class="d-flex align-items-lg-center flex-column flex-lg-row">
@@ -63,34 +63,27 @@
                             <thead>
                             <tr>
                                 <th width="10%"><input type="checkbox" name="select-all" class="select-all checkbox-style-1 p-relative top-2" value="" /></th>
-                                <th width="30%">ID</th>
-                                <th width="40%">Category Name</th>
+                                <th width="10%">ID</th>
+                                <th width="30%">Category Name</th>
+                                <th width="20%">Category Code</th>
                                 <th width="30" style="text-align: center">Action</th>
                             </tr>
                             </thead>
                             <tbody>
 
-                            <tr>
-                                <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
-                                <td>1</td>
-                                <td><strong>Category Name 1</strong></td>
-                                <td style="text-align: center">
-                                    <button class="btn btn-danger" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></button>
-                                    <button class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></button>
-                                    <button class="btn btn-primary"  style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
-                                <td>2</td>
-                                <td><strong>Category Name 2</strong></td>
-                                <td style="text-align: center">
-                                    <button class="btn btn-danger" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></button>
-                                    <button class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></button>
-                                    <button class="btn btn-primary"  style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></button>
-                                </td>
-                            </tr>
+                                @foreach ($category as $key => $row)
+                                    <tr>
+                                        <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
+                                        <td>{{ ++$key }}</td>
+                                        <td><strong>{{ $row->name }}</strong></td>
+                                        <td><strong>{{ $row->code }}</strong></td>
+                                        <td style="text-align: center">
+                                            <a href="#" class="btn btn-danger" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></a>
+                                            <a href="#" class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></a>
+                                            <a href="#" class="btn btn-primary"  style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
 
                             </tbody>
                         </table>
