@@ -56,6 +56,12 @@
                                 </div>
                                 <div class="col-lg-4 ">
                                     <div class="form-group">
+                                        <label class="col-form-label" for="formGroupExampleInput">Cover Image</label>
+                                        <input type="file" class="form-control" name="coverimage" id="formGroupExampleInput" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 ">
+                                    <div class="form-group">
                                         <label class="col-form-label" for="formGroupExampleInput">Whatsapp No.</label>
                                         <input type="tel" class="form-control" name="whatsapp" id="formGroupExampleInput" placeholder="">
                                     </div>
