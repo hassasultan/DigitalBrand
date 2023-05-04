@@ -23,7 +23,7 @@
                         <div class="datatable-header">
                             <div class="row align-items-center mb-3">
                                 <div class="col-12 col-lg-auto mb-3 mb-lg-0">
-                                    <a href="/visitor/form" class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add Visitor</a>
+                                    <a href="{{ route('visitor-management.create') }}" class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add Visitor</a>
                                 </div>
                                 <div class="col-8 col-lg-auto ms-auto ml-auto mb-3 mb-lg-0">
                                     <div class="d-flex align-items-lg-center flex-column flex-lg-row">
@@ -66,39 +66,28 @@
                                 <th width="8%">ID</th>
                                 <th width="15%">Name</th>
                                 <th width="20%">Email</th>
-                                <th width="10%">Area</th>
-                                <th width="30%">Interest</th>
+                                <th width="20%">Business</th>
+                                <th width="15%">Phone</th>
                                 <th width="40%">Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
-                                <td>1</td>
-                                <td><a href="ecommerce-orders-detail.html"><strong>Visitor 1</strong></a></td>
-                                <td>visitor@gmail.com</td>
-                                <td>Bahadurabad</td>
-                                <td>Fashion/Foods/Property</td>
-                                <td>
-                                    <button class="btn btn-danger" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></button>
-                                    <button class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></button>
-                                    <button class="btn btn-primary"  style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></button>
-                                </td>
-                            </tr>
+                                @foreach ($customer as $key => $row)
+                                    <tr>
+                                        <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
+                                        <td>{{ ++$key }}</td>
+                                        <td><a href="ecommerce-orders-detail.html"><strong>{{ $row->user->name }}</strong></a></td>
+                                        <td>{{ $row->user->email }}</td>
+                                        <td>{{ $row->business_name }}</td>
+                                        <td>{{ $row->phone }}</td>
+                                        <td>
+                                            <button class="btn btn-danger" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></button>
+                                            <button class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></button>
+                                            <button class="btn btn-primary"  style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></button>
+                                        </td>
+                                    </tr>
+                                @endforeach
 
-                            <tr>
-                                <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
-                                <td>2</td>
-                                <td><a href="ecommerce-orders-detail.html"><strong>Visitor 2</strong></a></td>
-                                <td>visitor1@gmail.com</td>
-                                <td>Dhoraji</td>
-                                <td>Clothing/Foods/Interior Design</td>
-                                <td>
-                                    <button class="btn btn-danger" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></button>
-                                    <button class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></button>
-                                    <button class="btn btn-primary"  style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></button>
-                                </td>
-                            </tr>
 
                             </tbody>
                         </table>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\SalesManController;
 use App\Http\Controllers\SellerController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCatogoryController;
 use Illuminate\Support\Facades\Route;
@@ -120,6 +121,7 @@ Route::resource('/salesman-management', SalesManController::class);
 Route::resource('/seller-management', SellerController::class);
 Route::resource('/offer-categories', CategoryController::class);
 Route::resource('/offer-sub-categories', SubCatogoryController::class);
+Route::resource('/visitor-management', CustomerController::class);
 
 
 

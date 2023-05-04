@@ -44,7 +44,7 @@
                     <li class="nav-group-label">Visitors</li>
 
                     <li>
-                        <a class="nav-link" href="/visitors">
+                        <a class="nav-link" href="{{ route('visitor-management.index') }}">
                             <i class="bx bx-user-pin" aria-hidden="true"></i>
                             <span>Visitors</span>
                         </a>
