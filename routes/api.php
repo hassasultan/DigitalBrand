@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\SalesManController;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\PostController;
 
 
 /*
@@ -31,4 +33,8 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('logout', 'logout');
     Route::post('refresh', 'refresh');
 
+});
+Route::middleware(['seller'])->group(function () {
+    Route::post('create/shop',[ShopController::class, 'create_shop_api']);
+    Route::post('create/offer',[PostController::class, 'create_offer_api']);
 });

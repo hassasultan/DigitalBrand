@@ -27,4 +27,8 @@ class Seller extends Model
     {
         return $this->belongsTo(User::class, 'user_id','id');
     }
+    public function shop()
+    {
+        return $this->belongsTo(Shop::class,'id','seller_id');
+    }
 }

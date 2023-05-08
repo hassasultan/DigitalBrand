@@ -62,6 +62,30 @@ trait SaveImage
         return $filenamepath;
 
     }
+    public function shop_logo($image)
+    {
+        $img = $image;
+        $number = rand(1,999);
+        $numb = $number / 7 ;
+        $extension      = $img->extension();
+        $filenamenew    = date('Y-m-d')."_.".$numb."_.".$extension;
+        $filenamepath   = 'image'.'/'.'shop/logo/'.$filenamenew;
+        $filename       = $img->move(public_path('storage/image'.'/'.'shop/logo/'),$filenamenew);
+        return $filenamepath;
+
+    }
+    public function post_banner($image)
+    {
+        $img = $image;
+        $number = rand(1,999);
+        $numb = $number / 7 ;
+        $extension      = $img->extension();
+        $filenamenew    = date('Y-m-d')."_.".$numb."_.".$extension;
+        $filenamepath   = 'image'.'/'.'offer/image/'.$filenamenew;
+        $filename       = $img->move(public_path('storage/image'.'/'.'offer/image/'),$filenamenew);
+        return $filenamepath;
+
+    }
     public function serviceImage($image)
     {
         $img = $image;

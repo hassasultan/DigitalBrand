@@ -62,4 +62,8 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+    public function seller()
+    {
+        return $this->belongsTo(Seller::class,'id','user_id');
+    }
 }
