@@ -17,11 +17,14 @@ class ShopController extends Controller
             'name' => 'required',
             'branch_name' => 'required',
             'address' => 'required',
-            'logo' => 'required|image|mimes:jpg,bmp,png,webp||max:2048'
+            'logo' => 'image|mimes:jpg,bmp,png,webp||max:2048'
         ]);
         try
         {
-            $logo = $this->shop_logo($request->logo);
+            if($request->has('logo'))
+            {
+                $logo = $this->shop_logo($request->logo);
+            }
             $seller_id = auth('api')->user()->seller->id;
             $data = $request->all();
             $data['logo'] = $logo;

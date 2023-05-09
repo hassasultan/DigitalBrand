@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Seller;
+use App\Models\Shop;
 use App\Models\Customer;
 use App\Traits\SaveImage;
 use Exception;
@@ -177,6 +178,12 @@ class AuthController extends Controller
                     'isFeatured' => 'required|string',
                     'logo' => 'required|image',
                     'reference' => 'required|string',
+                    'shop_name' => 'required|string',
+                    'area_id' => 'required|numeric',
+                    'branch_name' => 'required|string',
+                    'address' => 'required|string',
+                    'cover_image' => 'required|image',
+
                 ]);
                 if($request->reference == "salesman")
                 {
@@ -252,6 +259,17 @@ class AuthController extends Controller
                     }
                 }
                 $seller->save();
+                $data['seller_id'] = $seller->id;
+                $data['name'] = $request->shop_name;
+                $data['area'] = $request->area_id;
+                $data['branch_name'] = $request->branch_name;
+                $data['address'] = $request->address;
+                if($request->has('cover_image'))
+                {
+                    $data['logo'] = $this->shop_logo($request->cover_image);
+                }
+                $shop = Shop::create($data);
+
             }
             if($request->role == 3)
             {
