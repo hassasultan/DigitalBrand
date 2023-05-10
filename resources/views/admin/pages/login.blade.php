@@ -26,7 +26,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group mb-3">
+                    <div class="mb-3">
                         <div class="clearfix">
                             <label class="float-left">Password</label>
                             <a href="forgot-password" class="float-end">Lost Password?</a>
@@ -35,7 +35,7 @@
                             <input name="password" type="password" class="form-control" />
                             <span class="input-group-text">
 										<i class="bx bx-lock text-4"></i>
-									</span>
+                            </span>
                         </div>
                     </div>
 

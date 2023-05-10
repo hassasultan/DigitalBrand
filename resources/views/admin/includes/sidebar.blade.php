@@ -61,6 +61,29 @@
                         </a>
                     </li>
 
+                    <li>
+                        <a class="nav-link" href="/seller-shops">
+                            <i class="bx bx-store" aria-hidden="true"></i>
+                            <span>Seller Shops</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-group-label">Locations</li>
+
+                    <li>
+                        <a class="nav-link" href="#">
+                            <i class="bx bx-map-alt" aria-hidden="true"></i>
+                            <span>Cities</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="#">
+                            <i class="bx bx-map-pin" aria-hidden="true"></i>
+                            <span>Area</span>
+                        </a>
+                    </li>
+
                     <li class="nav-group-label">Offers</li>
 
                     <li>

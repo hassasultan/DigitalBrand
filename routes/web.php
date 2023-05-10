@@ -76,6 +76,15 @@ Route::get('/visitor/form', function () {
 //     return view('admin/pages/sellers/create');
 // });
 
+// Seller Shops
+ Route::get('/seller-shops', function () {
+     return view('admin/pages/sellers/seller-shops/index');
+ });
+
+ Route::get('/seller-shops/form', function () {
+     return view('admin/pages/sellers/seller-shops/create');
+ });
+
 // -- Offers -- //
 
 // categories

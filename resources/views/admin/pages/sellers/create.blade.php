@@ -3,7 +3,7 @@
 @section('content')
 
     <header class="page-header page-header-left-inline-breadcrumb">
-        <h2 class="font-weight-bold text-6">Salesman Form</h2>
+        <h2 class="font-weight-bold text-6">Seller Form</h2>
         <div class="right-wrapper">
             <ol class="breadcrumbs">
                 <li><span>Dashboard</span></li>
@@ -109,7 +109,7 @@
                         </div>
                         <footer class="card-footer text-end">
                             <button class="btn btn-danger"><i class="fas fa-sync"></i> Reset</button>
-                            <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i> Add Salesman</button>
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i> Add Seller</button>
                         </footer>
                     </form>
                 </section>
