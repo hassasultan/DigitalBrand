@@ -86,7 +86,7 @@
                         </div>
                         <footer class="card-footer text-end">
                             <button class="btn btn-danger"><i class="fas fa-sync"></i> Reset</button>
-                            <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i> Add Seller</button>
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i> Add Shop</button>
                         </footer>
                     </form>
                 </section>

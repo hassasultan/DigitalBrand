@@ -109,6 +109,26 @@ Route::get('/packages', function () {
 Route::get('/packages/form', function () {
     return view('admin/pages/premium/packages/create');
 });
+// Location
+
+// Cities
+Route::get('/cities', function () {
+    return view('admin/pages/locations/Cities/index');
+});
+
+Route::get('/cities/form', function () {
+    return view('admin/pages/locations/Cities/create');
+});
+
+// Area
+
+Route::get('/areas', function () {
+    return view('admin/pages/locations/Areas/index');
+});
+
+Route::get('/areas/form', function () {
+    return view('admin/pages/locations/Areas/create');
+});
 
 // banners
 Route::get('/banners', function () {

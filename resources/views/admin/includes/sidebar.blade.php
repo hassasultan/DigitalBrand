@@ -50,8 +50,6 @@
                         </a>
                     </li>
 
-
-
                     <li class="nav-group-label">Sellers</li>
 
                     <li>
@@ -71,14 +69,14 @@
                     <li class="nav-group-label">Locations</li>
 
                     <li>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="/cities">
                             <i class="bx bx-map-alt" aria-hidden="true"></i>
                             <span>Cities</span>
                         </a>
                     </li>
 
                     <li>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="/areas">
                             <i class="bx bx-map-pin" aria-hidden="true"></i>
                             <span>Area</span>
                         </a>
