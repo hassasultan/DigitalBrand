@@ -7,6 +7,10 @@ use App\Http\Controllers\SellerController;
 use App\Http\Controllers\SalesManController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SubCatogoryController;
+use App\Http\Controllers\CityController;
+use App\Http\Controllers\AreaController;
 
 
 /*
@@ -35,6 +39,10 @@ Route::controller(AuthController::class)->group(function () {
 
 });
 Route::middleware(['seller'])->group(function () {
+    Route::get('category',[CategoryController::class, 'categoryApi']);
+    Route::get('subcategory',[SubCatogoryController::class, 'subcategoryApi']);
+    Route::get('city',[CityController::class, 'cityApi']);
+    Route::get('area',[AreaController::class, 'areaApi']);
     Route::post('create/shop',[ShopController::class, 'create_shop_api']);
     Route::post('create/offer',[PostController::class, 'create_offer_api']);
 });

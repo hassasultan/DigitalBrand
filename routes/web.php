@@ -5,6 +5,9 @@ use App\Http\Controllers\SellerController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCatogoryController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\AreaController;
+use App\Http\Controllers\CityController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -112,23 +115,23 @@ Route::get('/packages/form', function () {
 // Location
 
 // Cities
-Route::get('/cities', function () {
-    return view('admin/pages/locations/Cities/index');
-});
+// Route::get('/cities', function () {
+//     return view('admin/pages/locations/Cities/index');
+// });
 
-Route::get('/cities/form', function () {
-    return view('admin/pages/locations/Cities/create');
-});
+// Route::get('/cities/form', function () {
+//     return view('admin/pages/locations/Cities/create');
+// });
 
 // Area
 
-Route::get('/areas', function () {
-    return view('admin/pages/locations/Areas/index');
-});
+// Route::get('/areas', function () {
+//     return view('admin/pages/locations/Areas/index');
+// });
 
-Route::get('/areas/form', function () {
-    return view('admin/pages/locations/Areas/create');
-});
+// Route::get('/areas/form', function () {
+//     return view('admin/pages/locations/Areas/create');
+// });
 
 // banners
 Route::get('/banners', function () {
@@ -150,7 +153,10 @@ Route::resource('/salesman-management', SalesManController::class);
 Route::resource('/seller-management', SellerController::class);
 Route::resource('/offer-categories', CategoryController::class);
 Route::resource('/offer-sub-categories', SubCatogoryController::class);
+Route::resource('/offer-management', PostController::class);
 Route::resource('/visitor-management', CustomerController::class);
+Route::resource('/area-management', AreaController::class);
+Route::resource('/city-management', CityController::class);
 
 
 

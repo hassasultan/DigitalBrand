@@ -69,14 +69,14 @@
                     <li class="nav-group-label">Locations</li>
 
                     <li>
-                        <a class="nav-link" href="/cities">
+                        <a class="nav-link" href="{{ route('city-management.index') }}">
                             <i class="bx bx-map-alt" aria-hidden="true"></i>
                             <span>Cities</span>
                         </a>
                     </li>
 
                     <li>
-                        <a class="nav-link" href="/areas">
+                        <a class="nav-link" href="{{ route('area-management.index') }}">
                             <i class="bx bx-map-pin" aria-hidden="true"></i>
                             <span>Area</span>
                         </a>
@@ -99,7 +99,7 @@
                     </li>
 
                     <li>
-                        <a class="nav-link" href="/offers">
+                        <a class="nav-link" href="{{ route('offer-management.index') }}">
                             <i class="bx bx-receipt" aria-hidden="true"></i>
                             <span>Offers</span>
                         </a>

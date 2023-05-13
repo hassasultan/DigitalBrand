@@ -23,4 +23,9 @@ class SubCatogoryController extends Controller
         SubCatogory::create($request->all());
         return redirect()->route('offer-sub-categories.index');
     }
+    public function subcategoryApi(Request $request)
+    {
+        $category = SubCatogory::where('category_id',$request->cat_id)->where('status',1)->get();
+        return $category;
+    }
 }

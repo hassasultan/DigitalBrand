@@ -22,4 +22,9 @@ class CategoryController extends Controller
         Category::create($request->all());
         return redirect()->route('offer-categories.index');
     }
+    public function categoryApi()
+    {
+        $category = Category::where('status')->get();
+        return $category;
+    }
 }

@@ -13,6 +13,11 @@ class PostController extends Controller
 {
     //
     use SaveImage;
+    public function index()
+    {
+        $post = Post::all();
+        return view('admin.pages.offers.offers.index',compact('post'));
+    }
     public function create_offer_api(Request $request)
     {
         $this->validate($request, [
@@ -45,4 +50,5 @@ class PostController extends Controller
             return response()->json(['error'=> $ex->getMessage()]);
         }
     }
+
 }

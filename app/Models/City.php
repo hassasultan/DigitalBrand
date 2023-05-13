@@ -5,19 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Area extends Model
+class City extends Model
 {
     use HasFactory;
-    protected $table = "area";
+    protected $table = "city";
     protected $fillable = [
         "name",
-        "city_id",
         "code",
         "status",
 
     ];
-    public function city()
-    {
-        return $this->belongsTo(City::class,'city_id','id');
-    }
 }

@@ -11,6 +11,8 @@ class Post extends Model
     protected $table = "post";
     protected $fillable = [
         "shop_id",
+        "subcat_id",
+        "category_id",
         "banner",
         "title",
         "description",
@@ -21,5 +23,13 @@ class Post extends Model
     public function shop()
     {
         return $this->belongsTo(Shop::class, 'shop_id','id');
+    }
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id','id');
+    }
+    public function subcategory()
+    {
+        return $this->belongsTo(SubCatogory::class, 'subcat_id','id');
     }
 }

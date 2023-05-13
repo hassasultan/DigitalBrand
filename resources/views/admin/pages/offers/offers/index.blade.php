@@ -61,6 +61,7 @@
                         <table class="table table-ecommerce-simple table-borderless table-striped mb-0" id="datatable-ecommerce-list" style="min-width: 640px;">
 
                             <thead>
+
                             <tr>
                                 <th width="10%"><input type="checkbox" name="select-all" class="select-all checkbox-style-1 p-relative top-2" value="" /></th>
                                 <th width="5%">ID</th>
@@ -73,23 +74,31 @@
                             </tr>
                             </thead>
                             <tbody>
+                                @foreach ($post as $key => $row )
+                                    <tr>
+                                        <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
+                                        <td>{{ ++$key }}</td>
+                                        <td><img src="{{ asset('storage/'.$row->banner) }}" style="width:150px; height:150px;"/></td>
+                                        <td><strong>{{ $row->title }}</strong></td>
+                                        <td>{{ $row->shop->seller->name }}</td>
+                                        <td>{{ $row->category->name }}</td>
+                                        <td>
+                                            @if($row->IsFeature == 1)
+                                                Yes
+                                            @else
+                                                No
+                                            @endif
 
-                            <tr>
-                                <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
-                                <td>1</td>
-                                <td></td>
-                                <td><strong>Offer 1</strong></td>
-                                <td>Seller</td>
-                                <td>Category</td>
-                                <td>No</td>
-                                <td style="text-align: center">
-                                    <button class="btn btn-danger" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-times"></i></button>
-                                    <button class="btn btn-warning" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-comments"></i></button>
-                                    <button class="btn btn-primary"  style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-check"></i></button>
-                                    <button class="btn btn-secondary"  style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-eye"></i></button>
+                                        </td>
+                                        <td style="text-align: center">
+                                            <button class="btn btn-danger" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-times"></i></button>
+                                            <button class="btn btn-warning" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-comments"></i></button>
+                                            <button class="btn btn-primary"  style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-check"></i></button>
+                                            <button class="btn btn-secondary"  style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-eye"></i></button>
 
-                                </td>
-                            </tr>
+                                        </td>
+                                    </tr>
+                                @endforeach
 
                             </tbody>
                         </table>
