@@ -25,6 +25,8 @@ class PostController extends Controller
             'title' => 'required',
             'description' => 'required',
             'hash_tag' => 'required',
+            'category_id' => 'required|numeric',
+            'subcat_id' => 'required|numeric',
             'IsFeature' => 'required|In:0,1',
         ]);
         try
