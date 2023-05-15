@@ -2414,7 +2414,8 @@ ul.simple-bullet-list li:before {
 }
 
 .bootstrap-tagsinput .badge {
-	background: #0088CC;
+	background: #96207a;
+    margin-bottom: 3px;
 }
 
 html.dark .checkbox-primary label:before,
