@@ -22,6 +22,7 @@ class Seller extends Model
         "reference",
         "salesman_id",
         "status",
+        
     ];
     public function user()
     {
