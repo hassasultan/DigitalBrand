@@ -20,17 +20,17 @@ class PostController extends Controller
     }
     public function create_offer_api(Request $request)
     {
-        $this->validate($request, [
-            'banner' => 'required|image|mimes:jpg,bmp,png,webp||max:2048',
-            'title' => 'required',
-            'description' => 'required',
-            'hash_tag' => 'required',
-            'category_id' => 'required|numeric',
-            'subcat_id' => 'required|numeric',
-            'IsFeature' => 'required|In:0,1',
-        ]);
         try
         {
+            $this->validate($request, [
+                'banner' => 'required|image|mimes:jpg,bmp,png,webp||max:2048',
+                'title' => 'required',
+                'description' => 'required',
+                'hash_tag' => 'required',
+                'category_id' => 'required|numeric',
+                'subcat_id' => 'required|numeric',
+                'IsFeature' => 'required|In:0,1',
+            ]);
             if(auth('api')->user()->seller->shop != null)
             {
                 $banner = $this->post_banner($request->banner);
