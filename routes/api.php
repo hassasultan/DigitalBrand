@@ -30,6 +30,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('seller/update',[SellerController::class, 'Apistore']);
 Route::get('salesman/list',[SalesManController::class, 'sales_man_list']);
 Route::get('subcategory',[SubCatogoryController::class, 'subcategoryApi']);
+Route::get('category',[CategoryController::class, 'categoryApi']);
+
 Route::get('city',[CityController::class, 'cityApi']);
 Route::get('area',[AreaController::class, 'areaApi']);
 Route::controller(AuthController::class)->group(function () {
@@ -42,7 +44,6 @@ Route::controller(AuthController::class)->group(function () {
 
 });
 Route::middleware(['seller'])->group(function () {
-    Route::get('category',[CategoryController::class, 'categoryApi']);
 
     Route::post('create/shop',[ShopController::class, 'create_shop_api']);
     Route::post('create/offer',[PostController::class, 'create_offer_api']);

@@ -25,7 +25,7 @@ class CityController extends Controller
     }
     public function cityApi()
     {
-        $city = City::where('status')->get();
+        $city = City::where('status',1)->get();
         return $city;
     }
 }
