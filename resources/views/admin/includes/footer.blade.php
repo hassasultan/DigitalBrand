@@ -31,6 +31,7 @@
 <script src={{ asset('/assets/vendor/raphael/raphael.js') }}></script>
 <script src={{ asset('/assets/vendor/morris/morris.js') }}></script>
 <script src={{ asset('/assets/vendor/gauge/gauge.js') }}></script>
+<script src={{ asset('/assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.js') }}></script>
 <script src={{ asset('/assets/vendor/snap.svg/snap.svg.js') }}></script>
 <script src={{ asset('/assets/vendor/liquid-meter/liquid.meter.js') }}></script>
 <script src={{ asset('/assets/vendor/chartist/chartist.js') }}></script>

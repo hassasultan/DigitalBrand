@@ -4804,11 +4804,11 @@ html.header-dark .header .separator {
 	}
 
 	.header.header-nav-menu.header-nav-links nav > ul > li > a {
-		display: flex;
+		/*display: flex;*/
 		align-items: center;
 		color: #fff;
 		background: transparent !important;
-		height: 62px;
+		/*height: 62px;*/
 	}
 
 	.header.header-nav-menu.header-nav-links nav > ul > li > a.dropdown-toggle:after {

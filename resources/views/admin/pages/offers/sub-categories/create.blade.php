@@ -47,6 +47,15 @@
                                     <input type="text" name="code" class="form-control" id="formGroupExampleInput" placeholder="" required>
                                 </div>
                             </div>
+
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="formGroupExampleInput">Hashtags</label>
+                                    <input type="text" class="bs-input" data-role="tagsinput" />
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
                     <footer class="card-footer text-end">

@@ -18,10 +18,13 @@
 <link rel="stylesheet" href={{ asset('/assets/vendor/magnific-popup/magnific-popup.css') }} />
 <link rel="stylesheet" href={{ asset('/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css') }} />
 <link rel="stylesheet" href={{ asset('/assets/vendor/morris/morris.css') }} />
+<link rel="stylesheet" href={{ asset('/assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css') }} />
 <link rel="stylesheet" href={{ asset('/assets/vendor/datatables/media/css/dataTables.bootstrap5.css') }} />
 
 <!-- Theme CSS -->
 <link rel="stylesheet" href={{ asset('/assets/css/theme.css') }} />
+<link rel="stylesheet" type="text/css" href={{ asset('/assets/css/vendors.css') }}  />
+<link rel="stylesheet" type="text/css" href={{ asset('/assets/css/style.css') }}  />
 
 <!-- Theme Layout -->
 <link rel="stylesheet" href={{ asset('/assets/css/layouts/modern.css') }} />
@@ -33,4 +36,4 @@
 <link rel="stylesheet" href={{ asset('/assets/css/custom.css') }} />
 
 <!-- Head Libs -->
-<script src="{{ asset('/assets/vendor/modernizr/modernizr.js') }}"></script>
+<script src={{ asset('/assets/vendor/modernizr/modernizr.js') }}></script>

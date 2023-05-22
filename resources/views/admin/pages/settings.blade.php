@@ -106,6 +106,13 @@
                                 <input class="form-control" type="number" data-plugin-maxlength maxlength="50" />
                             </div>
 
+                            <label class="col-lg-4 control-label text-lg-end pt-2 col-lg-3">Restricted Words</label>
+                            <div class="col-lg-6 pb-3">
+                                <div class="form-group mb-0 bs-select-1">
+                                    <input type="text" class="bs-input" data-role="tagsinput" />
+                                </div>
+                            </div>
+
                             <label class="col-lg-4 control-label text-lg-end pt-2 col-lg-3">Enable Featured Offer</label>
                             <div class="col-lg-6 pb-3">
                                 <div class="switch switch-sm switch-primary">
@@ -144,8 +151,44 @@
                     </form>
                 </div>
                 <div id="tab11" class="tab-pane">
-                    <p>Salesman</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.</p>
+                    <p class="text-dark">Salesman</p>
+                    <form class="form-horizontal form-bordered form-bordered" action="#">
+                        <div class="form-group row pb-3">
+                            <label class="col-lg-4 control-label text-lg-end pt-2" for="textareaDefault">Seller I Title</label>
+                            <div class="col-lg-6 pb-3">
+                                <input class="form-control" type="number" data-plugin-maxlength maxlength="50" />
+                            </div>
+
+                            <label class="col-lg-4 control-label text-lg-end pt-2" for="textareaDefault">Seller I Comission</label>
+                            <div class="col-lg-6 pb-3">
+                                <input class="form-control" type="number" data-plugin-maxlength maxlength="50" />
+                            </div>
+
+                            <label class="col-lg-4 control-label text-lg-end pt-2" for="textareaDefault">Seller II Title</label>
+                            <div class="col-lg-6 pb-3">
+                                <input class="form-control" type="number" data-plugin-maxlength maxlength="50" />
+                            </div>
+
+                            <label class="col-lg-4 control-label text-lg-end pt-2" for="textareaDefault">Seller II Comission</label>
+                            <div class="col-lg-6 pb-3">
+                                <input class="form-control" type="number" data-plugin-maxlength maxlength="50" />
+                            </div>
+
+                            <label class="col-lg-4 control-label text-lg-end pt-2" for="textareaDefault">Seller III Title</label>
+                            <div class="col-lg-6 pb-3">
+                                <input class="form-control" type="number" data-plugin-maxlength maxlength="50" />
+                            </div>
+
+                            <label class="col-lg-4 control-label text-lg-end pt-2" for="textareaDefault">Seller III Comission</label>
+                            <div class="col-lg-6 pb-3">
+                                <input class="form-control" type="number" data-plugin-maxlength maxlength="50" />
+                            </div>
+                        </div>
+                        <footer class="text-end">
+                            <button class="btn btn-primary">Submit </button>
+                            <button type="reset" class="btn btn-default">Reset</button>
+                        </footer>
+                    </form>
                 </div>
                 <div id="tab12" class="tab-pane">
                     <p>Finance</p>
