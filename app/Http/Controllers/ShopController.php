@@ -15,6 +15,7 @@ class ShopController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
+            'area' => 'required|numeric|exists:area,id',
             'branch_name' => 'required',
             'address' => 'required',
             'logo' => 'image|mimes:jpg,bmp,png,webp||max:2048'
