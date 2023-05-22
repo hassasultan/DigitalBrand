@@ -33,13 +33,13 @@ class PostController extends Controller
             ]);
             if(auth('api')->user()->seller->shop != null)
             {
-                // $banner = $this->post_banner($request->banner);
-                // $shop_id = auth('api')->user()->seller->shop->id;
-                // $data = $request->all();
-                // $data['banner'] = $banner;
-                // $data['shop_id'] = $shop_id;
-                // $offer = Post::create($data);
-                // return $offer;
+                $banner = $this->post_banner($request->banner);
+                $shop_id = auth('api')->user()->seller->shop->id;
+                $data = $request->all();
+                $data['banner'] = $banner;
+                $data['shop_id'] = $shop_id;
+                $offer = Post::create($data);
+                return $offer;
             }
             else
             {
