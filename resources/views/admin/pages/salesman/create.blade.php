@@ -92,8 +92,6 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="col-lg-4 pb-3">
                                     <div class="form-group">
                                         <label class="col-form-label" for="formGroupExampleInput">Work History</label>
@@ -104,6 +102,31 @@
                                     <div class="form-group">
                                         <label class="col-form-label" for="formGroupExampleInput">Passport Size Picture</label>
                                         <input type="file" class="form-control" id="formGroupExampleInput" placeholder="" name="picture">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 pb-3">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="formGroupExampleInput">Bank Name</label>
+                                        <select class="form-control mb-3" name="bank_name">
+                                            <option>JazzCash</option>
+                                            <option>EasyPaisa</option>
+                                            <option>Meezan Bank</option>
+                                            <option>Bank Al Falah</option>
+                                            <option>Habib Bank</option>
+                                            <option>Bank Al-Habib</option>
+                                            <option>Allied Bank</option>
+                                            <option>Askari</option>
+                                            <option>Faysal</option>
+                                            <option>UBL</option>
+                                            <option>MCB Bank Limited</option>
+                                            <option>Standard Chartered</option>
+                                            <option>Silk</option>
+                                            <option>Dubai Islamic</option>
+                                            <option>Habib Metropolitan</option>
+                                            <option>Summit</option>
+                                            <option>JS</option>
+                                        </select>
                                     </div>
                                 </div>
 
