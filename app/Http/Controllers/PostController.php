@@ -23,7 +23,7 @@ class PostController extends Controller
         try
         {
             $this->validate($request, [
-                'banner' => 'required|image|mimes:jpg,bmp,png,webp||max:2048',
+                'banner' => 'required|image|mimes:jpg,bmp,png,webp|max:2048',
                 'title' => 'required',
                 'description' => 'required',
                 'hash_tag' => 'required',
