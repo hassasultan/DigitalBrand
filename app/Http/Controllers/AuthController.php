@@ -269,6 +269,8 @@ class AuthController extends Controller
                     $data['logo'] = $this->shop_logo($request->cover_image);
                 }
                 $shop = Shop::create($data);
+                $shop->area = $request->area_id;
+                $shop->save();
 
             }
             if($request->role == 3)
