@@ -24,7 +24,7 @@ class CategoryController extends Controller
     }
     public function categoryApi()
     {
-        $category = Category::where('status')->get();
+        $category = Category::where('status',1)->get();
         return $category;
     }
 }
