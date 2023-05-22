@@ -39,7 +39,7 @@ class PostController extends Controller
                 // $data['banner'] = $banner;
                 // $data['shop_id'] = $shop_id;
                 // $offer = Post::create($data);
-                return $offer;
+                // return $offer;
             }
             else
             {
