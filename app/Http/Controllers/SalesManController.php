@@ -19,7 +19,7 @@ class SalesManController extends Controller
     }
     public function sales_man_list()
     {
-        $salesman = SaleMan::where('status',1)->get();
+        $salesman = SaleMan::with('user')->where('status',1)->get();
         return $salesman;
     }
     public function create()
