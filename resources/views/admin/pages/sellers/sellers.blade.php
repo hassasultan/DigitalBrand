@@ -81,7 +81,7 @@
                                         <td>{{ $row->phone }}</td>
                                         <td>{{ $row->business_name }}</td>
                                         <td>
-                                            <select id="status_change" class="form-control" data-id="{{ $row->id }}" onchange="status()">
+                                            <select id="status_change-{{ $row->id }}" class="form-control" data-id="{{ $row->id }}" onchange="status({{ $row->id }})">
                                                 <option @if($row->status == 1) selected @endif value="1">Active</option>
                                                 <option @if($row->status == 0) selected @endif value="0">De-Active</option>
                                             </select>
@@ -127,9 +127,11 @@
         </div>
     </div>
     <script>
-        function status() {
-            var id = $('#status_change').attr("data-id");
-            var value = $('#status_change').val();
+        function status(id) {
+            // var id = $('#status_change').attr("data-id");
+            var value = $('#status_change-'+id).val();
+            console.log(value);
+
             var url = "{{ route('admin.seller.status', ['', ''],) }}";
             url = url + '/' + value + '/' + id;
             console.log(url);

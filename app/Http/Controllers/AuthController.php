@@ -42,6 +42,7 @@ class AuthController extends Controller
                 }
 
                 $user = auth('api')->user();
+                // dd($user->seller->status);
                 if($user->seller->status == 0)
                 {
                     Auth::logout();
