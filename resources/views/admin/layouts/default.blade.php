@@ -20,5 +20,25 @@
         <footer class="row">
             @include('.admin.includes.footer')
         </footer>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script>
+            function errorModal(error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: error,
+                footer: ''
+            })
+        }
+
+        function successModal(message) {
+            Swal.fire(
+                'Thank You!',
+                message,
+                'success'
+            )
+        }
+        </script>
     </body>
 </html>

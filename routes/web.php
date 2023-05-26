@@ -158,6 +158,9 @@ Route::resource('/visitor-management', CustomerController::class);
 Route::resource('/area-management', AreaController::class);
 Route::resource('/city-management', CityController::class);
 
+Route::get('/seller/change-status/{status}/{id}', [SellerController::class, 'change_status'])->name('admin.seller.status');
+
+
 
 
 // Seller

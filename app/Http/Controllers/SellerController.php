@@ -171,4 +171,11 @@ class SellerController extends Controller
             'message' => 'Seller has been updated Successfully...',
         ]);
     }
+    public function change_status($status,$id)
+    {
+        $seller = Seller::find($id);
+        $seller->status = $status;
+        $seller->save();
+        return response()->json(['message'=>"Status has successfully changed..."]);
+    }
 }

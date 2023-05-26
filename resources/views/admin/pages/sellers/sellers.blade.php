@@ -66,7 +66,8 @@
                                 <th width="12%">Name</th>
                                 <th width="20%">Email</th>
                                 <th width="15%">Contact</th>
-                                <th width="25%">Business Name</th>
+                                <th width="15%">Business Name</th>
+                                <th width="10%">Status</th>
                                 <th width="40%">Action</th>
                             </tr>
                             </thead>
@@ -79,6 +80,13 @@
                                         <td>{{ $row->user->email }}</td>
                                         <td>{{ $row->phone }}</td>
                                         <td>{{ $row->business_name }}</td>
+                                        <td>
+                                            <select id="status_change" class="form-control" data-id="{{ $row->id }}" onchange="status()">
+                                                <option @if($row->status == 1) selected @endif value="1">Active</option>
+                                                <option @if($row->status == 0) selected @endif value="0">De-Active</option>
+                                            </select>
+                                            {{-- {{ $row->business_name }} --}}
+                                        </td>
                                         <td>
                                             <button class="btn btn-danger" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-trash"></i></button>
                                             <button class="btn btn-warning" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-pen"></i></button>
@@ -118,5 +126,24 @@
             </div>
         </div>
     </div>
+    <script>
+        function status() {
+            var id = $('#status_change').attr("data-id");
+            var value = $('#status_change').val();
+            var url = "{{ route('admin.seller.status', ['', ''],) }}";
+            url = url + '/' + value + '/' + id;
+            console.log(url);
+            $.ajax({
+                type: 'GET',
+                url: url,
+            }).done(function(data) {
+                console.log(data);
+                successModal(data.message);
+                // var id = $('#changeSelect' + value).html('');
+                // html = '';
+                // var id = $('#changeSelect' + value).html(html);
+            });
 
+        }
+    </script>
 @stop
