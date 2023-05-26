@@ -42,7 +42,7 @@ class AuthController extends Controller
                 }
 
                 $user = auth('api')->user();
-                if($user->status == 0)
+                if($user->seller->status == 0)
                 {
                     Auth::logout();
                     return response()->json([
