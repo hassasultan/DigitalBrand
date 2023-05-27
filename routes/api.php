@@ -46,5 +46,6 @@ Route::controller(AuthController::class)->group(function () {
 Route::middleware(['seller'])->group(function () {
 
     Route::post('create/shop',[ShopController::class, 'create_shop_api']);
+    Route::post('list/shop',[ShopController::class, 'shop_list']);
     Route::post('create/offer',[PostController::class, 'create_offer_api']);
 });

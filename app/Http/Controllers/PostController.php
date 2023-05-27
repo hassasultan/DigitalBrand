@@ -27,6 +27,7 @@ class PostController extends Controller
                 'title' => 'required',
                 'description' => 'required',
                 'hash_tag' => 'required',
+                'shop_id' => 'required',
                 'category_id' => 'required|numeric',
                 'subcat_id' => 'required|numeric',
                 'IsFeature' => 'required|In:0,1',
@@ -34,12 +35,17 @@ class PostController extends Controller
             if(auth('api')->user()->seller->shop != null)
             {
                 $banner = $this->post_banner($request->banner);
-                $shop_id = auth('api')->user()->seller->shop->id;
+                // $shop_id = auth('api')->user()->seller->shop->id;
                 $data = $request->all();
                 $data['banner'] = $banner;
-                $data['shop_id'] = $shop_id;
-                $offer = Post::create($data);
-                return $offer;
+                foreach($request->shop_id as $row)
+                {
+                    $data['shop_id'] = $row;
+                    $offer = Post::create($data);
+
+                }
+                return response()->json(['message'=> "Offer Created Successfully..."]);
+
             }
             else
             {

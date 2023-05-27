@@ -39,4 +39,9 @@ class ShopController extends Controller
             return response()->json(['error'=> $ex->getMessage()]);
         }
     }
+    public function shop_list()
+    {
+        $shop_list = Shop::where('seller_id', auth('api')->user()->seller->id)->get();
+        return $shop_list;
+    }
 }

@@ -22,7 +22,7 @@ class Seller extends Model
         "reference",
         "salesman_id",
         "status",
-        
+
     ];
     public function user()
     {
@@ -30,6 +30,6 @@ class Seller extends Model
     }
     public function shop()
     {
-        return $this->belongsTo(Shop::class,'id','seller_id');
+        return $this->hasMany(Shop::class,'seller_id','id');
     }
 }
