@@ -58,6 +58,10 @@ return [
 
     'asset_url' => env('ASSET_URL'),
 
+    'facebook_app_id' => env('FACEBOOK_APP_ID'),
+    'facebook_app_secret' => env('FACEBOOK_APP_SECRET'),
+    'facebook_default_access_token' => env('FACEBOOK_DEFAULT_ACCESS_TOKEN'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
