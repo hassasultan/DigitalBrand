@@ -18,6 +18,7 @@ class ShopController extends Controller
             'area' => 'required|numeric|exists:area,id',
             'branch_name' => 'required',
             'address' => 'required',
+            'contact_number' => 'required',
             'logo' => 'image|mimes:jpg,bmp,png,webp||max:2048'
         ]);
         try
