@@ -3,12 +3,12 @@
 @section('content')
 
     <header class="page-header page-header-left-inline-breadcrumb">
-        <h2 class="font-weight-bold text-6">Sellers</h2>
+        <h2 class="font-weight-bold text-6">Provinces</h2>
         <div class="right-wrapper">
             <ol class="breadcrumbs">
                 <li><span>Dashboard</span></li>
-                <li><span>Sellers</span></li>
-                <li><span>Seller List</span></li>
+                <li><span>Location</span></li>
+                <li><span>Provinces</span></li>
             </ol>
         </div>
     </header>
@@ -22,7 +22,7 @@
                         <div class="datatable-header">
                             <div class="row align-items-center mb-3">
                                 <div class="col-12 col-lg-auto mb-3 mb-lg-0">
-                                    <a href="{{ route('seller-management.create') }}" class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add Seller</a>
+                                    <a href="/provinces/form" class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add Province</a>
                                 </div>
                                 <div class="col-8 col-lg-auto ms-auto ml-auto mb-3 mb-lg-0">
                                     <div class="d-flex align-items-lg-center flex-column flex-lg-row">
@@ -61,40 +61,14 @@
 
                             <thead>
                             <tr>
-                                <th width="3%"><input type="checkbox" name="select-all" class="select-all checkbox-style-1 p-relative top-2" value="" /></th>
-                                <th width="8%">ID</th>
-                                <th width="12%">Name</th>
-                                <th width="20%">Email</th>
-                                <th width="15%">Contact</th>
-                                <th width="15%">Business Name</th>
-                                <th width="15%">Status</th>
-                                <th width="30%">Action</th>
+                                <th width="10%"><input type="checkbox" name="select-all" class="select-all checkbox-style-1 p-relative top-2" value="" /></th>
+                                <th width="10%">ID</th>
+                                <th width="20%">City Name</th>
+                                <th width="25%">Total Areas</th>
+                                <th width="20%">Total Sellers</th>
+                                <th width="30" style="text-align: center">Action</th>
                             </tr>
                             </thead>
-                            <tbody>
-                                @foreach ($seller as $key => $row)
-                                    <tr>
-                                        <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
-                                        <td>{{ ++$key }}</td>
-                                        <td><a href="#"><strong>{{ $row->user->name }}</strong></a></td>
-                                        <td>{{ $row->user->email }}</td>
-                                        <td>{{ $row->phone }}</td>
-                                        <td>{{ $row->business_name }}</td>
-                                        <td>
-                                            <select id="status_change-{{ $row->id }}" class="form-control" data-id="{{ $row->id }}" onchange="status({{ $row->id }})">
-                                                <option @if($row->status == 1) selected @endif value="1">Active</option>
-                                                <option @if($row->status == 0) selected @endif value="0">De-Active</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-danger" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></button>
-                                            <button class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></button>
-                                            <button class="btn btn-primary"  style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></button>
-                                        </td>
-                                    </tr>
-                                @endforeach
-
-                            </tbody>
                         </table>
                         <hr class="solid mt-5 opacity-4">
                         <div class="datatable-footer">
@@ -121,26 +95,9 @@
                         </table>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
-    <script>
-        function status(id) {
-            // var id = $('#status_change').attr("data-id");
-            var value = $('#status_change-'+id).val();
 
-            var url = "{{ route('admin.seller.status', ['', ''],) }}";
-            url = url + '/' + value + '/' + id;
-            $.ajax({
-                type: 'GET',
-                url: url,
-            }).done(function(data) {
-                successModal(data.message);
-                // var id = $('#changeSelect' + value).html('');
-                // html = '';
-                // var id = $('#changeSelect' + value).html(html);
-            });
-
-        }
-    </script>
 @stop

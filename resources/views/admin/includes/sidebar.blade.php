@@ -67,7 +67,12 @@
                     </li>
 
                     <li class="nav-group-label">Locations</li>
-
+                    <li>
+                        <a class="nav-link" href="/provinces">
+                            <i class="bx bx-map" aria-hidden="true"></i>
+                            <span>Provinces</span>
+                        </a>
+                    </li>
                     <li>
                         <a class="nav-link" href="{{ route('city-management.index') }}">
                             <i class="bx bx-map-alt" aria-hidden="true"></i>

@@ -114,6 +114,15 @@ Route::get('/packages/form', function () {
 });
 // Location
 
+// Provinces
+ Route::get('/provinces', function () {
+     return view('admin/pages/locations/Provinces/index');
+ });
+
+ Route::get('/provinces/form', function () {
+     return view('admin/pages/locations/Provinces/create');
+ });
+
 // Cities
 // Route::get('/cities', function () {
 //     return view('admin/pages/locations/Cities/index');
