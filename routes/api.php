@@ -12,6 +12,7 @@ use App\Http\Controllers\SubCatogoryController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\AreaController;
+use App\Http\Controllers\BannerController;
 
 
 /*
@@ -36,6 +37,8 @@ Route::get('category',[CategoryController::class, 'categoryApi']);
 Route::get('province',[ProvinceController::class, 'provinceApi']);
 Route::get('city',[CityController::class, 'cityApi']);
 Route::get('area',[AreaController::class, 'areaApi']);
+Route::get('list/banner',[BannerController::class, 'bannerApi']);
+
 Route::controller(AuthController::class)->group(function () {
     Route::post('seller/login', 'seller_login');
     Route::post('cutomer/login', 'customer_login');
@@ -50,4 +53,5 @@ Route::middleware(['seller'])->group(function () {
     Route::post('create/shop',[ShopController::class, 'create_shop_api']);
     Route::get('list/shop',[ShopController::class, 'shop_list']);
     Route::post('create/offer',[PostController::class, 'create_offer_api']);
+    Route::post('create/banner',[BannerController::class, 'create_banner_api']);
 });
