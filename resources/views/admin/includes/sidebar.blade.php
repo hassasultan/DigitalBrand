@@ -68,7 +68,7 @@
 
                     <li class="nav-group-label">Locations</li>
                     <li>
-                        <a class="nav-link" href="/provinces">
+                        <a class="nav-link" href="{{ route('province-management.index') }}">
                             <i class="bx bx-map" aria-hidden="true"></i>
                             <span>Provinces</span>
                         </a>

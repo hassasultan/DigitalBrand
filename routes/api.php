@@ -9,6 +9,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCatogoryController;
+use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\AreaController;
 
@@ -32,6 +33,7 @@ Route::get('salesman/list',[SalesManController::class, 'sales_man_list']);
 Route::get('subcategory',[SubCatogoryController::class, 'subcategoryApi']);
 Route::get('category',[CategoryController::class, 'categoryApi']);
 
+Route::get('province',[ProvinceController::class, 'provinceApi']);
 Route::get('city',[CityController::class, 'cityApi']);
 Route::get('area',[AreaController::class, 'areaApi']);
 Route::controller(AuthController::class)->group(function () {

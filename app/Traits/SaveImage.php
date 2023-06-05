@@ -74,6 +74,18 @@ trait SaveImage
         return $filenamepath;
 
     }
+    public function banner_image($image)
+    {
+        $img = $image;
+        $number = rand(1,999);
+        $numb = $number / 7 ;
+        $extension      = $img->extension();
+        $filenamenew    = date('Y-m-d')."_.".$numb."_.".$extension;
+        $filenamepath   = 'image'.'/'.'banner/image/'.$filenamenew;
+        $filename       = $img->move(public_path('storage/image'.'/'.'banner/image/'),$filenamenew);
+        return $filenamepath;
+
+    }
     public function post_banner($image)
     {
         $img = $image;

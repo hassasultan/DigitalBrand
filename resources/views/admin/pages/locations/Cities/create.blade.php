@@ -27,8 +27,10 @@
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label class="col-form-label" for="formGroupExampleInput">Province</label>
-                                    <select class="form-control" name="city_id" id="formGroupExampleInput" placeholder="">
-
+                                    <select class="form-control" name="province_id" id="formGroupExampleInput" placeholder="">
+                                        @foreach ($province as $row)
+                                            <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

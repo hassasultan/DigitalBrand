@@ -16,7 +16,7 @@
     <!-- start: page -->
     <div class="row">
         <div class="col-lg-12">
-            <form id="form1" method="post" class="form-horizontal">
+            <form id="form1" method="post" action="{{ route('province-management.store') }}" class="form-horizontal" >
                 @csrf
                 <section class="card">
                     <header class="card-header">

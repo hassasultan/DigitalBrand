@@ -14,6 +14,7 @@ class Post extends Model
         "subcat_id",
         "category_id",
         "banner",
+        "area",
         "title",
         "description",
         "hash_tag",

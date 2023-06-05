@@ -22,7 +22,7 @@
                         <div class="datatable-header">
                             <div class="row align-items-center mb-3">
                                 <div class="col-12 col-lg-auto mb-3 mb-lg-0">
-                                    <a href="/provinces/form" class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add Province</a>
+                                    <a href="{{ route('province-management.create') }}" class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add Province</a>
                                 </div>
                                 <div class="col-8 col-lg-auto ms-auto ml-auto mb-3 mb-lg-0">
                                     <div class="d-flex align-items-lg-center flex-column flex-lg-row">
@@ -60,15 +60,31 @@
                         <table class="table table-ecommerce-simple table-borderless table-striped mb-0" id="datatable-ecommerce-list" style="min-width: 640px;">
 
                             <thead>
-                            <tr>
-                                <th width="10%"><input type="checkbox" name="select-all" class="select-all checkbox-style-1 p-relative top-2" value="" /></th>
-                                <th width="10%">ID</th>
-                                <th width="20%">City Name</th>
-                                <th width="25%">Total Areas</th>
-                                <th width="20%">Total Sellers</th>
-                                <th width="30" style="text-align: center">Action</th>
-                            </tr>
+                                    <tr>
+                                        <th width="10%"><input type="checkbox" name="select-all" class="select-all checkbox-style-1 p-relative top-2" value="" /></th>
+                                        <th width="10%">ID</th>
+                                        <th width="20%">Province Name</th>
+                                        <th width="25%">Total Cities</th>
+                                        <th width="20%">Total Sellers</th>
+                                        <th width="30" style="text-align: center">Action</th>
+                                    </tr>
                             </thead>
+                            <tbody>
+                                @foreach ($province as $key => $row)
+                                    <tr>
+                                        <td><input type="checkbox" name="select-all" class="select-all checkbox-style-1 p-relative top-2" value="" /></td>
+                                        <td>{{ ++$key }}</td>
+                                        <td>{{ $row->name }}</td>
+                                        <td>{{ count($row->cities) }}</td>
+                                        <td>0</td>
+                                        <td style="text-align: center">
+                                            <button class="btn btn-danger"  style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></button>
+                                            <button class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></button>
+                                            <button class="btn btn-primary" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></button>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
                         </table>
                         <hr class="solid mt-5 opacity-4">
                         <div class="datatable-footer">

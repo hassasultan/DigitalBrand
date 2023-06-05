@@ -6,6 +6,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCatogoryController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\CityController;
 use Illuminate\Support\Facades\Route;
@@ -115,13 +116,13 @@ Route::get('/packages/form', function () {
 // Location
 
 // Provinces
- Route::get('/provinces', function () {
-     return view('admin/pages/locations/Provinces/index');
- });
+//  Route::get('/provinces', function () {
+//      return view('admin/pages/locations/Provinces/index');
+//  });
 
- Route::get('/provinces/form', function () {
-     return view('admin/pages/locations/Provinces/create');
- });
+//  Route::get('/provinces/form', function () {
+//      return view('admin/pages/locations/Provinces/create');
+//  });
 
 // Cities
 // Route::get('/cities', function () {
@@ -166,6 +167,7 @@ Route::resource('/offer-management', PostController::class);
 Route::resource('/visitor-management', CustomerController::class);
 Route::resource('/area-management', AreaController::class);
 Route::resource('/city-management', CityController::class);
+Route::resource('/province-management', ProvinceController::class);
 
 Route::get('/seller/change-status/{status}/{id}', [SellerController::class, 'change_status'])->name('admin.seller.status');
 
