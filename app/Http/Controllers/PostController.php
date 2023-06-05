@@ -29,7 +29,7 @@ class PostController extends Controller
                 'hash_tag' => 'required',
                 'shop_id' => 'required',
                 'category_id' => 'required|numeric',
-                'subcat_id' => 'required|numeric',
+                'subcat_id' => 'required',
                 'IsFeature' => 'required|In:0,1',
                 'area' => 'required|numeric|exists:area,id',
             ]);
