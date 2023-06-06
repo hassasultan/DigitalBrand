@@ -16,6 +16,7 @@ class Shop extends Model
         "address",
         "logo",
         "contact_number",
+        "description",
         "status",
     ];
     public function seller()

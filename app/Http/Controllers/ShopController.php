@@ -19,6 +19,7 @@ class ShopController extends Controller
             'branch_name' => 'required',
             'address' => 'required',
             'contact_number' => 'required',
+            'description' => 'required',
             'logo' => 'image|mimes:jpg,bmp,png,webp||max:2048'
         ]);
         try

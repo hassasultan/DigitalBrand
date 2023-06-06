@@ -30,7 +30,7 @@ class PostController extends Controller
                 'shop_id' => 'required',
                 'category_id' => 'required|numeric',
                 'subcat_id' => 'required',
-                'IsFeature' => 'required|In:0,1',
+                // 'IsFeature' => 'required|In:0,1',
                 'area' => 'required|numeric|exists:area,id',
             ]);
             if(auth('api')->user()->seller->shop != null)
