@@ -26,7 +26,7 @@ class PostController extends Controller
                 'banner' => 'required|image|mimes:jpg,bmp,png,webp|max:2048',
                 'title' => 'required',
                 'description' => 'required',
-                'hash_tag' => 'required',
+                // 'hash_tag' => 'required',
                 'shop_id' => 'required',
                 'category_id' => 'required|numeric',
                 'subcat_id' => 'required',
