@@ -34,15 +34,57 @@
                         </ul>
                     </li>
                     <li class="">
-                        <a class="nav-link" href="/visitors">
+                        <a class="nav-link" href="{{ route('salesman-management.index') }}">
+                            Salesman
+                        </a>
+                    </li>
+
+                    <li class="">
+                        <a class="nav-link" href="{{ route('visitor-management.index') }}">
                             Visitors
                         </a>
                     </li>
-                    <li class="">
-                        <a class="nav-link" href="/sellers">
-                            Sellers
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#">
+                            Seller
                         </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="nav-link" href="/seller-management">
+                                    Sellers List
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="/seller-shops">
+                                    Sellers Shops
+                                </a>
+                            </li>
+                        </ul>
                     </li>
+
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#">
+                            Location
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="nav-link" href="/province-management">
+                                    Provinces
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="/city-management">
+                                    Cities
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="/area-management">
+                                    Areas
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <li class="dropdown">
                         <a class="nav-link dropdown-toggle" href="#">
                             Offers
@@ -59,8 +101,8 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="nav-link" href="/offers">
-                                    Offers List
+                                <a class="nav-link" href="/offer-management">
+                                    Offers
                                 </a>
                             </li>
                         </ul>
