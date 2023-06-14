@@ -106,6 +106,11 @@
                                 <input class="form-control" type="number" data-plugin-maxlength maxlength="50" />
                             </div>
 
+                            <label class="col-lg-4 control-label text-lg-end pt-2" for="textareaDefault">Offer Validity Days</label>
+                            <div class="col-lg-6 pb-3">
+                                <input class="form-control" type="number" data-plugin-maxlength maxlength="50" />
+                            </div>
+
                             <label class="col-lg-4 control-label text-lg-end pt-2 col-lg-3">Restricted Words</label>
                             <div class="col-lg-6 pb-3">
                                 <div class="form-group mb-0 bs-select-1">
