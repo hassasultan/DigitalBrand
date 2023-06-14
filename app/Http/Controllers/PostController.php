@@ -74,5 +74,10 @@ class PostController extends Controller
             return response()->json(['error'=> $ex->getMessage()]);
         }
     }
+    public function offer_detail($id)
+    {
+        $offer = Post::with('shop','category','subcategory')->where('status',1)->find($id);
+        return $offer;
+    }
 
 }

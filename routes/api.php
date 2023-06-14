@@ -39,6 +39,13 @@ Route::get('city',[CityController::class, 'cityApi']);
 Route::get('area',[AreaController::class, 'areaApi']);
 Route::get('list/banner',[BannerController::class, 'bannerApi']);
 
+Route::get('shop-detail/{id}',[ShopController::class, 'shop_details']);
+Route::get('offer-detail/{id}',[PostController::class, 'offer_detail']);
+
+
+Route::get('featured-selller-list',[SellerController::class, 'featured_selller_list']);
+
+
 Route::controller(AuthController::class)->group(function () {
     Route::post('seller/login', 'seller_login');
     Route::post('cutomer/login', 'customer_login');

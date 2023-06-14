@@ -46,4 +46,9 @@ class ShopController extends Controller
         $shop_list = Shop::where('seller_id', auth('api')->user()->seller->id)->get();
         return $shop_list;
     }
+    public function shop_details($id)
+    {
+        $shop_details = Shop::with('seller')->where('status',1)->find($id);
+        return $shop_details;
+    }
 }

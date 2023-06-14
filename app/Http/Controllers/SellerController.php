@@ -178,4 +178,9 @@ class SellerController extends Controller
         $seller->save();
         return response()->json(['message'=>"Status has successfully changed..."]);
     }
+    public function featured_selller_list()
+    {
+        $seller = Seller::with('user')->where('isFeatured',1)->gat();
+        return $seller;
+    }
 }
