@@ -30,4 +30,9 @@ class CityController extends Controller
         $city = City::where('province_id',$request->province_id)->with('province')->where('status',1)->get();
         return $city;
     }
+    public function cityListApi(Request $request)
+    {
+        $city = City::with('province')->where('status',1)->get();
+        return $city;
+    }
 }

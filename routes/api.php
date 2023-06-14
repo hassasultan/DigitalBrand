@@ -36,6 +36,7 @@ Route::get('category',[CategoryController::class, 'categoryApi']);
 
 Route::get('province',[ProvinceController::class, 'provinceApi']);
 Route::get('city',[CityController::class, 'cityApi']);
+Route::get('cities-list',[CityController::class, 'cityListApi']);
 Route::get('area',[AreaController::class, 'areaApi']);
 Route::get('list/banner',[BannerController::class, 'bannerApi']);
 
