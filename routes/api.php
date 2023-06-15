@@ -46,6 +46,7 @@ Route::get('offer-detail/{id}',[PostController::class, 'offer_detail']);
 
 Route::get('featured-selller-list',[SellerController::class, 'featured_selller_list']);
 
+Route::get('list/shop',[ShopController::class, 'shop_list']);
 
 Route::controller(AuthController::class)->group(function () {
     Route::post('seller/login', 'seller_login');
@@ -59,7 +60,6 @@ Route::controller(AuthController::class)->group(function () {
 Route::middleware(['seller'])->group(function () {
 
     Route::post('create/shop',[ShopController::class, 'create_shop_api']);
-    Route::get('list/shop',[ShopController::class, 'shop_list']);
     Route::post('create/offer',[PostController::class, 'create_offer_api']);
     Route::post('create/banner',[BannerController::class, 'create_banner_api']);
 });
