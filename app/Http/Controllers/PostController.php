@@ -87,7 +87,7 @@ class PostController extends Controller
     }
     public function offer_filter(Request $request)
     {
-        $post = Post::where('status',1);
+        $post = Post::with('shop')->where('status',1);
         if($request->has('shop_id'))
         {
             $post = $post->where('shop_id',$request->shop_id);
@@ -111,7 +111,10 @@ class PostController extends Controller
         }
         if($request->has('title'))
         {
-            $post = $post->where('title','like', '%' . $request->title . '%');
+            $searchString = $request->title;
+            $post = $post->where('title','like', '%' . $request->title . '%')->orwhereHas('shop', function ($query) use ($searchString){
+                $query->where('name', 'like', '%'.$searchString.'%');
+            });
         }
         $post = $post->get();
         return $post;
