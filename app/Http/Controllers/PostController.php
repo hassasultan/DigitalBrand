@@ -105,6 +105,10 @@ class PostController extends Controller
             $areas = Area::where('city_id',$request->city_id)->get('id');
             $post = $post->whereIn('area',$areas);
         }
+        if($request->has('area'))
+        {
+            $post = $post->where('area',$request->area);
+        }
         if($request->has('title'))
         {
             $post = $post->where('title','like', '%' . $request->title . '%');
