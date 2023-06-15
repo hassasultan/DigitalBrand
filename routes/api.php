@@ -43,6 +43,8 @@ Route::get('list/banner',[BannerController::class, 'bannerApi']);
 Route::get('shop-detail/{id}',[ShopController::class, 'shop_details']);
 Route::get('offer-detail/{id}',[PostController::class, 'offer_detail']);
 
+Route::get('/offer-filter',[PostController::class, 'offer_filter']);
+
 
 Route::get('featured-selller-list',[SellerController::class, 'featured_selller_list']);
 Route::get('all/shop/list',[ShopController::class, 'all_shop_list']);

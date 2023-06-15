@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Seller;
 use App\Models\Shop;
+use App\Models\Area;
 use Exception;
 use Illuminate\Http\Request;
 use App\Traits\SaveImage;
@@ -78,6 +79,38 @@ class PostController extends Controller
     {
         $offer = Post::with('shop','category','subcategory')->where('status',1)->find($id);
         return $offer;
+    }
+    public function offerList()
+    {
+        $post = Post::where('status',1)->get();
+        return $post;
+    }
+    public function offer_filter(Request $request)
+    {
+        $post = Post::where('status',1);
+        if($request->has('shop_id'))
+        {
+            $post = $post->where('shop_id',$request->shop_id);
+        }
+        if($request->has('subcat_id'))
+        {
+            $post = $post->where('subcat_id',$request->subcat_id);
+        }
+        if($request->has('category_id'))
+        {
+            $post = $post->where('category_id',$request->category_id);
+        }
+        if($request->has('city_id'))
+        {
+            $areas = Area::where('city_id',$request->city_id)->get('id');
+            $post = $post->whereIn('area',$areas);
+        }
+        if($request->has('title'))
+        {
+            $post = $post->where('title','like', '%' . $request->title . '%');
+        }
+        $post = $post->get();
+        return $post;
     }
 
 }
