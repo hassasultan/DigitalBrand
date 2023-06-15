@@ -103,7 +103,6 @@ class PostController extends Controller
         if($request->has('city_id'))
         {
             $areas = Area::where('city_id',$request->city_id)->get('id');
-            dd($areas);
             $post = $post->whereIn('area',$areas);
         }
         if($request->has('area'))
