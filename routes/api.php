@@ -44,9 +44,12 @@ Route::get('shop-detail/{id}',[ShopController::class, 'shop_details']);
 Route::get('offer-detail/{id}',[PostController::class, 'offer_detail']);
 
 Route::get('/offer-filter',[PostController::class, 'offer_filter']);
+Route::get('/top-offer',[PostController::class, 'top_offerList']);
+Route::get('/featured-offer',[PostController::class, 'featured_offer_list']);
 
 
 Route::get('featured-selller-list',[SellerController::class, 'featured_selller_list']);
+Route::get('top-selller-list',[SellerController::class, 'top_selller_list']);
 Route::get('all/shop/list',[ShopController::class, 'all_shop_list']);
 
 

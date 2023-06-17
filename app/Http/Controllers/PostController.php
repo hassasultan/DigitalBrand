@@ -119,5 +119,15 @@ class PostController extends Controller
         $post = $post->get();
         return $post;
     }
+    public function top_offerList()
+    {
+        $post = Post::where('status',1)->OrderBy('id','DESC')->paginate(10);
+        return $post;
+    }
+    public function featured_offer_list()
+    {
+        $post = Post::with('shop','category','subcategory')->where('isFeatured',1)->paginate(10);
+        return $post;
+    }
 
 }
