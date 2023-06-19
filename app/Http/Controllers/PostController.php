@@ -82,12 +82,12 @@ class PostController extends Controller
     }
     public function offerList()
     {
-        $post = Post::where('status',1)->get();
+        $post = Post::with('shop','shop.seller')->where('status',1)->get();
         return $post;
     }
     public function offer_filter(Request $request)
     {
-        $post = Post::with('shop')->where('status',1);
+        $post = Post::with('shop','shop.seller')->where('status',1);
         if($request->has('shop_id'))
         {
             $post = $post->where('shop_id',$request->shop_id);
