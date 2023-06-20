@@ -56,6 +56,7 @@ Route::get('seller/shop/list',[ShopController::class, 'seller_shop']);
 Route::post('insights/update',[PostController::class, 'insights']);
 Route::post('offer/status',[PostController::class, 'change_status']);
 
+Route::get('shop/offer/{id}',[PostController::class, 'selleroffer']);
 
 
 Route::controller(AuthController::class)->group(function () {

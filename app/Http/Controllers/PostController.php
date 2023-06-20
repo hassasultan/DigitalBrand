@@ -85,6 +85,11 @@ class PostController extends Controller
         $post = Post::with('shop','shop.seller')->where('status',1)->get();
         return $post;
     }
+    public function selleroffer($id)
+    {
+        $post = Post::with('shop','shop.seller')->where('shop_id',$id)->get();
+        return $post;
+    }
     public function offer_filter(Request $request)
     {
         $post = Post::with('shop','shop.seller')->where('status',1);
