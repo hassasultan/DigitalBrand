@@ -77,7 +77,7 @@ class PostController extends Controller
     }
     public function offer_detail($id)
     {
-        $offer = Post::with('shop','category','subcategory')->where('status',1)->find($id);
+        $offer = Post::with('shop','shop.seller','category','subcategory')->where('status',1)->find($id);
         return $offer;
     }
     public function offerList()
