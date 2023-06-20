@@ -54,6 +54,7 @@ Route::get('all/shop/list',[ShopController::class, 'all_shop_list']);
 Route::get('seller/shop/list',[ShopController::class, 'seller_shop']);
 
 Route::post('insights/update',[PostController::class, 'insights']);
+Route::post('offer/status',[PostController::class, 'change_status']);
 
 
 

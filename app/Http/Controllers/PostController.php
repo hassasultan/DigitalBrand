@@ -161,6 +161,29 @@ class PostController extends Controller
             return response()->json(['error'=> $ex->getMessage()],500);
         }
     }
+    public function change_status(Request $request)
+    {
+        try
+        {
+            $this->validate($request, [
+                'offer_id' => 'required|numeric|exists:post,id',
+                'status' => 'required|numeric|In:1,0',
+            ]);
+            $offer = Post::find($request->offer_id);
+            if($request->has('status'))
+            {
+                $offer->views = $offer->views + 1;
+            }
+
+            $offer->save();
+            return response()->json(['message'=>"updated successfully..."],200);
+        }
+        catch(Exception $ex)
+        {
+            return response()->json(['error'=> $ex->getMessage()],500);
+        }
+
+    }
 
 
 }
