@@ -21,6 +21,10 @@ class Post extends Model
         "IsFeature",
         "status",
     ];
+    public function insights()
+    {
+        return $this->belongsTo(OfferInsight::class,'id','offer_id');
+    }
     public function shop()
     {
         return $this->belongsTo(Shop::class, 'shop_id','id');

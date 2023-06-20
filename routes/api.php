@@ -51,6 +51,10 @@ Route::get('/featured-offer',[PostController::class, 'featured_offer_list']);
 Route::get('featured-selller-list',[SellerController::class, 'featured_selller_list']);
 Route::get('top-selller-list',[SellerController::class, 'top_selller_list']);
 Route::get('all/shop/list',[ShopController::class, 'all_shop_list']);
+Route::get('seller/shop/list',[ShopController::class, 'seller_shop']);
+
+Route::post('insights/update',[PostController::class, 'insights']);
+
 
 
 Route::controller(AuthController::class)->group(function () {

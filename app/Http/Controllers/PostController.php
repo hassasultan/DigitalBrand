@@ -129,5 +129,38 @@ class PostController extends Controller
         $post = Post::with('shop','shop.seller','category','subcategory')->where('IsFeature',1)->paginate(10);
         return $post;
     }
+    public function insights(Request $request)
+    {
+        try
+        {
+            $this->validate($request, [
+                'offer_id' => 'required|numeric|exists:post,id',
+            ]);
+            $offer = Post::find($request->offer_id);
+            if($request->has('views'))
+            {
+                $offer->views = $offer->views + 1;
+            }
+            if($request->has('impression'))
+            {
+                $offer->impression = $offer->impression + 1;
+            }
+            if($request->has('reach'))
+            {
+                $offer->reach = $offer->reach + 1;
+            }
+            if($request->has('conversion'))
+            {
+                $offer->conversion = $offer->conversion + 1;
+            }
+            $offer->save();
+            return response()->json(['message'=>"updated successfully..."],200);
+        }
+        catch(Exception $ex)
+        {
+            return response()->json(['error'=> $ex->getMessage()],500);
+        }
+    }
+
 
 }
