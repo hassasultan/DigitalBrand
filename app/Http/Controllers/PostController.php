@@ -172,7 +172,7 @@ class PostController extends Controller
             $offer = Post::find($request->offer_id);
             if($request->has('status'))
             {
-                $offer->views = $offer->views + 1;
+                $offer->status = $request->status;
             }
 
             $offer->save();
