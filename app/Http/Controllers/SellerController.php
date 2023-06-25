@@ -19,14 +19,14 @@ class SellerController extends Controller
         $valid =  Validator::make($data, [
             'user_id' => ['required', 'numeric', 'exists:users,id'],
             'phone' => ['required', 'string'],
-            'whatsapp' => ['required', 'string'],
+            // 'whatsapp' => ['required', 'string'],
             'business_name' => ['required', 'string'],
             'business_address' => ['required', 'string'],
-            'faecbook_page' => ['required', 'string'],
-            'insta_page' => ['required', 'string'],
-            'web_url' => ['required', 'string'],
+            // 'faecbook_page' => ['required', 'string'],
+            // 'insta_page' => ['required', 'string'],
+            // 'web_url' => ['required', 'string'],
             'isFeatured' => ['required', 'string'],
-            'logo' => ['required', 'image'],
+            // 'logo' => ['required', 'image'],
         ]);
         return $valid;
     }
