@@ -173,9 +173,10 @@ class AuthController extends Controller
                 'password' => 'required|string|min:6',
                 'role' => 'required|numeric|In:2,3',
                 'phone' => 'required|string',
+                'area_id' => 'required|numeric',
+
                 // 'whatsapp' => 'required|string',
-                'business_name' => 'required|string',
-                'business_address' => 'required|string',
+
                 // 'faecbook_page' => 'required|string',
                 // 'insta_page' => 'required|string',
                 // 'web_url' => 'required|string',
@@ -188,10 +189,11 @@ class AuthController extends Controller
                     'logo' => 'required|image',
                     'reference' => 'required|string',
                     'shop_name' => 'required|string',
-                    'area_id' => 'required|numeric',
                     'branch_name' => 'required|string',
                     'description' => 'required|string',
                     'shop_contact_number' => 'required|string',
+                    'business_name' => 'required|string',
+                    'business_address' => 'required|string',
                     // 'cover_image' => 'required|image',
 
                 ]);
@@ -293,6 +295,8 @@ class AuthController extends Controller
             {
                 $customer = new Customer();
                 $customer->user_id = $user->id;
+                $customer->area_id = $request->area_id;
+
                 if($request->has('business_name') && $request->business_name)
                 {
                     $customer->business_name = $request->business_name;

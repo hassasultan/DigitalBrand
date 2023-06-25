@@ -11,6 +11,7 @@ class Customer extends Model
     protected $table = "customers";
     protected $fillable = [
         "user_id",
+        "area_id",
         "phone",
         "business_name",
         "business_address",
@@ -22,5 +23,9 @@ class Customer extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id','id');
+    }
+    public function area()
+    {
+        return $this->belongsTo(Area::class, 'area_id','id');
     }
 }
