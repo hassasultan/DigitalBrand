@@ -191,6 +191,7 @@ class AuthController extends Controller
                     'area_id' => 'required|numeric',
                     'branch_name' => 'required|string',
                     'description' => 'required|string',
+                    'shop_contact_number' => 'required|string',
                     // 'cover_image' => 'required|image',
 
                 ]);
@@ -278,6 +279,7 @@ class AuthController extends Controller
                 $data['branch_name'] = $request->branch_name;
                 $data['description'] = $request->description;
                 $data['address'] = $request->business_address;
+                $data['contact_number'] = $request->shop_contact_number;
                 if($request->has('cover_image'))
                 {
                     $data['logo'] = $this->shop_logo($request->cover_image);
