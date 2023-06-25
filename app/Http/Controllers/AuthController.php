@@ -266,6 +266,10 @@ class AuthController extends Controller
                     {
                         $seller->salesman_id = $request->salesman_id;
                     }
+                    else
+                    {
+                        $seller->salesman_id = 0;
+                    }
                 }
                 $seller->save();
                 $data['seller_id'] = $seller->id;
