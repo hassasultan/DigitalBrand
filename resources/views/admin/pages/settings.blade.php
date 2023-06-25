@@ -140,8 +140,6 @@
                                 <input class="form-control" placeholder="Customer Support is only available for premium Sellers." data-plugin-maxlength maxlength="50" />
                             </div>
 
-
-
                             <label class="col-lg-3 control-label text-lg-end pt-2 col-lg-3">Allow Premium Sellers</label>
                             <div class="col-lg-9 pb-3">
                                 <div class="switch switch-sm switch-primary">

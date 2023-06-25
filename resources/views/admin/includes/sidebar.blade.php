@@ -66,6 +66,13 @@
                         </a>
                     </li>
 
+                    <li>
+                        <a class="nav-link" href="/seller-feedback">
+                            <i class="bx bx-notepad" aria-hidden="true"></i>
+                            <span>Seller Feedback</span>
+                        </a>
+                    </li>
+
                     <li class="nav-group-label">Locations</li>
                     <li>
                         <a class="nav-link" href="{{ route('province-management.index') }}">
