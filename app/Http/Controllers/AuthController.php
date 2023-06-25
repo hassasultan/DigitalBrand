@@ -173,12 +173,12 @@ class AuthController extends Controller
                 'password' => 'required|string|min:6',
                 'role' => 'required|numeric|In:2,3',
                 'phone' => 'required|string',
-                'whatsapp' => 'required|string',
+                // 'whatsapp' => 'required|string',
                 'business_name' => 'required|string',
                 'business_address' => 'required|string',
-                'faecbook_page' => 'required|string',
-                'insta_page' => 'required|string',
-                'web_url' => 'required|string',
+                // 'faecbook_page' => 'required|string',
+                // 'insta_page' => 'required|string',
+                // 'web_url' => 'required|string',
             ]);
             if($request->role == 2)
             {
@@ -191,7 +191,7 @@ class AuthController extends Controller
                     'area_id' => 'required|numeric',
                     'branch_name' => 'required|string',
                     'description' => 'required|string',
-                    'cover_image' => 'required|image',
+                    // 'cover_image' => 'required|image',
 
                 ]);
                 if($request->reference == "salesman")
