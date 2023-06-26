@@ -16,7 +16,7 @@ class ShopController extends Controller
         try
         {
             $this->validate($request, [
-                'name' => 'required',
+                // 'name' => 'required',
                 'area' => 'required|numeric|exists:area,id',
                 'branch_name' => 'required',
                 'address' => 'required',
