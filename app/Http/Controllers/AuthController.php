@@ -165,7 +165,7 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        return $request->all();
+         dd($request->all());
         try
         {
             $request->validate([
