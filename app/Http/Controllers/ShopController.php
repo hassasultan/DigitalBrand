@@ -13,17 +13,17 @@ class ShopController extends Controller
     use SaveImage;
     public function create_shop_api(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'area' => 'required|numeric|exists:area,id',
-            'branch_name' => 'required',
-            'address' => 'required',
-            'contact_number' => 'required',
-            'description' => 'required',
-            'logo' => 'image|mimes:jpg,bmp,png,webp||max:2048'
-        ]);
         try
         {
+            $this->validate($request, [
+                'name' => 'required',
+                'area' => 'required|numeric|exists:area,id',
+                'branch_name' => 'required',
+                'address' => 'required',
+                'contact_number' => 'required',
+                'description' => 'required',
+                'logo' => 'image|mimes:jpg,bmp,png,webp||max:2048'
+            ]);
             if($request->has('logo'))
             {
                 $logo = $this->shop_logo($request->logo);
