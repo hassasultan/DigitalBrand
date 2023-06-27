@@ -18,15 +18,15 @@ class BannerController extends Controller
     }
     public function create_banner_api(Request $request)
     {
-        $this->validate($request, [
-            'area' => 'required|numeric|exists:area,id',
-            'shop_id' => 'required|numeric|exists:shop,id',
-            'subcat_id' => 'required|numeric|exists:sub_category,id',
-            'redirect_url' => 'required',
-            'image' => 'image|mimes:jpg,bmp,png,webp|max:2048'
-        ]);
         try
         {
+            $this->validate($request, [
+                'area' => 'required|numeric|exists:area,id',
+                'shop_id' => 'required|numeric|exists:shop,id',
+                'subcat_id' => 'required|numeric|exists:sub_category,id',
+                'redirect_url' => 'required',
+                'image' => 'image|mimes:jpg,bmp,png,webp|max:2048'
+            ]);
             if($request->has('image'))
             {
                 $image = $this->shop_logo($request->image);
