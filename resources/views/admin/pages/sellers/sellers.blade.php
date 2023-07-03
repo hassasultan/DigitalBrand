@@ -25,32 +25,32 @@
                                     <a href="{{ route('seller-management.create') }}" class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add Seller</a>
                                 </div>
                                 <div class="col-8 col-lg-auto ms-auto ml-auto mb-3 mb-lg-0">
-                                    <div class="d-flex align-items-lg-center flex-column flex-lg-row">
-                                        <label class="ws-nowrap me-3 mb-0">Filter By:</label>
-                                        <select class="form-control select-style-1 filter-by" name="filter-by">
-                                            <option value="all" selected>All</option>
-                                            <option value="1">ID</option>
-                                            <option value="2">Company Name</option>
-                                            <option value="3">Slug</option>
-                                            <option value="4">Parent Category</option>
-                                        </select>
-                                    </div>
+{{--                                    <div class="d-flex align-items-lg-center flex-column flex-lg-row">--}}
+{{--                                        <label class="ws-nowrap me-3 mb-0">Filter By:</label>--}}
+{{--                                        <select class="form-control select-style-1 filter-by" name="filter-by">--}}
+{{--                                            <option value="all" selected>All</option>--}}
+{{--                                            <option value="1">ID</option>--}}
+{{--                                            <option value="2">Company Name</option>--}}
+{{--                                            <option value="3">Slug</option>--}}
+{{--                                            <option value="4">Parent Category</option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
                                 </div>
                                 <div class="col-4 col-lg-auto ps-lg-1 mb-3 mb-lg-0">
-                                    <div class="d-flex align-items-lg-center flex-column flex-lg-row">
-                                        <label class="ws-nowrap me-3 mb-0">Show:</label>
-                                        <select class="form-control select-style-1 results-per-page" name="results-per-page">
-                                            <option value="12" selected>12</option>
-                                            <option value="24">24</option>
-                                            <option value="36">36</option>
-                                            <option value="100">100</option>
-                                        </select>
-                                    </div>
+{{--                                    <div class="d-flex align-items-lg-center flex-column flex-lg-row">--}}
+{{--                                        <label class="ws-nowrap me-3 mb-0">Show:</label>--}}
+{{--                                        <select class="form-control select-style-1 results-per-page" name="results-per-page">--}}
+{{--                                            <option value="12" selected>12</option>--}}
+{{--                                            <option value="24">24</option>--}}
+{{--                                            <option value="36">36</option>--}}
+{{--                                            <option value="100">100</option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
                                 </div>
                                 <div class="col-12 col-lg-auto ps-lg-1">
                                     <div class="search search-style-1 search-style-1-lg mx-lg-auto">
                                         <div class="input-group">
-                                            <input type="text" class="search-term form-control" name="search-term" id="search-term" placeholder="Search Category">
+                                            <input type="text" class="search-term form-control" name="search-term" id="search-term" placeholder="Search Seller">
                                             <button class="btn btn-default" type="submit"><i class="bx bx-search"></i></button>
                                         </div>
                                     </div>
@@ -87,9 +87,9 @@
                                             </select>
                                         </td>
                                         <td>
-                                            <button class="btn btn-danger" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></button>
+                                            <button class="btn btn-danger"  onclick="openDeleteModal()" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></button>
                                             <button class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></button>
-                                            <button class="btn btn-primary"  style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></button>
+                                            <button class="btn btn-primary"   onclick="openViewModal()" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -124,6 +124,143 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="verticalCenterTitle">Delete Seller</h5>
+                    <button type="button" class="close" onclick="closeDeleteModal()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="closeDeleteModal()">Close</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 1000px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="verticalCenterTitle">View Seller</h5>
+                    <button type="button" class="close" onclick="closeViewModal()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-12">
+                        <div class="card card-statistics">
+                            <div class="card-body p-0">
+                                <div class="row no-gutters">
+                                    <div class="col-xl-3 pb-xl-0 pb-5 border-right">
+                                        <div class="page-account-profil pt-5">
+                                            <div class="profile-img text-center rounded-circle">
+                                                <div class="pt-5">
+                                                    <div class="bg-img m-auto">
+                                                        <img class="img-fluid" alt="">
+                                                    </div>
+                                                    <div class="profile pt-4">
+                                                        <h4 class="mb-1">Seller Name</h4>
+                                                        <p>Seller ID</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="py-3 profile-counter">
+                                                <ul class="nav justify-content-center text-center">
+                                                    <li class="nav-item border-right px-3">
+                                                        <div>
+                                                            <h4 class="mb-0">90</h4>
+                                                            <p>Shops</p>
+                                                        </div>
+                                                    </li>
+                                                    <li class="nav-item  px-3">
+                                                        <div>
+                                                            <h4 class="mb-0">20</h4>
+                                                            <p>Offers</p>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-9 col-md-6 col-12 border-t border-right">
+                                        <div class="page-account-form">
+                                            <div class="form-titel border-bottom p-3">
+                                                <h5 class="mb-0 py-2">Seller Details</h5>
+                                            </div>
+                                            <div class="p-4">
+                                                <div class="form-row border-bottom mb-4" >
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="name1">Name: Ahmed</label>
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="title1">Phone: +92 324 2520084 </label>
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="phone1">CNIC: 42201-4501150-3 </label>
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="phone1">Email: salesmanemail@gmail.com</label>
+                                                    </div>
+                                                    <div class="col-md-12 mb-3">
+                                                        <label for="phone1">Address: House # 123, abc colony, main xyz road</label>
+                                                    </div>
+                                                    <div class="col-md-4 mb-3">
+                                                        <label class="">Age: 21</label>
+                                                    </div>
+                                                    <div class="col-md-4 mb-3">
+                                                        <label class="">Religion: Islam</label>
+                                                    </div>
+                                                    <div class="col-md-4 mb-3">
+                                                        <label class="">Qualification: Intermediate</label>
+                                                    </div>
+                                                    <div class="col-md-4 mb-3">
+                                                        <label class="">Marital Status: Single</label>
+                                                    </div>
+                                                </div>
+                                                <h5 class="">Account Details</h5>
+                                                <div class="form-row">
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="name1">Bank Name: Meezan</label>
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="title1">Account No:</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="closeViewModal()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function openDeleteModal(){
+            $('#deleteModal').modal('show');
+        }
+        function closeDeleteModal(){
+            $('#deleteModal').modal('hide');
+        }
+        function openViewModal(){
+            $('#viewModal').modal('show');
+        }
+        function closeViewModal(){
+            $('#viewModal').modal('hide');
+        }
+    </script>
     <script>
         function status(id) {
             // var id = $('#status_change').attr("data-id");

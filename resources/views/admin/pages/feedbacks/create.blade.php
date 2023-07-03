@@ -3,12 +3,12 @@
 @section('content')
 
     <header class="page-header page-header-left-inline-breadcrumb">
-        <h2 class="font-weight-bold text-6">Seller Feedback Form</h2>
+        <h2 class="font-weight-bold text-6">Feedback Form</h2>
         <div class="right-wrapper">
             <ol class="breadcrumbs">
                 <li><span>Dashboard</span></li>
-                <li><span>Seller Feedback</span></li>
-                <li><span>Seller Feedback Form</span></li>
+                <li><span>Feedback</span></li>
+                <li><span>Feedback Form</span></li>
             </ol>
         </div>
     </header>
