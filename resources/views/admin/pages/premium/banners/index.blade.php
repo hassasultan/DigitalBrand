@@ -9,11 +9,9 @@
                 <li><span>Dashboard</span></li>
                 <li><span>Premium</span></li>
                 <li><span>Banners</span></li>
-
             </ol>
         </div>
     </header>
-
     <!-- start: page -->
     <div class="row">
         <div class="col">
@@ -26,32 +24,15 @@
                                     <a href="/banners/form" class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add Banner</a>
                                 </div>
                                 <div class="col-8 col-lg-auto ms-auto ml-auto mb-3 mb-lg-0">
-                                    <div class="d-flex align-items-lg-center flex-column flex-lg-row">
-                                        <label class="ws-nowrap me-3 mb-0">Filter By:</label>
-                                        <select class="form-control select-style-1 filter-by" name="filter-by">
-                                            <option value="all" selected>All</option>
-                                            <option value="1">ID</option>
-                                            <option value="2">Company Name</option>
-                                            <option value="3">Slug</option>
-                                            <option value="4">Parent Category</option>
-                                        </select>
-                                    </div>
+
                                 </div>
                                 <div class="col-4 col-lg-auto ps-lg-1 mb-3 mb-lg-0">
-                                    <div class="d-flex align-items-lg-center flex-column flex-lg-row">
-                                        <label class="ws-nowrap me-3 mb-0">Show:</label>
-                                        <select class="form-control select-style-1 results-per-page" name="results-per-page">
-                                            <option value="12" selected>12</option>
-                                            <option value="24">24</option>
-                                            <option value="36">36</option>
-                                            <option value="100">100</option>
-                                        </select>
-                                    </div>
+
                                 </div>
                                 <div class="col-12 col-lg-auto ps-lg-1">
                                     <div class="search search-style-1 search-style-1-lg mx-lg-auto">
                                         <div class="input-group">
-                                            <input type="text" class="search-term form-control" name="search-term" id="search-term" placeholder="Search Category">
+                                            <input type="text" class="search-term form-control" name="search-term" id="search-term" placeholder="Search Banner">
                                             <button class="btn btn-default" type="submit"><i class="bx bx-search"></i></button>
                                         </div>
                                     </div>
@@ -59,49 +40,29 @@
                             </div>
                         </div>
                         <table class="table table-ecommerce-simple table-borderless table-striped mb-0" id="datatable-ecommerce-list" style="min-width: 640px;">
-
                             <thead>
-                            <tr>
-                                <th width="10%"><input type="checkbox" name="select-all" class="select-all checkbox-style-1 p-relative top-2" value="" /></th>
-                                <th width="10%">ID</th>
-                                <th width="20%">Package Name</th>
-                                <th width="25%">Short Description</th>
-                                <th width="10%">Duration</th>
-                                <th width="10%">Price</th>
-                                <th width="30" style="text-align: center">Action</th>
-                            </tr>
+                                <tr>
+                                    <th width="5%"><input type="checkbox" name="select-all" class="select-all checkbox-style-1 p-relative top-2" value="" /></th>
+                                    <th width="8%">ID</th>
+                                    <th width="25%">Banner</th>
+                                    <th width="37%">Redirect URL</th>
+                                    <th width="10%">Days</th>
+                                    <th width="30" style="text-align: center">Action</th>
+                                </tr>
                             </thead>
                             <tbody>
-
-                            <tr>
-                                <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
-                                <td>1</td>
-                                <td><strong>Banner 1</strong></td>
-                                <td>Short Description</td>
-                                <td>30 days</td>
-                                <td>2000</td>
-
-                                <td style="text-align: center">
-                                    <button class="btn btn-danger" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-trash"></i></button>
-                                    <button class="btn btn-warning" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-pen"></i></button>
-                                    <button class="btn btn-primary"  style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-eye"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
-                                <td>2</td>
-                                <td><strong>Banner 2</strong></td>
-                                <td>Short Description</td>
-                                <td>15 days</td>
-                                <td>1000</td>
-
-                                <td style="text-align: center">
-                                    <button class="btn btn-danger" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-trash"></i></button>
-                                    <button class="btn btn-warning" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-pen"></i></button>
-                                    <button class="btn btn-primary"  style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-eye"></i></button>
-                                </td>
-                            </tr>
-
+                                <tr>
+                                    <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
+                                    <td>1</td>
+                                    <td><strong>Banner 1</strong></td>
+                                    <td>Short Description</td>
+                                    <td>30 days</td>
+                                    <td style="text-align: center">
+                                        <button class="btn btn-danger" onclick="openDeleteModal()" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-trash"></i></button>
+                                        <button class="btn btn-warning" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-pen"></i></button>
+                                        <button class="btn btn-primary"  style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-eye"></i></button>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                         <hr class="solid mt-5 opacity-4">
@@ -126,11 +87,36 @@
                                 </div>
                             </div>
                         </div>
-                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="verticalCenterTitle">Delete Banner</h5>
+                    <button type="button" class="close" onclick="closeDeleteModal()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="closeDeleteModal()">Close</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function openDeleteModal(){
+            $('#deleteModal').modal('show');
+        }
+        function closeDeleteModal(){
+            $('#deleteModal').modal('hide');
+        }
+    </script>
 @stop

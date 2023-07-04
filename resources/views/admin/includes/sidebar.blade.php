@@ -17,7 +17,6 @@
                         </a>
                     </li>
                     <li class="nav-group-label">User</li>
-
                     <li>
                         <a class="nav-link" href="/user_roles">
                             <i class="bx bx-user-check" aria-hidden="true"></i>
@@ -33,7 +32,6 @@
                     </li>
 
                     <li class="nav-group-label">Salesman</li>
-
                     <li>
                         <a class="nav-link" href="{{ route('salesman-management.index') }}">
                             <i class="bx bx-user-voice" aria-hidden="true"></i>
@@ -42,7 +40,6 @@
                     </li>
 
                     <li class="nav-group-label">Visitors</li>
-
                     <li>
                         <a class="nav-link" href="{{ route('visitor-management.index') }}">
                             <i class="bx bx-user-pin" aria-hidden="true"></i>
@@ -51,14 +48,12 @@
                     </li>
 
                     <li class="nav-group-label">Sellers</li>
-
                     <li>
                         <a class="nav-link" href="{{ route('seller-management.index') }}">
                             <i class="bx bx-male-sign" aria-hidden="true"></i>
                             <span>Sellers</span>
                         </a>
                     </li>
-
                     <li>
                         <a class="nav-link" href="/seller-shops">
                             <i class="bx bx-store" aria-hidden="true"></i>
@@ -88,7 +83,6 @@
                     </li>
 
                     <li class="nav-group-label">Offers</li>
-
                     <li>
                         <a class="nav-link" href="{{ route('offer-categories.index') }}">
                             <i class="bx bx-fullscreen" aria-hidden="true"></i>
@@ -111,15 +105,14 @@
                     </li>
 
                     <li class="nav-group-label">Feedback</li>
-
                     <li>
                         <a class="nav-link" href="/feedback">
                             <i class="bx bx-notepad" aria-hidden="true"></i>
-                            <span>Application Feedback</span>
+                            <span>Feedback</span>
                         </a>
                     </li>
-                    <li class="nav-group-label">Premium</li>
 
+                    <li class="nav-group-label">Premium</li>
                     <li>
                         <a class="nav-link" href="/packages">
                             <i class="bx bx-grid" aria-hidden="true"></i>
@@ -134,14 +127,19 @@
                         </a>
                     </li>
 
-
-
                     <li class="nav-group-label">Payments</li>
-
                     <li>
                         <a class="nav-link" href="/payments">
                             <i class="bx bx-money" aria-hidden="true"></i>
                             <span>Payments</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-group-label">Tutorials</li>
+                    <li>
+                        <a class="nav-link" href="/payments">
+                            <i class="bx bxs-videos" aria-hidden="true"></i>
+                            <span>Seller Guide</span>
                         </a>
                     </li>
                 </ul>

@@ -104,6 +104,11 @@ Route::get('/offers', function () {
     return view('admin/pages/offers/offers/index');
 });
 
+// feedback
+Route::get('/feedback', function () {
+    return view('admin/pages/feedbacks/index');
+});
+
 // -- Premium -- //
 
 // Packages
