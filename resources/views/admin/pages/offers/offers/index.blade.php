@@ -91,11 +91,10 @@
 
                                         </td>
                                         <td style="text-align: center">
-                                            <button class="btn btn-danger" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-times"></i></button>
+                                            <button class="btn btn-danger" onclick="openDeleteModal()" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-times"></i></button>
                                             <button class="btn btn-warning" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-comments"></i></button>
                                             <button class="btn btn-primary"  style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-check"></i></button>
                                             <button class="btn btn-secondary"  style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-eye"></i></button>
-
                                         </td>
                                     </tr>
                                 @endforeach

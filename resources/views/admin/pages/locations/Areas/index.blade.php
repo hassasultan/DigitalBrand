@@ -26,32 +26,15 @@
                                     <a href="{{ route('area-management.create') }}" class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add Area</a>
                                 </div>
                                 <div class="col-8 col-lg-auto ms-auto ml-auto mb-3 mb-lg-0">
-                                    <div class="d-flex align-items-lg-center flex-column flex-lg-row">
-                                        <label class="ws-nowrap me-3 mb-0">Filter By:</label>
-                                        <select class="form-control select-style-1 filter-by" name="filter-by">
-                                            <option value="all" selected>All</option>
-                                            <option value="1">ID</option>
-                                            <option value="2">Company Name</option>
-                                            <option value="3">Slug</option>
-                                            <option value="4">Parent Category</option>
-                                        </select>
-                                    </div>
+
                                 </div>
                                 <div class="col-4 col-lg-auto ps-lg-1 mb-3 mb-lg-0">
-                                    <div class="d-flex align-items-lg-center flex-column flex-lg-row">
-                                        <label class="ws-nowrap me-3 mb-0">Show:</label>
-                                        <select class="form-control select-style-1 results-per-page" name="results-per-page">
-                                            <option value="12" selected>12</option>
-                                            <option value="24">24</option>
-                                            <option value="36">36</option>
-                                            <option value="100">100</option>
-                                        </select>
-                                    </div>
+
                                 </div>
                                 <div class="col-12 col-lg-auto ps-lg-1">
                                     <div class="search search-style-1 search-style-1-lg mx-lg-auto">
                                         <div class="input-group">
-                                            <input type="text" class="search-term form-control" name="search-term" id="search-term" placeholder="Search Category">
+                                            <input type="text" class="search-term form-control" name="search-term" id="search-term" placeholder="Search Area">
                                             <button class="btn btn-default" type="submit"><i class="bx bx-search"></i></button>
                                         </div>
                                     </div>
@@ -77,9 +60,9 @@
                                     <td>{{ ++$key }}</td>
                                     <td><strong>{{ $row->name }}</strong></td>
                                     <td>{{ $row->city->name }}</td>
-                                    <td>30 days</td>
+                                    <td>30</td>
                                     <td style="text-align: center">
-                                        <button class="btn btn-danger"  style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></button>
+                                        <button class="btn btn-danger" onclick="openDeleteModal()" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></button>
                                         <button class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></button>
                                         <button class="btn btn-primary" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></button>
                                     </td>
@@ -116,5 +99,31 @@
             </div>
         </div>
     </div>
-
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="verticalCenterTitle">Delete Area</h5>
+                    <button type="button" class="close" onclick="closeDeleteModal()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this Area ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="closeDeleteModal()">Close</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function openDeleteModal(){
+            $('#deleteModal').modal('show');
+        }
+        function closeDeleteModal(){
+            $('#deleteModal').modal('hide');
+        }
+    </script>
 @stop

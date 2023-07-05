@@ -3,7 +3,7 @@
 @section('content')
 
     <header class="page-header page-header-left-inline-breadcrumb">
-        <h2 class="font-weight-bold text-6">Offer Categories</h2>
+        <h2 class="font-weight-bold text-6">Categories</h2>
         <div class="right-wrapper">
             <ol class="breadcrumbs">
                 <li><span>Dashboard</span></li>
@@ -26,27 +26,10 @@
                                     <a href="{{ route('offer-categories.create') }}" class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add Category</a>
                                 </div>
                                 <div class="col-8 col-lg-auto ms-auto ml-auto mb-3 mb-lg-0">
-                                    <div class="d-flex align-items-lg-center flex-column flex-lg-row">
-                                        <label class="ws-nowrap me-3 mb-0">Filter By:</label>
-                                        <select class="form-control select-style-1 filter-by" name="filter-by">
-                                            <option value="all" selected>All</option>
-                                            <option value="1">ID</option>
-                                            <option value="2">Company Name</option>
-                                            <option value="3">Slug</option>
-                                            <option value="4">Parent Category</option>
-                                        </select>
-                                    </div>
+
                                 </div>
                                 <div class="col-4 col-lg-auto ps-lg-1 mb-3 mb-lg-0">
-                                    <div class="d-flex align-items-lg-center flex-column flex-lg-row">
-                                        <label class="ws-nowrap me-3 mb-0">Show:</label>
-                                        <select class="form-control select-style-1 results-per-page" name="results-per-page">
-                                            <option value="12" selected>12</option>
-                                            <option value="24">24</option>
-                                            <option value="36">36</option>
-                                            <option value="100">100</option>
-                                        </select>
-                                    </div>
+
                                 </div>
                                 <div class="col-12 col-lg-auto ps-lg-1">
                                     <div class="search search-style-1 search-style-1-lg mx-lg-auto">
@@ -65,8 +48,8 @@
                                 <th width="10%"><input type="checkbox" name="select-all" class="select-all checkbox-style-1 p-relative top-2" value="" /></th>
                                 <th width="10%">ID</th>
                                 <th width="30%">Category Name</th>
-                                <th width="20%">Category Code</th>
-                                <th width="30" style="text-align: center">Action</th>
+                                <th width="30%">Category Code</th>
+                                <th width="30%">Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -77,8 +60,8 @@
                                         <td>{{ ++$key }}</td>
                                         <td><strong>{{ $row->name }}</strong></td>
                                         <td><strong>{{ $row->code }}</strong></td>
-                                        <td style="text-align: center">
-                                            <a href="#" class="btn btn-danger" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></a>
+                                        <td>
+                                            <a href="#" class="btn btn-danger" onclick="openDeleteModal()" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></a>
                                             <a href="#" class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></a>
                                             <a href="#" class="btn btn-primary"  style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></a>
                                         </td>
@@ -116,5 +99,31 @@
             </div>
         </div>
     </div>
-
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="verticalCenterTitle">Delete Category</h5>
+                    <button type="button" class="close" onclick="closeDeleteModal()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this salesman ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="closeDeleteModal()">Close</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function openDeleteModal(){
+            $('#deleteModal').modal('show');
+        }
+        function closeDeleteModal(){
+            $('#deleteModal').modal('hide');
+        }
+    </script>
 @stop

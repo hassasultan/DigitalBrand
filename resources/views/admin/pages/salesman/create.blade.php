@@ -155,7 +155,6 @@
                             <button class="btn btn-danger"><i class="fas fa-sync"></i> Reset</button>
                             <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i> Add Salesman</button>
                         </footer>
-                    </form>
                 </section>
             </form>
         </div>
