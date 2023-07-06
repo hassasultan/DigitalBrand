@@ -180,12 +180,12 @@ class SellerController extends Controller
     }
     public function featured_selller_list()
     {
-        $seller = Seller::with('user')->where('isFeatured',1)->paginate(10);
+        $seller = Seller::with('user','shop')->where('isFeatured',1)->paginate(10);
         return $seller;
     }
     public function top_selller_list()
     {
-        $seller = Seller::with('user')->orderBy('id','DESC')->paginate(10);
+        $seller = Seller::with('user','shop')->orderBy('id','DESC')->paginate(10);
         return $seller;
     }
 }
