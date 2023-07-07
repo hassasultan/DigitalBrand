@@ -157,6 +157,15 @@ Route::get('/banners/form', function () {
     return view('admin/pages/premium/banners/create');
 });
 
+// Tutorials
+Route::get('/seller-guide', function () {
+    return view('admin/pages/tutorials/seller-guide/index');
+});
+
+Route::get('/seller-guide/form', function () {
+    return view('admin/pages/tutorials/seller-guide/create');
+});
+
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

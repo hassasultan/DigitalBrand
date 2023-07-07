@@ -1,7 +1,7 @@
 <!-- Basic -->
 <meta charset="UTF-8">
 
-<title>PinkAd | Web Portal</title>
+<title>PinkAd - Portal</title>
 <link rel="icon" type="image/x-icon" href="{{ asset('/assets/img/favicon.png') }}">
 
 <!-- Mobile Metas -->

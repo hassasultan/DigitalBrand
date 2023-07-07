@@ -137,7 +137,7 @@
 
                     <li class="nav-group-label">Tutorials</li>
                     <li>
-                        <a class="nav-link" href="/payments">
+                        <a class="nav-link" href="/seller-guide">
                             <i class="bx bxs-videos" aria-hidden="true"></i>
                             <span>Seller Guide</span>
                         </a>
