@@ -64,7 +64,7 @@
                                         <td style="text-align: center">
                                             <button class="btn btn-danger" onclick="openDeleteModal()" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></button>
                                             <button class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></button>
-                                            <button class="btn btn-primary" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></button>
+{{--                                            <button class="btn btn-primary" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></button>--}}
                                         </td>
                                     </tr>
                                 @endforeach

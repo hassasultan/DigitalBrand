@@ -63,10 +63,10 @@
                             <tr>
                                 <th width="3%"><input type="checkbox" name="select-all" class="select-all checkbox-style-1 p-relative top-2" value="" /></th>
                                 <th width="8%">ID</th>
+                                <th width="15%">Logo</th>
                                 <th width="12%">Name</th>
                                 <th width="20%">Email</th>
                                 <th width="15%">Contact</th>
-                                <th width="15%">Business Name</th>
                                 <th width="15%">Status</th>
                                 <th width="30%">Action</th>
                             </tr>
@@ -76,10 +76,10 @@
                                     <tr>
                                         <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
                                         <td>{{ ++$key }}</td>
+                                        <td><img src={{ $row->logo }}></td>
                                         <td><a href="#"><strong>{{ $row->user->name }}</strong></a></td>
                                         <td>{{ $row->user->email }}</td>
                                         <td>{{ $row->phone }}</td>
-                                        <td>{{ $row->business_name }}</td>
                                         <td>
                                             <select id="status_change-{{ $row->id }}" class="form-control" data-id="{{ $row->id }}" onchange="status({{ $row->id }})">
                                                 <option @if($row->status == 1) selected @endif value="1">Active</option>

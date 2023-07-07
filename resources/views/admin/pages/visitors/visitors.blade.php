@@ -23,7 +23,7 @@
                         <div class="datatable-header">
                             <div class="row align-items-center mb-3">
                                 <div class="col-12 col-lg-auto mb-3 mb-lg-0">
-                                    <a href="{{ route('visitor-management.create') }}" class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add Visitor</a>
+{{--                                    <a href="{{ route('visitor-management.create') }}" class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add Visitor</a>--}}
                                 </div>
                                 <div class="col-8 col-lg-auto ms-auto ml-auto mb-3 mb-lg-0">
 
@@ -34,7 +34,7 @@
                                 <div class="col-12 col-lg-auto ps-lg-1">
                                     <div class="search search-style-1 search-style-1-lg mx-lg-auto">
                                         <div class="input-group">
-                                            <input type="text" class="search-term form-control" name="search-term" id="search-term" placeholder="Search Category">
+                                            <input type="text" class="search-term form-control" name="search-term" id="search-term" placeholder="Search Visitors">
                                             <button class="btn btn-default" type="submit"><i class="bx bx-search"></i></button>
                                         </div>
                                     </div>
@@ -42,34 +42,33 @@
                             </div>
                         </div>
                         <table class="table table-ecommerce-simple table-borderless table-striped mb-0" id="datatable-ecommerce-list" style="min-width: 640px;">
-
                             <thead>
                             <tr>
                                 <th width="3%"><input type="checkbox" name="select-all" class="select-all checkbox-style-1 p-relative top-2" value="" /></th>
-                                <th width="8%">ID</th>
+{{--                                <th width="8%">ID</th>--}}
                                 <th width="20%">Name</th>
+                                <th width="15%">Contact</th>
                                 <th width="30%">Email</th>
-                                <th width="25%">Area</th>
-                                <th width="50%">Action</th>
+                                <th width="20%">Area</th>
+                                <th width="30%">Action</th>
                             </tr>
                             </thead>
                             <tbody>
                                 @foreach ($customer as $key => $row)
                                     <tr>
                                         <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
-                                        <td>{{ ++$key }}</td>
+{{--                                        <td>{{ ++$key }}</td>--}}
                                         <td><a href="ecommerce-orders-detail.html"><strong>{{ $row->user->name }}</strong></a></td>
+                                        <td>03242520084</td>
                                         <td>{{ $row->user->email }}</td>
-                                        <td>{{ $row->business_name }}</td>
+                                        <td>Nazimabad</td>
                                         <td>
                                             <button class="btn btn-danger" onclick="openDeleteModal()" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></button>
                                             <button class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></button>
-                                            <button class="btn btn-primary"  style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></button>
+{{--                                            <button class="btn btn-primary"  style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></button>--}}
                                         </td>
                                     </tr>
                                 @endforeach
-
-
                             </tbody>
                         </table>
                         <hr class="solid mt-5 opacity-4">

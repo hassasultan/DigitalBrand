@@ -26,32 +26,15 @@
                                     <a href="/offers/form" class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add Offer</a>
                                 </div>
                                 <div class="col-8 col-lg-auto ms-auto ml-auto mb-3 mb-lg-0">
-                                    <div class="d-flex align-items-lg-center flex-column flex-lg-row">
-                                        <label class="ws-nowrap me-3 mb-0">Filter By:</label>
-                                        <select class="form-control select-style-1 filter-by" name="filter-by">
-                                            <option value="all" selected>All</option>
-                                            <option value="1">ID</option>
-                                            <option value="2">Company Name</option>
-                                            <option value="3">Slug</option>
-                                            <option value="4">Parent Category</option>
-                                        </select>
-                                    </div>
+
                                 </div>
                                 <div class="col-4 col-lg-auto ps-lg-1 mb-3 mb-lg-0">
-                                    <div class="d-flex align-items-lg-center flex-column flex-lg-row">
-                                        <label class="ws-nowrap me-3 mb-0">Show:</label>
-                                        <select class="form-control select-style-1 results-per-page" name="results-per-page">
-                                            <option value="12" selected>12</option>
-                                            <option value="24">24</option>
-                                            <option value="36">36</option>
-                                            <option value="100">100</option>
-                                        </select>
-                                    </div>
+
                                 </div>
                                 <div class="col-12 col-lg-auto ps-lg-1">
                                     <div class="search search-style-1 search-style-1-lg mx-lg-auto">
                                         <div class="input-group">
-                                            <input type="text" class="search-term form-control" name="search-term" id="search-term" placeholder="Search Category">
+                                            <input type="text" class="search-term form-control" name="search-term" id="search-term" placeholder="Search Offer">
                                             <button class="btn btn-default" type="submit"><i class="bx bx-search"></i></button>
                                         </div>
                                     </div>
@@ -63,12 +46,12 @@
                             <thead>
 
                             <tr>
-                                <th width="10%"><input type="checkbox" name="select-all" class="select-all checkbox-style-1 p-relative top-2" value="" /></th>
-                                <th width="5%">ID</th>
-                                <th width="15%">Image</th>
-                                <th width="20%">Title</th>
+                                <th width="8%"><input type="checkbox" name="select-all" class="select-all checkbox-style-1 p-relative top-2" value="" /></th>
+{{--                                <th width="5%">ID</th>--}}
                                 <th width="10%">Seller</th>
-                                <th width="10%">Category</th>
+                                <th width="22%">Image</th>
+                                <th width="30%">Title</th>
+{{--                                <th width="10%">Category</th>--}}
                                 <th width="10%">Featured</th>
                                 <th width="30" style="text-align: center">Action</th>
                             </tr>
@@ -76,12 +59,12 @@
                             <tbody>
                                 @foreach ($post as $key => $row )
                                     <tr>
-                                        <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
-                                        <td>{{ ++$key }}</td>
+                                        <td><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
+{{--                                        <td>{{ ++$key }}</td>--}}
+                                        <td>{{ $row->shop->seller->name }}</td>
                                         <td><img src="{{ asset('storage/'.$row->banner) }}" style="width:150px; height:150px;"/></td>
                                         <td><strong>{{ $row->title }}</strong></td>
-                                        <td>{{ $row->shop->seller->name }}</td>
-                                        <td>{{ $row->category->name }}</td>
+{{--                                        <td>{{ $row->category->name }}</td>--}}
                                         <td>
                                             @if($row->IsFeature == 1)
                                                 Yes

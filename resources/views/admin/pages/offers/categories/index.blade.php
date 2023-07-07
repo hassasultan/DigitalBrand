@@ -63,7 +63,7 @@
                                         <td>
                                             <a href="#" class="btn btn-danger" onclick="openDeleteModal()" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></a>
                                             <a href="#" class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></a>
-                                            <a href="#" class="btn btn-primary"  style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></a>
+{{--                                            <a href="#" class="btn btn-primary"  style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></a>--}}
                                         </td>
                                     </tr>
                                 @endforeach
@@ -109,7 +109,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure you want to delete this salesman ?</p>
+                    <p>Are you sure you want to delete this Category ?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" onclick="closeDeleteModal()">Close</button>
