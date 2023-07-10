@@ -62,7 +62,9 @@
                                     <td>{{ $row->city->name }}</td>
                                     <td>30</td>
                                     <td style="text-align: center">
-                                        <button class="btn btn-danger" onclick="openDeleteModal()" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></button>
+                                        <form action="{{ route('delete.area',$row->id) }}" id="delete-area-{{ $row->id }}" method="GET">
+                                        </form>
+                                        <button class="btn btn-danger" onclick="openDeleteModal({{ $row->id }})" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></button>
                                         <button class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></button>
 {{--                                        <button class="btn btn-primary" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></button>--}}
                                     </td>
@@ -113,14 +115,21 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" onclick="closeDeleteModal()">Close</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                    <button type="button" class="btn btn-danger" onclick="deleteArea()">Delete</button>
                 </div>
             </div>
         </div>
     </div>
     <script>
-        function openDeleteModal(){
+        var frmid = 0;
+        function openDeleteModal(id){
+            frmid = id;
             $('#deleteModal').modal('show');
+        }
+        function deleteArea()
+        {
+            console.log(frmid);
+            $("#delete-area-"+frmid).submit();
         }
         function closeDeleteModal(){
             $('#deleteModal').modal('hide');

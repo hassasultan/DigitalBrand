@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Traits\SaveImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Seller;
+
 
 class SalesManController extends Controller
 {
@@ -91,5 +93,17 @@ class SalesManController extends Controller
         }
         $sales_man->save();
         return redirect()->route('salesman-management.index');
+    }
+    public function destroy($id)
+    {
+        $seller = Seller::where('salesman_id',$id)->get();
+        if(count($seller) > 0)
+        {
+            $seller->salesman_id = 0;
+            $seller->save();
+        }
+        $salesman = SaleMan::find($id);
+        $salesman->delete();
+        return redirect()->back();
     }
 }

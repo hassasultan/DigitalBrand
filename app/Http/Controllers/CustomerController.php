@@ -32,6 +32,12 @@ class CustomerController extends Controller
         $customer = Customer::all();
         return view('admin.pages.visitors.visitors',compact('customer'));
     }
+    public function destroy($id)
+    {
+        $customer = Customer::find($id);
+        $customer->delete();
+        return redirect()->back();
+    }
     public function create()
     {
         // $seller = Seller::all();

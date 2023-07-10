@@ -17,6 +17,12 @@ class CategoryController extends Controller
     {
         return view('admin.pages.offers.categories.create');
     }
+    public function destroy($id)
+    {
+        $cat = Category::find($id);
+        $cat->delete();
+        return redirect()->back();
+    }
     public function store(Request $request)
     {
         Category::create($request->all());

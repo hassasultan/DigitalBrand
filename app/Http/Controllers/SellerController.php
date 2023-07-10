@@ -98,6 +98,12 @@ class SellerController extends Controller
         $seller->save();
         return redirect()->route('seller-management.index');
     }
+    public function destroy($id)
+    {
+        $seller = Seller::find($id);
+        $seller->delete();
+        return redirect()->back();
+    }
     public function Apistore(Request $request)
     {
         $valid = $this->validator($request->all());

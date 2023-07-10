@@ -20,6 +20,12 @@ class CityController extends Controller
         $province = Province::all()->where('status',1);
         return view('admin.pages.locations.Cities.create',compact('province'));
     }
+    public function destroy($id)
+    {
+        $city = City::find($id);
+        $city->delete();
+        return redirect()->back();
+    }
     public function store(Request $request)
     {
         City::create($request->all());

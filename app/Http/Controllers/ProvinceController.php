@@ -17,6 +17,12 @@ class ProvinceController extends Controller
     {
         return view('admin.pages.locations.Provinces.create');
     }
+    public function destroy($id)
+    {
+        $province = Province::find($id);
+        $province->delete();
+        return redirect()->back();
+    }
     public function store(Request $request)
     {
         Province::create($request->all());

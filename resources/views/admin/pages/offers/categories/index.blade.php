@@ -61,7 +61,9 @@
                                         <td><strong>{{ $row->name }}</strong></td>
                                         <td><strong>{{ $row->code }}</strong></td>
                                         <td>
-                                            <a href="#" class="btn btn-danger" onclick="openDeleteModal()" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></a>
+                                            <form action="{{ route('delete.category',$row->id) }}" id="delete-category-{{ $row->id }}" method="GET">
+                                            </form>
+                                            <a href="#" class="btn btn-danger" onclick="openDeleteModal({{ $row->id }})" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></a>
                                             <a href="#" class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></a>
 {{--                                            <a href="#" class="btn btn-primary"  style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></a>--}}
                                         </td>
@@ -113,14 +115,21 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" onclick="closeDeleteModal()">Close</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                    <button type="button" class="btn btn-danger" onclick="deleteCategory()">Delete</button>
                 </div>
             </div>
         </div>
     </div>
     <script>
-        function openDeleteModal(){
+        var frmid = 0;
+        function openDeleteModal(id){
+            frmid = id;
             $('#deleteModal').modal('show');
+        }
+        function deleteCategory()
+        {
+            console.log(frmid);
+            $("#delete-category-"+frmid).submit();
         }
         function closeDeleteModal(){
             $('#deleteModal').modal('hide');

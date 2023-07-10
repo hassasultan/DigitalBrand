@@ -174,14 +174,28 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Salesman
 Route::resource('/salesman-management', SalesManController::class);
+Route::get('/salesman/delete/{id}', [SalesManController::class,'destroy'])->name('delete.salesman');
+
 Route::resource('/seller-management', SellerController::class);
+Route::get('/seller/delete/{id}', [SellerController::class,'destroy'])->name('delete.seller');
 Route::resource('/offer-categories', CategoryController::class);
+Route::get('/category/delete/{id}', [CategoryController::class,'destroy'])->name('delete.category');
+
 Route::resource('/offer-sub-categories', SubCatogoryController::class);
+Route::get('/sub-category/delete/{id}', [SubCatogoryController::class,'destroy'])->name('delete.subcategory');
+
 Route::resource('/offer-management', PostController::class);
 Route::resource('/visitor-management', CustomerController::class);
+Route::get('/visitor/delete/{id}', [CustomerController::class,'destroy'])->name('delete.visitor');
+
 Route::resource('/area-management', AreaController::class);
+Route::get('/area/delete/{id}', [AreaController::class,'destroy'])->name('delete.area');
+
 Route::resource('/city-management', CityController::class);
+Route::get('/city/delete/{id}', [CityController::class,'destroy'])->name('delete.city');
+
 Route::resource('/province-management', ProvinceController::class);
+Route::get('/province/delete/{id}', [ProvinceController::class,'destroy'])->name('delete.province');
 
 Route::get('/seller/change-status/{status}/{id}', [SellerController::class, 'change_status'])->name('admin.seller.status');
 

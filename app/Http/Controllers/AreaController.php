@@ -20,6 +20,12 @@ class AreaController extends Controller
         $city = City::where('status',1)->get();
         return view('admin.pages.locations.Areas.create',compact('city'));
     }
+    public function destroy($id)
+    {
+        $city = Area::find($id);
+        $city->delete();
+        return redirect()->back();
+    }
     public function store(Request $request)
     {
         Area::create($request->all());

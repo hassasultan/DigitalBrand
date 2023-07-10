@@ -18,6 +18,12 @@ class SubCatogoryController extends Controller
         $category = Category::where('status', 1)->get();
         return view('admin.pages.offers.sub-categories.create',compact('category'));
     }
+    public function destroy($id)
+    {
+        $subcat = SubCatogory::find($id);
+        $subcat->delete();
+        return redirect()->back();
+    }
     public function store(Request $request)
     {
         SubCatogory::create($request->all());
