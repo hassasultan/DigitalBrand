@@ -37,4 +37,8 @@ class Post extends Model
     {
         return $this->belongsTo(SubCatogory::class, 'subcat_id','id');
     }
+    public function getarea()
+    {
+        return $this->belongsTo(Area::class, 'area','id');
+    }
 }

@@ -19,6 +19,13 @@ class PostController extends Controller
         $post = Post::all();
         return view('admin.pages.offers.offers.index',compact('post'));
     }
+    public function destroy($id)
+    {
+        $post = Post::find($id);
+        // dd($post->toArray());
+        $post->delete();
+        return redirect()->back();
+    }
     public function create_offer_api(Request $request)
     {
         try

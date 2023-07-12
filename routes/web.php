@@ -185,6 +185,9 @@ Route::resource('/offer-sub-categories', SubCatogoryController::class);
 Route::get('/sub-category/delete/{id}', [SubCatogoryController::class,'destroy'])->name('delete.subcategory');
 
 Route::resource('/offer-management', PostController::class);
+Route::get('/offer/delete/{id}', [PostController::class,'destroy'])->name('delete.offer');
+
+
 Route::resource('/visitor-management', CustomerController::class);
 Route::get('/visitor/delete/{id}', [CustomerController::class,'destroy'])->name('delete.visitor');
 
