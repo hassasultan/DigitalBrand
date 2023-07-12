@@ -12,6 +12,7 @@ class Shop extends Model
     protected $fillable = [
         "seller_id",
         "name",
+        "area",
         "branch_name",
         "address",
         "logo",
@@ -22,5 +23,9 @@ class Shop extends Model
     public function seller()
     {
         return $this->belongsTo(Seller::class, 'seller_id','id');
+    }
+    public function getarea()
+    {
+        return $this->belongsTo(Area::class, 'area','id');
     }
 }

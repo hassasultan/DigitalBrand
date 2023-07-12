@@ -11,6 +11,12 @@ class ShopController extends Controller
 {
     //
     use SaveImage;
+    public function index()
+    {
+        $shop_list = Shop::with('seller')->get();
+        return view('admin.pages.sellers.seller-shops.index',compact('shop_list'));
+
+    }
     public function create_shop_api(Request $request)
     {
         try

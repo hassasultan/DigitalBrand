@@ -55,7 +55,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" href="/seller-shops">
+                        <a class="nav-link" href="{{ route('shop-management.index') }}">
                             <i class="bx bx-store" aria-hidden="true"></i>
                             <span>Seller Shops</span>
                         </a>

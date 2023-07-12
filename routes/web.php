@@ -9,6 +9,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -81,9 +82,9 @@ Route::get('/visitor/form', function () {
 // });
 
 // Seller Shops
- Route::get('/seller-shops', function () {
-     return view('admin/pages/sellers/seller-shops/index');
- });
+//  Route::get('/seller-shops', function () {
+//      return view('admin/pages/sellers/seller-shops/index');
+//  });
 
  Route::get('/seller-shops/form', function () {
      return view('admin/pages/sellers/seller-shops/create');
@@ -173,6 +174,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Salesman
+Route::resource('/shop-management', ShopController::class);
+
+
 Route::resource('/salesman-management', SalesManController::class);
 Route::get('/salesman/delete/{id}', [SalesManController::class,'destroy'])->name('delete.salesman');
 
