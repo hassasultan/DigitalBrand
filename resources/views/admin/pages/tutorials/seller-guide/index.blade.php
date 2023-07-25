@@ -57,7 +57,7 @@
                                         <td>{{ ++$key }}</td>
                                         <td>
                                             <video loop autoplay muted style="width:200px; height:150px;">
-                                                <source src="{{asset('storage/'.$row->video)}}" type="video/mp4">
+                                                <source src="{{asset('public/storage/'.$row->video)}}" type="video/mp4">
 
                                                 Your browser does not support HTML video.
                                             </video>
