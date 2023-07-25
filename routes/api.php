@@ -13,6 +13,8 @@ use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\VideoController;
+use App\Http\Controllers\FeedBackController;
 
 
 /*
@@ -55,6 +57,13 @@ Route::get('seller/shop/list',[ShopController::class, 'seller_shop']);
 
 Route::post('insights/update',[PostController::class, 'insights']);
 Route::post('offer/status',[PostController::class, 'change_status']);
+
+Route::post('feedback/store',[FeedBackController::class, 'store']);
+Route::get('tutorial/video',[VideoController::class, 'video_list']);
+
+
+
+Route::post('classify/image',[PostController::class, 'classify']);
 
 Route::get('shop/offer/{id}',[PostController::class, 'selleroffer']);
 

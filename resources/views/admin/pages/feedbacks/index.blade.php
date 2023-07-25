@@ -57,8 +57,21 @@
                             </tr>
                             </thead>
                             <tbody>
+                                @foreach ($feed as $row)
+                                    <tr>
+                                        <td></td>
+                                        <td>{{ $row->name }}</td>
+                                        <td>{{ $row->contact }}</td>
+                                        <td>{{ $row->feedback }}</td>
+                                        <td>
+                                            {{-- <form action="{{ route('video-management',$row->id) }}" id="delete-visitor-{{ $row->id }}" method="GET">
+                                            </form> --}}
+                                            <button class="btn btn-danger" onclick="openDeleteModal({{ $row->id }})" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></button>
+                                            <button class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></button>
 
-
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                         <hr class="solid mt-5 opacity-4">

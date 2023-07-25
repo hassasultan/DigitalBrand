@@ -106,7 +106,7 @@
 
                     <li class="nav-group-label">Feedback</li>
                     <li>
-                        <a class="nav-link" href="/feedback">
+                        <a class="nav-link" href="{{ route('feedback-management.index') }}">
                             <i class="bx bx-notepad" aria-hidden="true"></i>
                             <span>Feedback</span>
                         </a>
@@ -137,7 +137,7 @@
 
                     <li class="nav-group-label">Tutorials</li>
                     <li>
-                        <a class="nav-link" href="/seller-guide">
+                        <a class="nav-link" href="{{ route('video-management.index') }}">
                             <i class="bx bxs-videos" aria-hidden="true"></i>
                             <span>Seller Guide</span>
                         </a>

@@ -21,7 +21,7 @@
                         <div class="datatable-header">
                             <div class="row align-items-center mb-3">
                                 <div class="col-12 col-lg-auto mb-3 mb-lg-0">
-                                    <a href="/seller-guide/form" class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add Video</a>
+                                    <a href="{{ route('video-management.create') }}" class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add Video</a>
                                 </div>
                                 <div class="col-8 col-lg-auto ms-auto ml-auto mb-3 mb-lg-0">
 
@@ -51,7 +51,28 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($video as $key => $row)
+                                    <tr>
+                                        <td></td>
+                                        <td>{{ ++$key }}</td>
+                                        <td>
+                                            <video loop autoplay muted style="width:200px; height:150px;">
+                                                <source src="{{asset('storage/'.$row->video)}}" type="video/mp4">
 
+                                                Your browser does not support HTML video.
+                                            </video>
+                                        </td>
+                                        <td>{{ $row->title }}</td>
+                                        <td>{{ $row->description }}</td>
+                                        <td>
+                                            {{-- <form action="{{ route('video-management',$row->id) }}" id="delete-visitor-{{ $row->id }}" method="GET">
+                                            </form> --}}
+                                            <button class="btn btn-danger" onclick="openDeleteModal({{ $row->id }})" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></button>
+                                            <button class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></button>
+
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                         <hr class="solid mt-5 opacity-4">

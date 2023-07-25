@@ -10,6 +10,8 @@ use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\VideoController;
+use App\Http\Controllers\FeedBackController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -175,6 +177,9 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Salesman
 Route::resource('/shop-management', ShopController::class);
+
+Route::resource('/video-management', VideoController::class);
+Route::resource('/feedback-management', FeedBackController::class);
 
 
 Route::resource('/salesman-management', SalesManController::class);

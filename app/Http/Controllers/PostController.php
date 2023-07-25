@@ -10,10 +10,27 @@ use Exception;
 use Illuminate\Http\Request;
 use App\Traits\SaveImage;
 use Facebook\Facebook;
+require_once app_path('Http/Controllers/TensorFlow.php');
 class PostController extends Controller
 {
     //
     use SaveImage;
+
+    // public function classify(Request $request)
+    // {
+    //     // Instantiate the TensorFlowClass
+    //     $tensorflow = new TensorFlowClass();
+
+    //     // Load the model
+    //     $tensorflow->loadModel('/App/Http/Controllers/model.tflite');
+
+    //     // Process the image data and get predictions
+    //     $imageData = $request->file('image')->get();
+    //     $predictions = $tensorflow->classifyImage($imageData);
+
+    //     // Return the predictions as a JSON response
+    //     return response()->json(['predictions' => $predictions]);
+    // }
     public function index()
     {
         $post = Post::all();
