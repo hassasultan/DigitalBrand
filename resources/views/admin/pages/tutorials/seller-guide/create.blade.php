@@ -37,6 +37,13 @@
                                         <input type="text" class="form-control" name="description" id="formGroupExampleInput" placeholder="">
                                     </div>
                                 </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="formGroupExampleInputthumbnail">Thumbnail</label>
+                                        <input type="file" class="form-control" name="thumbnail" id="formGroupExampleInput"thumbnail placeholder="">
+
+                                    </div>
+                                </div>
 
                                 <div class="col-lg-4">
                                     <div class="form-group">

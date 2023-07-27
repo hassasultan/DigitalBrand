@@ -18,7 +18,8 @@ class VideoController extends Controller
         $valid =  Validator::make($data, [
             'title' => ['required', 'string'],
             'description' => ['required', 'string'],
-            'video' => ['required','mimes:jpeg,jpg,png,mp4','max:50000'],
+            'video' => ['required','mimes:mp4','max:50000'],
+            'thumbnail' => ['required','mimes:jpeg,jpg,png','max:20000'],
         ]);
         return $valid;
     }
@@ -43,7 +44,9 @@ class VideoController extends Controller
             $this->validator($request->all());
             $data = $request->all();
             $video = $this->video($request->video);
+            $thumb = $this->thumbnail($request->thumbnail);
             $data['video'] = $video;
+            $data['thumbnail'] = $thumb;
             Video::create($data);
             return redirect()->route('video-management.index');
         }

@@ -122,4 +122,16 @@ trait SaveImage
         return $filenamepath;
 
     }
+    public function thumbnail($image)
+    {
+        $img = $image;
+        $number = rand(1,999);
+        $numb = $number / 7 ;
+        $extension      = $img->extension();
+        $filenamenew    = date('Y-m-d')."_.".$numb."_.".$extension;
+        $filenamepath   = 'video/thumbnail/'.$filenamenew;
+        $filename       = $img->move(public_path('storage/video/thumbnail'),$filenamenew);
+        return $filenamepath;
+
+    }
 }
