@@ -31,6 +31,9 @@ use App\Http\Controllers\FeedBackController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('delete/user',[SellerController::class, 'ApiDestroy']);
+
+
 Route::post('seller/update',[SellerController::class, 'Apistore']);
 Route::get('salesman/list',[SalesManController::class, 'sales_man_list']);
 Route::get('subcategory',[SubCatogoryController::class, 'subcategoryApi']);
@@ -79,7 +82,6 @@ Route::controller(AuthController::class)->group(function () {
 });
 Route::middleware(['seller'])->group(function () {
 
-    Route::get('delete/seller',[SellerController::class, 'ApiDestroy']);
     Route::post('create/shop',[ShopController::class, 'create_shop_api']);
     Route::get('list/shop',[ShopController::class, 'shop_list']);
     Route::post('create/offer',[PostController::class, 'create_offer_api']);
