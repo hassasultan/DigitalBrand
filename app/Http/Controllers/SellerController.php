@@ -118,7 +118,7 @@ class SellerController extends Controller
     }
     public function ApiDestroy()
     {
-        $id = auth()->user()->id;
+        $id = auth('api')->user()->id;
         $seller = User::find($id);
         $seller->delete();
         return true;
