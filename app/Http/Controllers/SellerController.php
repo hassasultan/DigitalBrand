@@ -118,10 +118,20 @@ class SellerController extends Controller
     }
     public function ApiDestroy()
     {
-        $id = auth('api')->user()->id;
-        $seller = User::find($id);
-        $seller->delete();
-        return true;
+        if(auth('api')->user())
+        {
+            $id = auth('api')->user()->id;
+            $seller = User::find($id);
+            $seller->delete();
+            return true;
+        }
+        else
+        {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Unauthorized',
+            ], 401);
+        }
     }
     public function Apistore(Request $request)
     {
