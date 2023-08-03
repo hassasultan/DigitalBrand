@@ -24,10 +24,22 @@ class SalesManController extends Controller
         $salesman = SaleMan::with('user')->where('status',1)->get();
         return $salesman;
     }
+    public function update($id,Request $request)
+    {
+        $data = $request->except(['_token','_method','name','email']);
+        SaleMan::where('id',$id)->update($data);
+        return redirect()->route('salesman-management.index');
+
+    }
     public function create()
     {
         // $salesman = SaleMan::all();
         return view('admin.pages.salesman.create');
+    }
+    public function edit($id)
+    {
+        $salesman = SaleMan::find($id);
+        return view('admin.pages.salesman.edit',compact('salesman'));
     }
     public function store(Request $request)
     {

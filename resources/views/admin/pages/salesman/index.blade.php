@@ -72,8 +72,8 @@
                                                     class="fas fa-check"></i></button>
                                             <button class="btn btn-danger" style="padding: 4px 6px;font-size: 12px;" onclick="openDeleteModal({{ $row->id }})"><i
                                                     class="fas fa-trash"></i></button>
-                                            <button class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i
-                                                    class="fas fa-pen"></i></button>
+                                            <a class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;" href="{{ route('salesman-management.edit',$row->id) }}"><i
+                                                    class="fas fa-pen"></i></a>
                                             <div class="modal fade" id="viewModal-{{ $row->id }}" tabindex="-1" role="dialog" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 1000px">
                                                     <div class="modal-content">

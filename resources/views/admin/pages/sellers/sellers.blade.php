@@ -90,7 +90,7 @@
                                             <form action="{{ route('delete.seller',$row->id) }}" id="delete-seller-{{ $row->id }}" method="GET">
                                             </form>
                                             <button class="btn btn-danger"  onclick="openDeleteModal({{ $row->id }})" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></button>
-                                            <button class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></button>
+                                            <a class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;" href="{{ route('seller-management.edit',$row->id) }}"><i class="fas fa-pen"></i></a>
                                             <button class="btn btn-primary"   onclick="openViewModal({{ $row->id }})" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></button>
                                             <div class="modal fade" id="viewModal-{{ $row->id }}" tabindex="-1" role="dialog" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 1000px">

@@ -43,6 +43,18 @@ class CustomerController extends Controller
         // $seller = Seller::all();
         return view('admin.pages.visitors.visitor_form');
     }
+    public function edit($id)
+    {
+        $customer = Customer::find($id);
+        return view('admin.pages.visitors.edit',compact('customer'));
+    }
+    public function update($id,Request $request)
+    {
+        $data = $request->except(['_token','_method','name']);
+        $customer = Customer::where('id',$id)->update($data);
+        return redirect()->route('visitor-management.index');
+
+    }
     public function store(Request $request)
     {
         // dd($request->all());

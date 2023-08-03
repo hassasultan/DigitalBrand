@@ -40,6 +40,18 @@ class SellerController extends Controller
         // $seller = Seller::all();
         return view('admin.pages.sellers.create');
     }
+    public function edit($id)
+    {
+        $seller = Seller::find($id);
+        return view('admin.pages.sellers.edit',compact('seller'));
+    }
+    public function update($id,Request $request)
+    {
+        $data = $request->except(['_token','_method','name']);
+        $customer = Seller::where('id',$id)->update($data);
+        return redirect()->route('seller-management.index');
+
+    }
     public function store(Request $request)
     {
         // dd($request->all());
@@ -103,6 +115,13 @@ class SellerController extends Controller
         $seller = Seller::find($id);
         $seller->delete();
         return redirect()->back();
+    }
+    public function ApiDestroy()
+    {
+        $id = auth()->user()->id;
+        $seller = User::find($id);
+        $seller->delete();
+        return true;
     }
     public function Apistore(Request $request)
     {

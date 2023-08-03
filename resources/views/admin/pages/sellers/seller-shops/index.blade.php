@@ -63,7 +63,7 @@
                                        <td>@if($row->getarea != null) {{ $row->getarea->name }}, {{ $row->getarea->city->name }}, {{ $row->getarea->city->province->name }} @else {{ $row->address }} @endif</td>
                                        <td>
                                            <button class="btn btn-danger" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-trash"></i></button>
-                                           <button class="btn btn-warning" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-pen"></i></button>
+                                           {{-- <button class="btn btn-warning" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-pen"></i></button> --}}
                                            <button class="btn btn-primary"  style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-eye"></i></button>
                                        </td>
                                    </tr>
