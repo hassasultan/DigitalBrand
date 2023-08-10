@@ -63,7 +63,7 @@ class AuthController extends Controller
             else
             {
                 return response()->json(['status' => 'error',
-                'message' => "Invalid Credentials..."]);
+                'message' => "Invalid Credentials..."], 401);
             }
         }
         catch(Exception $ex)
@@ -107,7 +107,7 @@ class AuthController extends Controller
             else
             {
                 return response()->json(['status' => 'error',
-                'message' => "Invalid Credentials..."]);
+                'message' => "Invalid Credentials..."], 401);
             }
         }
         catch(Exception $ex)
@@ -152,7 +152,7 @@ class AuthController extends Controller
             else
             {
                 return response()->json(['status' => 'error',
-                'message' => "Invalid Credentials..."]);
+                'message' => "Invalid Credentials..."], 401);
             }
         }
         catch(Exception $ex)
