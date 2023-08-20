@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Seller;
 use App\Models\User;
+use App\Models\DeletedUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Traits\SaveImage;
@@ -120,6 +121,24 @@ class SellerController extends Controller
     {
         if(auth('api')->user())
         {
+            $role = "";
+            if(auth('api')->user()->role == 2)
+            {
+                $role = "seller";
+            }
+            elseif(auth('api')->user()->role == 3)
+            {
+                $role = "customer";
+            }
+            else
+            {
+                $role = "salesman";
+            }
+            $del = DeletedUser::create([
+                'name' => auth('api')->user()->name,
+                'email' => auth('api')->user()->email,
+                'role'  => $role,
+            ]);
             $id = auth('api')->user()->id;
             $seller = User::find($id);
             $seller->delete();
