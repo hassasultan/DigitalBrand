@@ -76,7 +76,7 @@
                                     <tr>
                                         <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
                                         <td>{{ ++$key }}</td>
-                                        <td><img src={{ asset('/public/storage/'.$row->logo) }}></td>
+                                        <td><img src={{ asset('/public/storage/'.$row->logo) }} style="widht:100px; height:100px; border-radius:50%;"></td>
                                         <td><a href="#"><strong>{{ $row->user->name }}</strong></a></td>
                                         <td>{{ $row->user->email }}</td>
                                         <td>{{ $row->phone }}</td>
