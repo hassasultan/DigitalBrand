@@ -58,7 +58,7 @@
                                         <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
                                         <td>{{ ++$key }}</td>
                                         <td><strong>{{ $row->name }}</strong></td>
-                                        <td><strong>{{ $row->category->name }}</strong></td>
+                                        <td><strong>{{ $row->category->name ?? 'Category has been deleted'}}</strong></td>
                                         <td style="text-align: center">
                                             <form action="{{ route('delete.subcategory',$row->id) }}" id="delete-subcategory-{{ $row->id }}" method="GET">
                                             </form>
