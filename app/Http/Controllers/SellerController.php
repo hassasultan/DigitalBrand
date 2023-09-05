@@ -48,8 +48,18 @@ class SellerController extends Controller
     }
     public function update($id,Request $request)
     {
-        $data = $request->except(['_token','_method','name']);
-        $customer = Seller::where('id',$id)->update($data);
+        $data = $request->except(['_token','_method','name','logo','coverimage']);
+        Seller::where('id',$id)->update($data);
+        $seller = Seller::find($id);
+        if($request->has('coverimage') && $request->coverimage)
+        {
+            $seller->coverimage = $this->seller_logo($request->coverimage);
+        }
+        if($request->has('logo') && $request->logo)
+        {
+            $seller->logo = $this->seller_logo($request->logo);
+        }
+        $seller->save();
         return redirect()->route('seller-management.index');
 
     }

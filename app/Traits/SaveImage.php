@@ -62,6 +62,7 @@ trait SaveImage
         return $filenamepath;
 
     }
+
     public function shop_logo($image)
     {
         $img = $image;
