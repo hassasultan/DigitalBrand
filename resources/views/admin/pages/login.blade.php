@@ -19,10 +19,15 @@
                     <div class="form-group mb-3">
                         <label>Email</label>
                         <div class="input-group">
-                            <input name="email" type="text" class="form-control" />
+                            <input name="email" type="text" class="form-control  @error('email') is-invalid @enderror" />
                             <span class="input-group-text">
 										<i class="bx bx-user text-4"></i>
                             </span>
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
 
@@ -32,10 +37,15 @@
                             <a href="forgot-password" class="float-end">Lost Password?</a>
                         </div>
                         <div class="input-group">
-                            <input name="password" type="password" class="form-control" />
+                            <input name="password" type="password" class="form-control  @error('password') is-invalid @enderror" />
                             <span class="input-group-text">
 										<i class="bx bx-lock text-4"></i>
                             </span>
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
 
