@@ -62,7 +62,7 @@
                                         <td><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
 {{--                                        <td>{{ ++$key }}</td>--}}
                                         <td>{{ $row->shop->name }}</td>
-                                        <td><img src="{{ asset('storage/'.$row->banner) }}" style="width:150px; height:150px;"/></td>
+                                        <td><img src="{{ asset('/public/storage/'.$row->banner) }}" style="width:150px; height:150px;"/></td>
                                         <td><strong>{{ $row->title }}</strong></td>
                                         <td>{{ $row->description }}</td>
 {{--                                        <td>--}}
