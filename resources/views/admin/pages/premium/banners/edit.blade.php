@@ -16,12 +16,12 @@
     <!-- start: page -->
     <div class="row">
         <div class="col-lg-12">
-            <form id="form1" method="POST" action="{{ route('banner-management.store') }}" class="form-horizontal" enctype="multipart/form-data">
+            <form id="form1" method="POST" action="{{ route('banner-management.update',$banner->id) }}" class="form-horizontal" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="web" value="1"/>
+                @method('PUT')
                 <section class="card">
                     <header class="card-header">
-                        <h2 class="card-title">New Banner</h2>
+                        <h2 class="card-title">Update Banner</h2>
                     </header>
                     <div class="card-body">
                         <div class="row form-group pb-3">
@@ -30,7 +30,7 @@
                                     <label class="col-form-label" for="formGroupExampleInput">Select Shop</label>
                                     <select name="shop_id" class="form-control">
                                         @foreach ($shop as $row)
-                                            <option  value="{{ $row->id }}"> {{ $row->name }}</option>
+                                            <option  value="{{ $row->id }}" @if($banner->shop_id == $row->id) selected @endif> {{ $row->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -40,7 +40,7 @@
                                     <label class="col-form-label" for="formGroupExampleInput">Select Area</label>
                                     <select name="area" class="form-control">
                                         @foreach ($area as $row)
-                                            <option  value="{{ $row->id }}"> {{ $row->name }}</option>
+                                            <option  value="{{ $row->id }}" @if($banner->area == $row->id) selected @endif> {{ $row->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -48,7 +48,7 @@
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label class="col-form-label" for="formGroupExampleInput">Redirect URL</label>
-                                    <input type="url" class="form-control" name="redirect_url" id="formGroupExampleInput" placeholder="">
+                                    <input type="url" value="{{ $banner->redirect_url }}" class="form-control" name="redirect_url" id="formGroupExampleInput" placeholder="">
                                 </div>
                             </div>
                             <div class="col-lg-4">
@@ -56,7 +56,7 @@
                                     <label class="col-form-label" for="formGroupExampleInput">Select Category</label>
                                     <select name="subcat_id" class="form-control">
                                         @foreach ($subcat as $row)
-                                            <option  value="{{ $row->id }}">{{ $row->category->name }} -> {{ $row->name }}</option>
+                                            <option  value="{{ $row->id }}"  @if($banner->subcat_id == $row->id) selected @endif>{{ $row->category->name }} -> {{ $row->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -66,7 +66,7 @@
                                 <div class="form-group">
                                     <label class="col-form-label" for="formGroupExampleInput">Banner Image</label>
                                     <input type="file" class="form-control" name="image" id="formGroupExampleInput" placeholder="">
-
+                                    <img src="{{ asset('public/storage/'.$banner->image) }}" width="200px"/>
                                 </div>
                             </div>
 

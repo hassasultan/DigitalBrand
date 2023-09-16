@@ -12,6 +12,8 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\FeedBackController;
+use App\Http\Controllers\BannerController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -152,13 +154,13 @@ Route::get('/packages/form', function () {
 // });
 
 // banners
-Route::get('/banners', function () {
-    return view('admin/pages/premium/banners/index');
-});
+// Route::get('/banners', function () {
+//     return view('admin/pages/premium/banners/index');
+// });
 
-Route::get('/banners/form', function () {
-    return view('admin/pages/premium/banners/create');
-});
+// Route::get('/banners/form', function () {
+//     return view('admin/pages/premium/banners/create');
+// });
 
 // Tutorials
 Route::get('/seller-guide', function () {
@@ -185,6 +187,7 @@ Route::prefix('/admin')->group(function () {
 
         Route::resource('/salesman-management', SalesManController::class);
         Route::get('/salesman/delete/{id}', [SalesManController::class,'destroy'])->name('delete.salesman');
+        Route::get('/salesman/change/status/{id}/{status}', [SalesManController::class,'change_status'])->name('change.salesman.status');
 
         Route::resource('/seller-management', SellerController::class);
         Route::get('/seller/delete/{id}', [SellerController::class,'destroy'])->name('delete.seller');
@@ -196,7 +199,10 @@ Route::prefix('/admin')->group(function () {
 
         Route::resource('/offer-management', PostController::class);
         Route::get('/offer/delete/{id}', [PostController::class,'destroy'])->name('delete.offer');
+        Route::get('/offer/change-status', [PostController::class, 'change_status'])->name('admin.offer.status');
 
+        Route::resource('/banner-management', BannerController::class);
+        Route::get('/banner/delete/{id}', [BannerController::class,'destroy'])->name('delete.banner');
 
         Route::resource('/visitor-management', CustomerController::class);
         Route::get('/visitor/delete/{id}', [CustomerController::class,'destroy'])->name('delete.visitor');

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -17,22 +18,20 @@ class AuthController extends Controller
     use SaveImage;
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['seller_login','customer_login','register','salesman_login']]);
+        $this->middleware('auth:api', ['except' => ['seller_login', 'customer_login', 'register', 'salesman_login']]);
     }
 
     public function seller_login(Request $request)
     {
-        try
-        {
+        try {
             $request->validate([
                 'email' => 'required|string|email',
                 'password' => 'required|string',
                 'role' => 'required|numeric|In:2',
             ]);
             $credentials = $request->only('email', 'password');
-            $check = User::where('email',$request->email)->where('role', $request->role)->first();
-            if($check)
-            {
+            $check = User::where('email', $request->email)->where('role', $request->role)->first();
+            if ($check) {
                 $token = auth('api')->attempt($credentials);
                 if (!$token) {
                     return response()->json([
@@ -43,8 +42,7 @@ class AuthController extends Controller
 
                 $user = auth('api')->user();
                 // dd($user->seller->status);
-                if($user->seller->status == 0)
-                {
+                if ($user->seller->status == 0) {
                     Auth::logout();
                     return response()->json([
                         'message' => 'You are Currently De Active Now Kindly Contact to Admin...',
@@ -52,40 +50,37 @@ class AuthController extends Controller
                     ]);
                 }
                 return response()->json([
-                        'status' => 'success',
-                        'user' => $user,
-                        'authorisation' => [
-                            'token' => $token,
-                            'type' => 'bearer',
-                        ]
-                    ]);
+                    'status' => 'success',
+                    'user' => $user,
+                    'authorisation' => [
+                        'token' => $token,
+                        'type' => 'bearer',
+                    ]
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => "Invalid Credentials..."
+                ], 401);
             }
-            else
-            {
-                return response()->json(['status' => 'error',
-                'message' => "Invalid Credentials..."], 401);
-            }
+        } catch (Exception $ex) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $ex->getMessage()
+            ]);
         }
-        catch(Exception $ex)
-        {
-            return response()->json(['status' => 'error',
-            'message' => $ex->getMessage()]);
-        }
-
     }
     public function customer_login(Request $request)
     {
-        try
-        {
+        try {
             $request->validate([
                 'email' => 'required|string|email|exists:users,email',
                 'password' => 'required|string',
                 'role' => 'required|numeric|In:3',
             ]);
             $credentials = $request->only('email', 'password');
-            $check = User::where('email',$request->email)->where('role', $request->role)->first();
-            if($check)
-            {
+            $check = User::where('email', $request->email)->where('role', $request->role)->first();
+            if ($check) {
                 $token = auth('api')->attempt($credentials);
                 if (!$token) {
                     return response()->json([
@@ -96,40 +91,37 @@ class AuthController extends Controller
 
                 $user = auth('api')->user();
                 return response()->json([
-                        'status' => 'success',
-                        'user' => $user,
-                        'authorisation' => [
-                            'token' => $token,
-                            'type' => 'bearer',
-                        ]
-                    ]);
+                    'status' => 'success',
+                    'user' => $user,
+                    'authorisation' => [
+                        'token' => $token,
+                        'type' => 'bearer',
+                    ]
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => "Invalid Credentials..."
+                ], 401);
             }
-            else
-            {
-                return response()->json(['status' => 'error',
-                'message' => "Invalid Credentials..."], 401);
-            }
+        } catch (Exception $ex) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $ex->getMessage()
+            ]);
         }
-        catch(Exception $ex)
-        {
-            return response()->json(['status' => 'error',
-            'message' => $ex->getMessage()]);
-        }
-
     }
     public function salesman_login(Request $request)
     {
-        try
-        {
+        try {
             $request->validate([
                 'email' => 'required|string|email',
                 'password' => 'required|string',
                 'role' => 'required|numeric|In:4',
             ]);
             $credentials = $request->only('email', 'password');
-            $check = User::where('email',$request->email)->where('role', $request->role)->first();
-            if($check)
-            {
+            $check = User::where('email', $request->email)->where('role', $request->role)->first();
+            if ($check) {
                 $token = auth('api')->attempt($credentials);
                 // dd($token);
                 if (!$token) {
@@ -141,33 +133,31 @@ class AuthController extends Controller
 
                 $user = auth('api')->user();
                 return response()->json([
-                        'status' => 'success',
-                        'user' => $user,
-                        'authorisation' => [
-                            'token' => $token,
-                            'type' => 'bearer',
-                        ]
-                    ]);
+                    'status' => 'success',
+                    'user' => $user,
+                    'authorisation' => [
+                        'token' => $token,
+                        'type' => 'bearer',
+                    ]
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => "Invalid Credentials..."
+                ], 401);
             }
-            else
-            {
-                return response()->json(['status' => 'error',
-                'message' => "Invalid Credentials..."], 401);
-            }
+        } catch (Exception $ex) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $ex->getMessage()
+            ]);
         }
-        catch(Exception $ex)
-        {
-            return response()->json(['status' => 'error',
-            'message' => $ex->getMessage()]);
-        }
-
     }
 
     public function register(Request $request)
     {
         //  dd($request->all());
-        try
-        {
+        try {
             $request->validate([
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
@@ -182,8 +172,7 @@ class AuthController extends Controller
                 // 'insta_page' => 'required|string',
                 // 'web_url' => 'required|string',
             ]);
-            if($request->role == 2)
-            {
+            if ($request->role == 2) {
                 $request->validate([
 
                     'isFeatured' => 'required|string',
@@ -198,8 +187,7 @@ class AuthController extends Controller
                     // 'cover_image' => 'required|image',
 
                 ]);
-                if($request->reference == "salesman")
-                {
+                if ($request->reference == "salesman") {
                     $request->validate([
                         'salesman_id' => 'required|numeric|exists:salemans,id',
                     ]);
@@ -213,65 +201,52 @@ class AuthController extends Controller
             ]);
             $credentials = $request->only('email', 'password');
             $token = auth('api')->attempt($credentials);
-            if($request->role == 2)
-            {
+            if ($request->role == 2) {
+                $NEW_SELLER = Seller::latest()->first();
+                if (empty($NEW_SELLER)) {
+                    $expNum[1] = 0;
+                } else {
+                    $expNum = explode('-', $NEW_SELLER->SELL_ID);
+                }
+                $id = 'SELLER-000' . $expNum[1] + 1;
                 $seller = new Seller();
+                $seller->SELL_ID = $id;
+
                 $seller->user_id = $user->id;
-                if($request->has('business_name') && $request->business_name)
-                {
+                if ($request->has('business_name') && $request->business_name) {
                     $seller->business_name = $request->business_name;
-
                 }
 
-                if($request->has('business_address') && $request->business_address)
-                {
+                if ($request->has('business_address') && $request->business_address) {
                     $seller->business_address = $request->business_address;
-
                 }
-                if($request->has('faecbook_page') && $request->faecbook_page)
-                {
+                if ($request->has('faecbook_page') && $request->faecbook_page) {
                     $seller->faecbook_page = $request->faecbook_page;
-
                 }
-                if($request->has('insta_page') && $request->insta_page)
-                {
+                if ($request->has('insta_page') && $request->insta_page) {
                     $seller->insta_page = $request->insta_page;
-
                 }
-                if($request->has('phone') && $request->phone)
-                {
+                if ($request->has('phone') && $request->phone) {
                     $seller->phone = $request->phone;
-
                 }
-                if($request->has('whatsapp') && $request->whatsapp)
-                {
+                if ($request->has('whatsapp') && $request->whatsapp) {
                     $seller->whatsapp = $request->whatsapp;
-
                 }
-                if($request->has('web_url') && $request->web_url)
-                {
+                if ($request->has('web_url') && $request->web_url) {
                     $seller->web_url = $request->web_url;
-
                 }
-                if($request->has('isFeatured') && $request->isFeatured)
-                {
+                if ($request->has('isFeatured') && $request->isFeatured) {
                     $seller->isFeatured = $request->isFeatured;
-
                 }
-                if($request->has('logo') && $request->logo)
-                {
+                if ($request->has('logo') && $request->logo) {
                     $seller->logo = $this->seller_logo($request->logo);
                 }
-                if($request->has('reference'))
-                {
+                if ($request->has('reference')) {
                     $seller->reference = $request->reference;
 
-                    if($request->reference == "salesman")
-                    {
+                    if ($request->reference == "salesman") {
                         $seller->salesman_id = $request->salesman_id;
-                    }
-                    else
-                    {
+                    } else {
                         $seller->salesman_id = 0;
                     }
                 }
@@ -283,56 +258,39 @@ class AuthController extends Controller
                 $data['description'] = $request->description;
                 $data['address'] = $request->business_address;
                 $data['contact_number'] = $request->shop_contact_number;
-                if($request->has('cover_image'))
-                {
+                if ($request->has('cover_image')) {
                     $data['logo'] = $this->shop_logo($request->cover_image);
                 }
                 $shop = Shop::create($data);
                 $shop->area = $request->area_id;
                 $shop->save();
-
             }
-            if($request->role == 3)
-            {
+            if ($request->role == 3) {
                 $customer = new Customer();
                 $customer->user_id = $user->id;
                 $customer->area_id = $request->area_id;
 
-                if($request->has('business_name') && $request->business_name)
-                {
+                if ($request->has('business_name') && $request->business_name) {
                     $customer->business_name = $request->business_name;
-
                 }
 
-                if($request->has('business_address') && $request->business_address)
-                {
+                if ($request->has('business_address') && $request->business_address) {
                     $customer->business_address = $request->business_address;
-
                 }
-                if($request->has('faecbook_page') && $request->faecbook_page)
-                {
+                if ($request->has('faecbook_page') && $request->faecbook_page) {
                     $customer->fb_page = $request->faecbook_page;
-
                 }
-                if($request->has('insta_page') && $request->insta_page)
-                {
+                if ($request->has('insta_page') && $request->insta_page) {
                     $customer->insta_page = $request->insta_page;
-
                 }
-                if($request->has('phone') && $request->phone)
-                {
+                if ($request->has('phone') && $request->phone) {
                     $customer->phone = $request->phone;
-
                 }
-                if($request->has('whatsapp') && $request->whatsapp)
-                {
+                if ($request->has('whatsapp') && $request->whatsapp) {
                     $customer->whatsapp = $request->whatsapp;
-
                 }
-                if($request->has('web_url') && $request->web_url)
-                {
+                if ($request->has('web_url') && $request->web_url) {
                     $customer->web_url = $request->web_url;
-
                 }
                 $customer->save();
             }
@@ -346,11 +304,11 @@ class AuthController extends Controller
                     'type' => 'bearer',
                 ]
             ]);
-        }
-        catch(Exception $ex)
-        {
-            return response()->json(['status' => 'error',
-            'message' => $ex->getMessage()]);
+        } catch (Exception $ex) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $ex->getMessage()
+            ]);
         }
     }
 
@@ -374,5 +332,4 @@ class AuthController extends Controller
             ]
         ]);
     }
-
 }

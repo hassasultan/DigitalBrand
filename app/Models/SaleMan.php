@@ -10,6 +10,7 @@ class SaleMan extends Model
     use HasFactory;
     protected $table = "salemans";
     protected $fillable = [
+        "SM_ID",
         "phone",
         "qualification",
         "cnic",

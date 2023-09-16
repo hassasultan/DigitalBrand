@@ -10,6 +10,7 @@ class Seller extends Model
     use HasFactory;
     protected $table = "seller";
     protected $fillable = [
+        "SELL_ID",
         "user_id",
         "phone",
         "business_name",

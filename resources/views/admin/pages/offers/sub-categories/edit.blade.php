@@ -16,11 +16,12 @@
     <!-- start: page -->
     <div class="row">
         <div class="col-lg-12">
-            <form id="form1" method="POST" action="{{ route('offer-sub-categories.store') }}" class="form-horizontal">
+            <form id="form1" method="POST" action="{{ route('offer-sub-categories.update',$subcat->id) }}" class="form-horizontal">
                 @csrf
+                @method('PUT')
                 <section class="card">
                     <header class="card-header">
-                        <h2 class="card-title">New Sub-Category</h2>
+                        <h2 class="card-title">Update Sub-Category</h2>
                     </header>
                     <div class="card-body">
                         <div class="row form-group pb-3">
@@ -29,8 +30,8 @@
                                     <label class="col-form-label" for="formGroupExampleInput">Category Name</label>
                                     <select name="category_id"  class="form-control" id="formGroupExampleInput" required>
                                         <option>-- Select Category --</option>
-                                        @foreach ($category as $row)
-                                            <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                        @foreach ($cat as $row)
+                                            <option value="{{ $row->id }}" @if($row->id == $subcat->category_id) selected @endif>{{ $row->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -38,13 +39,13 @@
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label class="col-form-label" for="formGroupExampleInput">Sub Category Name</label>
-                                    <input type="text" name="name" class="form-control" id="formGroupExampleInput" placeholder="" required>
+                                    <input type="text" name="name" class="form-control" id="formGroupExampleInput" placeholder="" value="{{ $subcat->name }}" required>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label class="col-form-label" for="formGroupExampleInput">Sub Category Code</label>
-                                    <input type="text" name="code" class="form-control" id="formGroupExampleInput" placeholder="" required>
+                                    <input type="text" name="code" class="form-control" id="formGroupExampleInput" placeholder="" value="{{ $subcat->code }}" required>
                                 </div>
                             </div>
 

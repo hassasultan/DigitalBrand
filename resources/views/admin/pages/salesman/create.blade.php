@@ -27,32 +27,32 @@
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label class="col-form-label" for="formGroupExampleInput">First Name</label>
-                                        <input type="text" name="first_name" class="form-control" id="formGroupExampleInput" placeholder="">
+                                        <input type="text" name="first_name" class="form-control" id="formGroupExampleInput" placeholder="" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 pb-3">
                                     <div class="form-group">
                                         <label class="col-form-label" for="formGroupExampleInput">Last Name</label>
-                                        <input type="text" class="form-control" name="last_name" id="formGroupExampleInput" placeholder="">
+                                        <input type="text" class="form-control" name="last_name" id="formGroupExampleInput" placeholder="" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label class="col-form-label" for="formGroupExampleInput">Email</label>
-                                        <input type="text" class="form-control" name="email" id="formGroupExampleInput" placeholder="">
+                                        <input type="text" class="form-control" name="email" id="formGroupExampleInput" placeholder="" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 ">
                                     <div class="form-group">
                                         <label class="col-form-label" for="formGroupExampleInput">Contact No.</label>
-                                        <input type="text" class="form-control" name="phone" id="formGroupExampleInput" placeholder="">
+                                        <input type="text" class="form-control" name="phone" id="formGroupExampleInput" placeholder="" required>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label class="col-form-label" for="formGroupExampleInput">Qualification</label>
-                                        <select class="form-control mb-3" name="qualification">
+                                        <select class="form-control mb-3" name="qualification" required>
                                             <option value="Matriculation">Matriculation</option>
                                             <option value="Intermediate">Intermediate</option>
                                             <option value="Graduation">Graduation</option>
@@ -63,20 +63,20 @@
                                 <div class="col-lg-4 pb-3">
                                     <div class="form-group">
                                         <label class="col-form-label" for="formGroupExampleInput">CNIC No</label>
-                                        <input type="text" class="form-control" id="formGroupExampleInput" name="cnic" placeholder="">
+                                        <input type="text" class="form-control" id="formGroupExampleInput" name="cnic" placeholder="" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label class="col-form-label" for="formGroupExampleInput">CNIC</label>
-                                        <input type="file" class="form-control" id="formGroupExampleInput" placeholder="" name="cnic_image">
+                                        <input type="file" class="form-control" id="formGroupExampleInput" placeholder="" name="cnic_image" required>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label class="col-form-label" for="formGroupExampleInput">Marital Status</label>
-                                        <select class="form-control mb-3" name="marital_status">
+                                        <select class="form-control mb-3" name="marital_status" required>
                                             <option>Single</option>
                                             <option>Married</option>
                                         </select>
@@ -85,7 +85,7 @@
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label class="col-form-label" for="formGroupExampleInput">Religion</label>
-                                        <select class="form-control mb-3" name="religion">
+                                        <select class="form-control mb-3" name="religion" required>
                                             <option>Islam</option>
                                             <option>Other</option>
                                         </select>
@@ -95,20 +95,20 @@
                                 <div class="col-lg-4 pb-3">
                                     <div class="form-group">
                                         <label class="col-form-label" for="formGroupExampleInput">Work History</label>
-                                        <input type="file" class="form-control" id="formGroupExampleInput" placeholder="" name="work_history">
+                                        <input type="file" class="form-control" id="formGroupExampleInput" placeholder="" name="work_history" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 pb-3">
                                     <div class="form-group">
                                         <label class="col-form-label" for="formGroupExampleInput">Passport Size Picture</label>
-                                        <input type="file" class="form-control" id="formGroupExampleInput" placeholder="" name="picture">
+                                        <input type="file" class="form-control" id="formGroupExampleInput" placeholder="" name="picture" required>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-4 pb-3">
                                     <div class="form-group">
                                         <label class="col-form-label" for="formGroupExampleInput">Bank Name</label>
-                                        <select class="form-control mb-3" name="bank_name">
+                                        <select class="form-control mb-3" name="bank_name" required>
                                             <option>JazzCash</option>
                                             <option>EasyPaisa</option>
                                             <option>Meezan Bank</option>
@@ -133,20 +133,20 @@
                                 <div class="col-lg-4 pb-3">
                                     <div class="form-group">
                                         <label class="col-form-label" for="formGroupExampleInput">Bank Account Details (if any)</label>
-                                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="bank_account">
+                                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="bank_account" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 pb-3">
                                     <div class="form-group">
                                         <label class="col-form-label" for="formGroupExampleInput">Age</label>
-                                        <input type="number" class="form-control" id="formGroupExampleInput" placeholder="" name="age">
+                                        <input type="number" class="form-control" id="formGroupExampleInput" placeholder="" name="age" required>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-4 pb-3">
                                     <div class="form-group">
                                         <label class="col-form-label" for="formGroupExampleInput">Address</label>
-                                        <textarea class="form-control" rows="3" id="textareaDefault" name="address"></textarea>                                </div>
+                                        <textarea class="form-control" rows="3" id="textareaDefault" name="address" required></textarea>                                </div>
                                 </div>
 
                             </div>

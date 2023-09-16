@@ -85,5 +85,5 @@ Route::middleware(['seller'])->group(function () {
     Route::post('create/shop',[ShopController::class, 'create_shop_api']);
     Route::get('list/shop',[ShopController::class, 'shop_list']);
     Route::post('create/offer',[PostController::class, 'create_offer_api']);
-    Route::post('create/banner',[BannerController::class, 'create_banner_api']);
+    Route::post('create/banner',[BannerController::class, 'store']);
 });

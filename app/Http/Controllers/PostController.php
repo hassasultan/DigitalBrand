@@ -10,7 +10,6 @@ use Exception;
 use Illuminate\Http\Request;
 use App\Traits\SaveImage;
 use Facebook\Facebook;
-require_once app_path('Http/Controllers/TensorFlow.php');
 class PostController extends Controller
 {
     //

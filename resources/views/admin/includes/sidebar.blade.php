@@ -121,7 +121,7 @@
                     </li>
 
                     <li>
-                        <a class="nav-link" href="/banners">
+                        <a class="nav-link" href="{{ route('banner-management.index') }}">
                             <i class="bx bx-carousel" aria-hidden="true"></i>
                             <span>Banners</span>
                         </a>

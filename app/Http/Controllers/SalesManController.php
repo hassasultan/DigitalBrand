@@ -43,13 +43,25 @@ class SalesManController extends Controller
     }
     public function store(Request $request)
     {
+
         $user = User::create([
             "name" => $request->first_name." ".$request->last_name,
             "email" => $request->email,
             "role" => 4,
             "password" => Hash::make("12345678"),
         ]);
+        $NEW_SALESMAN = SaleMan::latest()->first();
+        if(empty($NEW_SALESMAN))
+        {
+            $expNum[1] = 0;
+        }
+        else
+        {
+            $expNum = explode('-', $NEW_SALESMAN->SM_ID);
+        }
+        $id = 'SM-000'. $expNum[1]+1;
         $sales_man = new SaleMan();
+        $sales_man->SM_ID = $id;
         $sales_man->user_id = $user->id;
         if($request->has('phone') && $request->phone)
         {
@@ -116,6 +128,13 @@ class SalesManController extends Controller
         }
         $salesman = SaleMan::find($id);
         $salesman->delete();
+        return redirect()->back();
+    }
+    public function change_status($id,$status)
+    {
+        $salesman = SaleMan::find($id);
+        $salesman->status = $status;
+        $salesman->save();
         return redirect()->back();
     }
 }

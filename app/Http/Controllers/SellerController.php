@@ -72,7 +72,18 @@ class SellerController extends Controller
             "role" => 2,
             "password" => Hash::make("12345678"),
         ]);
+        $NEW_SELLER = Seller::latest()->first();
+        if(empty($NEW_SELLER))
+        {
+            $expNum[1] = 0;
+        }
+        else
+        {
+            $expNum = explode('-', $NEW_SELLER->SELL_ID);
+        }
+        $id = 'SELLER-000'. $expNum[1]+1;
         $seller = new Seller();
+        $seller->SELL_ID = $id;
         $seller->user_id = $user->id;
         if($request->has('business_name') && $request->business_name)
         {

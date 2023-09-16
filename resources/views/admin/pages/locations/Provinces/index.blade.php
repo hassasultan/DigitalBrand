@@ -64,7 +64,7 @@
                                             <form action="{{ route('delete.province',$row->id) }}" id="delete-province-{{ $row->id }}" method="GET">
                                             </form>
                                             <button class="btn btn-danger" onclick="openDeleteModal({{ $row->id }})"  style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></button>
-                                            <button class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></button>
+                                            <a class="btn btn-warning" href="{{ route('province-management.edit',$row->id) }}" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></a>
 {{--                                            <button class="btn btn-primary" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></button>--}}
                                         </td>
                                     </tr>

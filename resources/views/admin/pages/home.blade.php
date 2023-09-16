@@ -29,11 +29,11 @@
                                 <div class="summary">
                                     <h4 class="title">Total Visitors</h4>
                                     <div class="info">
-                                        <strong class="amount">1281</strong>
+                                        <strong class="amount">{{ $visitor }}</strong>
                                     </div>
                                 </div>
                                 <div class="summary-footer">
-                                    <a class="text-muted text-uppercase" href="#">(view visitors)</a>
+                                    <a class="text-muted text-uppercase" href="{{ route('visitor-management.index') }}">(view visitors)</a>
                                 </div>
                             </div>
                         </div>
@@ -53,11 +53,11 @@
                                 <div class="summary">
                                     <h4 class="title">Total Sellers</h4>
                                     <div class="info">
-                                        <strong class="amount">14,890</strong>
+                                        <strong class="amount">{{ $seller }}</strong>
                                     </div>
                                 </div>
                                 <div class="summary-footer">
-                                    <a class="text-muted text-uppercase" href="#">(VIEW SELLERS)</a>
+                                    <a class="text-muted text-uppercase" href="{{ route('seller-management.index') }}">(VIEW SELLERS)</a>
                                 </div>
                             </div>
                         </div>
@@ -77,7 +77,7 @@
                                 <div class="summary">
                                     <h4 class="title">Monthly Downloads</h4>
                                     <div class="info">
-                                        <strong class="amount">14,900</strong>
+                                        <strong class="amount">{{ $monthly_user_count }}</strong>
                                     </div>
                                 </div>
                                 <div class="summary-footer">

@@ -31,6 +31,19 @@ class CityController extends Controller
         City::create($request->all());
         return redirect()->route('city-management.index');
     }
+    public function edit($id)
+    {
+        $city = City::find($id);
+        $province = Province::all()->where('status',1);
+
+        return view('admin.pages.locations.Cities.edit',compact('city','province'));
+    }
+    public function update(Request $request,$id)
+    {
+        $data = $request->except(['_token','_method']);
+        City::where('id',$id)->update($data);
+        return redirect()->route('city-management.index');
+    }
     public function cityApi(Request $request)
     {
         $city = City::where('province_id',$request->province_id)->with('province')->where('status',1)->get();

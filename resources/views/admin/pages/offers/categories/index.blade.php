@@ -63,8 +63,8 @@
                                         <td>
                                             <form action="{{ route('delete.category',$row->id) }}" id="delete-category-{{ $row->id }}" method="GET">
                                             </form>
-                                            <a href="#" class="btn btn-danger" onclick="openDeleteModal({{ $row->id }})" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></a>
-                                            <a href="#" class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></a>
+                                            <button type="button" class="btn btn-danger" onclick="openDeleteModal({{ $row->id }})" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></button>
+                                            <a href="{{ route('offer-categories.edit',$row->id) }}" class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></a>
 {{--                                            <a href="#" class="btn btn-primary"  style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></a>--}}
                                         </td>
                                     </tr>

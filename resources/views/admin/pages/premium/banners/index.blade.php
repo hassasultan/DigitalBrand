@@ -21,7 +21,8 @@
                         <div class="datatable-header">
                             <div class="row align-items-center mb-3">
                                 <div class="col-12 col-lg-auto mb-3 mb-lg-0">
-                                    <a href="/banners/form" class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add Banner</a>
+                                    <a href="{{ route('banner-management.create') }}"
+                                        class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add Banner</a>
                                 </div>
                                 <div class="col-8 col-lg-auto ms-auto ml-auto mb-3 mb-lg-0">
 
@@ -32,37 +33,51 @@
                                 <div class="col-12 col-lg-auto ps-lg-1">
                                     <div class="search search-style-1 search-style-1-lg mx-lg-auto">
                                         <div class="input-group">
-                                            <input type="text" class="search-term form-control" name="search-term" id="search-term" placeholder="Search Banner">
-                                            <button class="btn btn-default" type="submit"><i class="bx bx-search"></i></button>
+                                            <input type="text" class="search-term form-control" name="search-term"
+                                                id="search-term" placeholder="Search Banner">
+                                            <button class="btn btn-default" type="submit"><i
+                                                    class="bx bx-search"></i></button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-ecommerce-simple table-borderless table-striped mb-0" id="datatable-ecommerce-list" style="min-width: 640px;">
+                        <table class="table table-ecommerce-simple table-borderless table-striped mb-0"
+                            id="datatable-ecommerce-list" style="min-width: 640px;">
                             <thead>
                                 <tr>
-                                    <th width="5%"><input type="checkbox" name="select-all" class="select-all checkbox-style-1 p-relative top-2" value="" /></th>
+                                    <th width="5%"><input type="checkbox" name="select-all"
+                                            class="select-all checkbox-style-1 p-relative top-2" value="" /></th>
                                     <th width="8%">ID</th>
-                                    <th width="25%">Banner</th>
-                                    <th width="37%">Redirect URL</th>
-                                    <th width="10%">Days</th>
+                                    <th width="25%">Shop</th>
+                                    <th width="37%">Banner</th>
+                                    <th width="10%">Redirect URL</th>
                                     <th width="30" style="text-align: center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
-                                    <td>1</td>
-                                    <td><strong>Banner 1</strong></td>
-                                    <td>Short Description</td>
-                                    <td>30 days</td>
-                                    <td style="text-align: center">
-                                        <button class="btn btn-danger" onclick="openDeleteModal()" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-trash"></i></button>
-                                        <button class="btn btn-warning" style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-pen"></i></button>
-                                        <button class="btn btn-primary"  style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-eye"></i></button>
-                                    </td>
-                                </tr>
+                                @foreach ($banners as $key => $row)
+                                    <tr>
+                                        <td width="30"><input type="checkbox" name="checkboxRow1"
+                                                class="checkbox-style-1 p-relative top-2" value="" /></td>
+                                        <td>{{ $key++ }}</td>
+                                        <td><strong>{{ $row->shop->name }}</strong></td>
+                                        <td><img src="{{ asset('public/storage/' . $row->image) }}" width="200px" /></td>
+                                        <td>{{ $row->redirect_url }}</td>
+                                        <td style="text-align: center">
+                                            <form action="{{ route('delete.banner', $row->id) }}"
+                                                id="delete-offer-{{ $row->id }}" method="GET">
+                                            </form>
+                                            <button class="btn btn-danger" onclick="openDeleteModal({{ $row->id }})"
+                                                style="padding: 6px 8px;font-size: 14px;"><i
+                                                    class="fas fa-trash"></i></button>
+                                            <a href="{{ route('banner-management.edit', $row->id) }}" class="btn btn-warning"
+                                                style="padding: 6px 8px;font-size: 14px;"><i class="fas fa-pen"></i></a>
+                                            {{-- <button class="btn btn-primary" style="padding: 6px 8px;font-size: 14px;"><i
+                                                    class="fas fa-eye"></i></button> --}}
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                         <hr class="solid mt-5 opacity-4">
@@ -71,11 +86,13 @@
                                 <div class="col-md-auto order-1 mb-3 mb-lg-0">
                                     <div class="d-flex align-items-stretch">
                                         <div class="d-grid gap-3 d-md-flex justify-content-md-end me-4">
-                                            <select class="form-control select-style-1 bulk-action" name="bulk-action" style="min-width: 170px;">
+                                            <select class="form-control select-style-1 bulk-action" name="bulk-action"
+                                                style="min-width: 170px;">
                                                 <option value="" selected>Bulk Actions</option>
                                                 <option value="delete">Delete</option>
                                             </select>
-                                            <a href="ecommerce-orders-detail.html" class="bulk-action-apply btn btn-light btn-px-4 py-3 border font-weight-semibold text-color-dark text-3">Apply</a>
+                                            <a href="ecommerce-orders-detail.html"
+                                                class="bulk-action-apply btn btn-light btn-px-4 py-3 border font-weight-semibold text-color-dark text-3">Apply</a>
                                         </div>
                                     </div>
                                 </div>
@@ -106,16 +123,25 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" onclick="closeDeleteModal()">Close</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                    <button type="button" class="btn btn-danger" onclick="deleteOffer()">Delete</button>
                 </div>
             </div>
         </div>
     </div>
     <script>
-        function openDeleteModal(){
+        var frmid = 0;
+
+        function openDeleteModal(id) {
+            frmid = id;
             $('#deleteModal').modal('show');
         }
-        function closeDeleteModal(){
+
+        function deleteOffer() {
+            console.log(frmid);
+            $("#delete-offer-" + frmid).submit();
+        }
+
+        function closeDeleteModal() {
             $('#deleteModal').modal('hide');
         }
     </script>
