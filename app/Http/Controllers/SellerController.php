@@ -234,6 +234,10 @@ class SellerController extends Controller
             {
                 $seller->logo = $this->seller_logo($request->logo);
             }
+            if($request->has('coverimage') && $request->coverimage)
+            {
+                $seller->coverimage = $this->seller_logo($request->coverimage);
+            }
             $seller->save();
         }
         else
