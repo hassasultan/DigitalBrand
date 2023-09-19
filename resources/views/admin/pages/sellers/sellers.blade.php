@@ -76,7 +76,7 @@
                                     <tr>
                                         <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
                                         <td>{{ $row->SELL_ID }}</td>
-                                        <td><img src={{ asset('/public/storage/'.$row->logo) }} style="width:100px; height:100px; border-radius:50%;"></td>
+                                        <td><img src="{{ asset('/public/storage/'.$row->logo) }}" style="width:100px; height:100px; border-radius:50%;"></td>
                                         <td><a href="#"><strong>{{ $row->user->name }}</strong></a></td>
                                         <td>{{ $row->user->email }}</td>
                                         <td>{{ $row->phone }}</td>
@@ -111,7 +111,7 @@
                                                                                     <div class="profile-img text-center rounded-circle">
                                                                                         <div class="pt-5">
                                                                                             <div class="bg-img m-auto">
-                                                                                                <img class="img-fluid" alt="">
+                                                                                                <img class="img-fluid" style="width:100px; height:100px; border-radius:50%;" src="{{ asset('/public/storage/'.$row->logo) }}" alt="">
                                                                                             </div>
                                                                                             <div class="profile pt-4">
                                                                                                 <h4 class="mb-1">{{ $row->user->name }}</h4>
@@ -140,6 +140,9 @@
                                                                             </div>
                                                                             <div class="col-xl-9 col-md-6 col-12 border-t border-right">
                                                                                 <div class="page-account-form">
+                                                                                    <div class="bg-img m-auto">
+                                                                                        <img class="img-fluid" style="width:200px; height:100px;" src="{{ asset('/public/storage/'.$row->coverimage) }}" alt="">
+                                                                                    </div>
                                                                                     <div class="form-titel border-bottom p-3">
                                                                                         <h5 class="mb-0 py-2">Seller Details</h5>
                                                                                     </div>
