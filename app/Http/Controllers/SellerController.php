@@ -26,7 +26,7 @@ class SellerController extends Controller
             // 'faecbook_page' => ['required', 'string'],
             // 'insta_page' => ['required', 'string'],
             // 'web_url' => ['required', 'string'],
-            'isFeatured' => ['required', 'string'],
+            'isFeatured' => ['required', 'numeric'],
             // 'logo' => ['required', 'image'],
         ]);
         return $valid;
