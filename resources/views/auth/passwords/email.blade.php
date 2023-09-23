@@ -19,6 +19,7 @@
                 </div>
 
                 <form method="POST" action="{{ route('password.email') }}">
+                    @csrf
                     <div class="form-group mb-0">
                         <div class="input-group">
                             <input name="email" id="email" type="email" placeholder="E-mail" class="form-control form-control-lg" />
