@@ -21,7 +21,7 @@
                 <form>
                     <div class="form-group mb-0">
                         <div class="input-group">
-                            <input name="username" type="email" placeholder="E-mail" class="form-control form-control-lg" />
+                            <input name="email" id="email" type="email" placeholder="E-mail" class="form-control form-control-lg" />
                             <button class="btn btn-primary btn-lg" type="submit">Reset!</button>
                         </div>
                     </div>
