@@ -18,7 +18,7 @@
                     <p class="m-0">Enter your e-mail below and we will send you reset instructions!</p>
                 </div>
 
-                <form>
+                <form method="POST" action="{{ route('password.email') }}">
                     <div class="form-group mb-0">
                         <div class="input-group">
                             <input name="email" id="email" type="email" placeholder="E-mail" class="form-control form-control-lg" />
