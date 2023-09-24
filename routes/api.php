@@ -34,7 +34,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('delete/user',[SellerController::class, 'ApiDestroy']);
 
 
-Route::post('seller/update',[SellerController::class, 'Apistore']);
 Route::get('salesman/list',[SalesManController::class, 'sales_man_list']);
 Route::get('subcategory',[SubCatogoryController::class, 'subcategoryApi']);
 Route::get('category',[CategoryController::class, 'categoryApi']);
@@ -81,6 +80,7 @@ Route::controller(AuthController::class)->group(function () {
 
 });
 Route::middleware(['seller'])->group(function () {
+    Route::post('seller/update',[SellerController::class, 'Apistore']);
 
     Route::post('create/shop',[ShopController::class, 'create_shop_api']);
     Route::get('list/shop',[ShopController::class, 'shop_list']);
