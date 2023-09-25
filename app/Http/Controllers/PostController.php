@@ -73,9 +73,10 @@ class PostController extends Controller
                     if ($request->has('subcat_id')) {
                         $offer_data = array();
                         foreach ($request->subcat_id as $item) {
-                            $offer_data['offer_id'] = $offer->id;
-                            $offer_data['subcat_id'] = (int)$item;
-                            OfferSubcatPivot::create($offer_data);
+                            $offer_subcat = new OfferSubcatPivot();
+                            $offer_subcat->offer_id = $offer->id;
+                            $offer_subcat->subcat_id = $item;
+                            $offer_subcat->save();
                         }
                     }
                 }
