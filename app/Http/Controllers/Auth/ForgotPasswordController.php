@@ -21,12 +21,14 @@ class ForgotPasswordController extends Controller
     */
 
     use SendsPasswordResetEmails;
-    public function forgot() {
-        $credentials = request()->validate(['email' => 'required|email']);
+    public function forgot(Request $request)
+    {
+        $this->validate($request, ['email' => 'required|email']);
 
-        $res = Password::sendResetLink($credentials);
+        $response = Password::sendResetLink($request->only('email'));
 
-        return $res;
+        return $response == Password::RESET_LINK_SENT
+            ? response()->json(['message' => 'Password reset link sent'], 200)
+            : response()->json(['error' => 'Unable to send reset link'], 400);
     }
-
 }
