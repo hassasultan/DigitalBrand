@@ -46,7 +46,7 @@ class PostController extends Controller
     }
     public function create_offer_api(Request $request)
     {
-        // try {
+        try {
             // dd($request->all());
             $this->validate($request, [
                 'banner' => 'required|image|mimes:jpg,bmp,png,webp|max:2048',
@@ -70,12 +70,10 @@ class PostController extends Controller
                     $data['shop_id'] = $row;
                     $offer = Post::create($data);
                     if ($request->has('subcat_id')) {
+                        $offer_data = array();
                         foreach ($request->subcat_id as $item) {
-                            $offer_data =
-                            [
-                                "offer_id" => $offer->id,
-                                "subcat_id" => $item,
-                            ];
+                            $offer_data['offer_id'] = $offer->id;
+                            $offer_data['subcat_id'] = $item;
                             OfferSubcatPivot::create($offer_data);
                         }
                     }
@@ -97,9 +95,9 @@ class PostController extends Controller
             } else {
                 return response()->json(['error' => "You've to make the shop first..."]);
             }
-        // } catch (Exception $ex) {
-        //     return response()->json(['error' => $ex->getMessage()],500);
-        // }
+        } catch (Exception $ex) {
+            return response()->json(['error' => $ex->getMessage()],500);
+        }
     }
     public function offer_detail($id)
     {
