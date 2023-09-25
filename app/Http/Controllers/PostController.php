@@ -6,10 +6,12 @@ use App\Models\Post;
 use App\Models\Seller;
 use App\Models\Shop;
 use App\Models\Area;
+use App\Models\OfferSubcatPivot;
 use Exception;
 use Illuminate\Http\Request;
 use App\Traits\SaveImage;
 use Facebook\Facebook;
+
 class PostController extends Controller
 {
     //
@@ -33,7 +35,7 @@ class PostController extends Controller
     public function index()
     {
         $post = Post::all();
-        return view('admin.pages.offers.offers.index',compact('post'));
+        return view('admin.pages.offers.offers.index', compact('post'));
     }
     public function destroy($id)
     {
@@ -44,8 +46,7 @@ class PostController extends Controller
     }
     public function create_offer_api(Request $request)
     {
-        try
-        {
+        try {
             $this->validate($request, [
                 'banner' => 'required|image|mimes:jpg,bmp,png,webp|max:2048',
                 'title' => 'required',
@@ -54,22 +55,28 @@ class PostController extends Controller
                 'shop_id' => 'required|array',
                 'shop_id.*' => 'exists:shop,id',
                 'category_id' => 'required|numeric',
-                'subcat_id' => 'required',
+                // 'subcat_id' => 'required',
                 // 'IsFeature' => 'required|In:0,1',
                 'area' => 'required|numeric|exists:area,id',
             ]);
-            if(auth('api')->user()->seller->shop != null)
-            {
+            if (auth('api')->user()->seller->shop != null) {
                 $banner = $this->post_banner($request->banner);
                 // // $shop_id = auth('api')->user()->seller->shop->id;
                 $data = $request->all();
                 $data['banner'] = $banner;
+
                 $data['subcat_id'] = $request->subcat_id[0];
-                foreach($request->shop_id as $row)
-                {
+                foreach ($request->shop_id as $row) {
                     $data['shop_id'] = $row;
                     $offer = Post::create($data);
-
+                    if ($request->has('subcat_id')) {
+                        foreach ($request->subcat_id as $item) {
+                            OfferSubcatPivot::create([
+                                "offer_id" => $offer->id,
+                                "subcat_id" => $item,
+                            ]);
+                        }
+                    }
                 }
                 // $fb = new Facebook([
                 //     'app_id' => config('app.facebook_app_id'),
@@ -84,65 +91,52 @@ class PostController extends Controller
                 // $graphNode = $response->getGraphNode();
                 // dd($graphNode);
 
-                return response()->json(['message'=> "Offer created Successfully..."]);
-
-
+                return response()->json(['message' => "Offer created Successfully..."]);
+            } else {
+                return response()->json(['error' => "You've to make the shop first..."]);
             }
-            else
-            {
-                return response()->json(['error'=> "You've to make the shop first..."]);
-            }
-
-        }
-        catch(Exception $ex)
-        {
-            return response()->json(['error'=> $ex->getMessage()]);
+        } catch (Exception $ex) {
+            return response()->json(['error' => $ex->getMessage()]);
         }
     }
     public function offer_detail($id)
     {
-        $offer = Post::with('shop','shop.seller','category','subcategory')->where('status',1)->find($id);
+        $offer = Post::with('shop', 'shop.seller', 'category', 'subcategory')->where('status', 1)->find($id);
         return $offer;
     }
     public function offerList()
     {
-        $post = Post::with('shop','shop.seller')->where('status',1)->get();
+        $post = Post::with('shop', 'shop.seller')->where('status', 1)->get();
         return $post;
     }
     public function selleroffer($id)
     {
-        $post = Post::with('shop','shop.seller')->where('shop_id',$id)->get();
+        $post = Post::with('shop', 'shop.seller')->where('shop_id', $id)->get();
         return $post;
     }
     public function offer_filter(Request $request)
     {
-        $post = Post::with('shop','shop.seller')->where('status',1);
-        if($request->has('shop_id'))
-        {
-            $post = $post->where('shop_id',$request->shop_id);
+        $post = Post::with('shop', 'shop.seller')->where('status', 1);
+        if ($request->has('shop_id')) {
+            $post = $post->where('shop_id', $request->shop_id);
         }
-        if($request->has('subcat_id'))
-        {
-            $post = $post->where('subcat_id',$request->subcat_id);
+        if ($request->has('subcat_id')) {
+            $post = $post->where('subcat_id', $request->subcat_id);
         }
-        if($request->has('category_id'))
-        {
-            $post = $post->where('category_id',$request->category_id);
+        if ($request->has('category_id')) {
+            $post = $post->where('category_id', $request->category_id);
         }
-        if($request->has('city_id'))
-        {
-            $areas = Area::where('city_id',$request->city_id)->get('id');
-            $post = $post->whereIn('area',$areas);
+        if ($request->has('city_id')) {
+            $areas = Area::where('city_id', $request->city_id)->get('id');
+            $post = $post->whereIn('area', $areas);
         }
-        if($request->has('area'))
-        {
-            $post = $post->where('area',$request->area);
+        if ($request->has('area')) {
+            $post = $post->where('area', $request->area);
         }
-        if($request->has('title'))
-        {
+        if ($request->has('title')) {
             $searchString = $request->title;
-            $post = $post->where('title','like', '%' . $request->title . '%')->orwhereHas('shop', function ($query) use ($searchString){
-                $query->where('name', 'like', '%'.$searchString.'%');
+            $post = $post->where('title', 'like', '%' . $request->title . '%')->orwhereHas('shop', function ($query) use ($searchString) {
+                $query->where('name', 'like', '%' . $searchString . '%');
             });
         }
         $post = $post->get();
@@ -150,69 +144,55 @@ class PostController extends Controller
     }
     public function top_offerList()
     {
-        $post = Post::with('shop','shop.seller')->where('status',1)->OrderBy('id','DESC')->paginate(10);
+        $post = Post::with('shop', 'shop.seller')->where('status', 1)->OrderBy('id', 'DESC')->paginate(10);
         return $post;
     }
     public function featured_offer_list()
     {
-        $post = Post::with('shop','shop.seller','category','subcategory')->where('IsFeature',1)->paginate(10);
+        $post = Post::with('shop', 'shop.seller', 'category', 'subcategory')->where('IsFeature', 1)->paginate(10);
         return $post;
     }
     public function insights(Request $request)
     {
-        try
-        {
+        try {
             $this->validate($request, [
                 'offer_id' => 'required|numeric|exists:post,id',
             ]);
             $offer = Post::find($request->offer_id);
-            if($request->has('views'))
-            {
+            if ($request->has('views')) {
                 $offer->views = $offer->views + 1;
             }
-            if($request->has('impression'))
-            {
+            if ($request->has('impression')) {
                 $offer->impression = $offer->impression + 1;
             }
-            if($request->has('reach'))
-            {
+            if ($request->has('reach')) {
                 $offer->reach = $offer->reach + 1;
             }
-            if($request->has('conversion'))
-            {
+            if ($request->has('conversion')) {
                 $offer->conversion = $offer->conversion + 1;
             }
             $offer->save();
-            return response()->json(['message'=>"updated successfully..."],200);
-        }
-        catch(Exception $ex)
-        {
-            return response()->json(['error'=> $ex->getMessage()],500);
+            return response()->json(['message' => "updated successfully..."], 200);
+        } catch (Exception $ex) {
+            return response()->json(['error' => $ex->getMessage()], 500);
         }
     }
     public function change_status(Request $request)
     {
-        try
-        {
+        try {
             $this->validate($request, [
                 'offer_id' => 'required|numeric|exists:post,id',
                 'status' => 'required|numeric|In:1,0',
             ]);
             $offer = Post::find($request->offer_id);
-            if($request->has('status'))
-            {
+            if ($request->has('status')) {
                 $offer->status = $request->status;
             }
 
             $offer->save();
-            return response()->json(['message'=>"updated successfully..."],200);
+            return response()->json(['message' => "updated successfully..."], 200);
+        } catch (Exception $ex) {
+            return response()->json(['error' => $ex->getMessage()], 500);
         }
-        catch(Exception $ex)
-        {
-            return response()->json(['error'=> $ex->getMessage()],500);
-        }
-
     }
-
-
 }
