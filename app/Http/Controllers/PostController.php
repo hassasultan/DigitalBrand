@@ -57,6 +57,7 @@ class PostController extends Controller
                 'shop_id.*' => 'exists:shop,id',
                 'category_id' => 'required|numeric',
                 'subcat_id' => 'array',
+                'subcat_id.*' => 'exists:sub_category,id',
                 // 'IsFeature' => 'required|In:0,1',
                 'area' => 'required|numeric|exists:area,id',
             ]);
