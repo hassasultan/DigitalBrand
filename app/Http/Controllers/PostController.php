@@ -47,7 +47,7 @@ class PostController extends Controller
     public function create_offer_api(Request $request)
     {
         try {
-            // dd($request->all());
+            dd($request->all());
             $this->validate($request, [
                 'banner' => 'required|image|mimes:jpg,bmp,png,webp|max:2048',
                 'title' => 'required',
@@ -58,6 +58,7 @@ class PostController extends Controller
                 'category_id' => 'required|numeric',
                 'subcat_id' => 'array',
                 'subcat_id.*' => 'exists:sub_category,id',
+
                 // 'IsFeature' => 'required|In:0,1',
                 'area' => 'required|numeric|exists:area,id',
             ]);
@@ -71,12 +72,10 @@ class PostController extends Controller
                     $data['shop_id'] = $row;
                     $offer = Post::create($data);
                     if ($request->has('subcat_id')) {
-                        // dd($request->subcat_id);
                         foreach ($request->subcat_id as $item) {
-                            $offer_subcat = new OfferSubcatPivot();
-                            $offer_subcat->offer_id = $offer->id;
-                            $offer_subcat->subcat_id = $item;
-                            $offer_subcat->save();
+                            $offer_data['offer_id'] = $offer->id;
+                            $offer_data['subcat_id'] = $item;
+                            OfferSubcatPivot::create($offer_data);
                         }
                     }
                 }
