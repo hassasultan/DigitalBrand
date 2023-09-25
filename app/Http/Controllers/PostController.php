@@ -69,14 +69,14 @@ class PostController extends Controller
                 foreach ($request->shop_id as $row) {
                     $data['shop_id'] = $row;
                     $offer = Post::create($data);
-                    if ($request->has('subcat_id')) {
+                    // if ($request->has('subcat_id')) {
                         dd($request->subcat_id);
                         foreach ($request->subcat_id as $item) {
                             $offer_subcat = new OfferSubcatPivot();
                             $offer_subcat->offer_id = $offer->id;
                             $offer_subcat->subcat_id = $item;
                             $offer_subcat->save();
-                        }
+                        // }
                     }
                 }
                 // $fb = new Facebook([
