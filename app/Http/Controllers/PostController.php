@@ -47,6 +47,7 @@ class PostController extends Controller
     public function create_offer_api(Request $request)
     {
         try {
+            dd($request->all());
             $this->validate($request, [
                 'banner' => 'required|image|mimes:jpg,bmp,png,webp|max:2048',
                 'title' => 'required',
