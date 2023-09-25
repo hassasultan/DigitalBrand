@@ -19,7 +19,11 @@ class ForgotPasswordController extends Controller
     | your application to your users. Feel free to explore this trait.
     |
     */
-    use SendsPasswordResetEmails;
 
+    use SendsPasswordResetEmails;
+    public function __invoke(Request $request)
+    {
+        // Your logic here
+    }
 
 }
