@@ -95,7 +95,7 @@ class PostController extends Controller
                 return response()->json(['error' => "You've to make the shop first..."]);
             }
         } catch (Exception $ex) {
-            return response()->json(['error' => $ex->getMessage()]);
+            return response()->json(['error' => $ex->getMessage()],500);
         }
     }
     public function offer_detail($id)
