@@ -46,7 +46,7 @@ class PostController extends Controller
     }
     public function create_offer_api(Request $request)
     {
-        // try {
+        try {
             // dd($request->all());
             $this->validate($request, [
                 'banner' => 'required|image|mimes:jpg,bmp,png,webp|max:2048',
@@ -57,7 +57,7 @@ class PostController extends Controller
                 'shop_id.*' => 'exists:shop,id',
                 'category_id' => 'required|numeric',
                 'subcat_id' => 'array',
-                'subcat_id.*' => 'exists:sub_category,id',
+                'subcat_id.*' => 'exists:shop,id',
 
                 // 'IsFeature' => 'required|In:0,1',
                 'area' => 'required|numeric|exists:area,id',
@@ -71,16 +71,12 @@ class PostController extends Controller
                 foreach ($request->shop_id as $row) {
                     $data['shop_id'] = $row;
                     $offer = Post::create($data);
-                    $Subcat = array();
                     if ($request->has('subcat_id')) {
-                        $Subcat = $request->subcat_id;
-                        dd($Subcat);
-                        // foreach ($request->subcat_id as $subcatItem) {
-                        //     $offerSubcatPivot = new OfferSubcatPivot();
-                        //     $offerSubcatPivot->offer_id = $offer->id;
-                        //     $offerSubcatPivot->subcat_id = $subcatItem; // Assign the array item directly
-                        //     $offerSubcatPivot->save();
-                        // }
+                        foreach ($request->subcat_id as $item) {
+                            $offer_data['offer_id'] = $offer->id;
+                            $offer_data['subcat_id'] = $item;
+                            OfferSubcatPivot::create($offer_data);
+                        }
                     }
                 }
                 // $fb = new Facebook([
@@ -100,9 +96,9 @@ class PostController extends Controller
             } else {
                 return response()->json(['error' => "You've to make the shop first..."]);
             }
-        // } catch (Exception $ex) {
-        //     return response()->json(['error' => $ex->getMessage()],500);
-        // }
+        } catch (Exception $ex) {
+            return response()->json(['error' => $ex->getMessage()],500);
+        }
     }
     public function offer_detail($id)
     {
