@@ -30,10 +30,10 @@ use App\Http\Controllers\FeedBackController;
 */
 
 // Request password reset link
-Route::post('password/email', [ForgotPasswordController::class,'sendResetLinkEmail'])->name('password.email');
+Route::post('password/email', ForgotPasswordController::class)->name('password.email');
 
 // Reset password
-Route::post('password/reset', [ResetPasswordController::class,'reset'])->name('password.reset');
+Route::post('password/reset', ResetPasswordController::class)->name('password.reset');
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
