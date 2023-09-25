@@ -30,7 +30,7 @@ use App\Http\Controllers\FeedBackController;
 */
 
 // Request password reset link
-Route::post('password/email', ForgotPasswordController::class);
+Route::post('password/email', [ForgotPasswordController::class,'sendResetLinkEmail']);
 
 // Reset password
 Route::post('password/reset', ResetPasswordController::class);
