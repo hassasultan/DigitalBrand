@@ -12,10 +12,11 @@ use App\Http\Controllers\SubCatogoryController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\AreaController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\FeedBackController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,13 @@ use App\Http\Controllers\FeedBackController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+// Request password reset link
+Route::post('password/email', [ForgotPasswordController::class,'sendResetLinkEmail'])->name('password.email');
+
+// Reset password
+Route::post('password/reset', [ResetPasswordController::class,'reset'])->name('password.reset');
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
