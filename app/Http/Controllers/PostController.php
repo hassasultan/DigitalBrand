@@ -73,7 +73,7 @@ class PostController extends Controller
                         $offer_data = array();
                         foreach ($request->subcat_id as $item) {
                             $offer_data['offer_id'] = $offer->id;
-                            $offer_data['subcat_id'] = $item;
+                            $offer_data['subcat_id'] = (int)$item;
                             OfferSubcatPivot::create($offer_data);
                         }
                     }

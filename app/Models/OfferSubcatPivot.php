@@ -11,7 +11,8 @@ class OfferSubcatPivot extends Model
     protected $table = "offer_subcat_pivot";
     protected $fillable = [
         "offer_id",
-        "subcat_id"
+        "subcat_id",
+        "status"
     ];
     public function subcat()
     {
