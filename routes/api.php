@@ -33,7 +33,7 @@ use App\Http\Controllers\FeedBackController;
 Route::post('password/email', [ForgotPasswordController::class,'sendResetLinkEmail']);
 
 // Reset password
-Route::post('password/reset', ResetPasswordController::class);
+Route::post('password/reset', [ResetPasswordController::class.'reset']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
