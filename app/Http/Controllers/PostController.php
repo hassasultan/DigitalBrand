@@ -46,7 +46,7 @@ class PostController extends Controller
     }
     public function create_offer_api(Request $request)
     {
-        // try {
+        try {
             $this->validate($request, [
                 'banner' => 'required|image|mimes:jpg,bmp,png,webp|max:2048',
                 'title' => 'required',
@@ -94,9 +94,9 @@ class PostController extends Controller
             } else {
                 return response()->json(['error' => "You've to make the shop first..."]);
             }
-        // } catch (Exception $ex) {
-        //     return response()->json(['error' => $ex->getMessage()]);
-        // }
+        } catch (Exception $ex) {
+            return response()->json(['error' => $ex->getMessage()]);
+        }
     }
     public function offer_detail($id)
     {
