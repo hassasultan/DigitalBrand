@@ -71,11 +71,12 @@ class PostController extends Controller
                 foreach ($request->shop_id as $row) {
                     $data['shop_id'] = $row;
                     $offer = Post::create($data);
+
                     if ($request->has('subcat_id')) {
-                        foreach ($request->subcat_id as $item) {
+                        foreach ($request->subcat_id as $subcatItem) {
                             $offerSubcatPivot = new OfferSubcatPivot();
                             $offerSubcatPivot->offer_id = $offer->id;
-                            $offerSubcatPivot->subcat_id = json_encode($item); // Serialize the array to JSON
+                            $offerSubcatPivot->subcat_id = $subcatItem; // Assign the array item directly
                             $offerSubcatPivot->save();
                         }
                     }
