@@ -34,7 +34,7 @@ class Post extends Model
     }
     public function subcategory()
     {
-        return $this->belongsTo(SubCatogory::class, 'subcat_id','id');
+        return $this->belongsTo(OfferSubcatPivot::class,'id','offer_id');
     }
     public function getarea()
     {

@@ -117,12 +117,15 @@ class PostController extends Controller
     }
     public function offer_filter(Request $request)
     {
-        $post = Post::with('shop', 'shop.seller')->where('status', 1);
+        $post = Post::with('shop', 'shop.seller','subcategory')->where('status', 1);
         if ($request->has('shop_id')) {
             $post = $post->where('shop_id', $request->shop_id);
         }
         if ($request->has('subcat_id')) {
-            $post = $post->where('subcat_id', $request->subcat_id);
+            $subcat = $request->subcat_id;
+            $post = $post->whereHas('subcategory',function($query) use($subcat){
+                $query->where('subcat_id',$subcat);
+            });
         }
         if ($request->has('category_id')) {
             $post = $post->where('category_id', $request->category_id);
