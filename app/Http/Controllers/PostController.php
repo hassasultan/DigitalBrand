@@ -71,7 +71,6 @@ class PostController extends Controller
                     $offer = Post::create($data);
                     dd($offer->id);
                     if ($request->has('subcat_id')) {
-                        $offer_data = array();
                         foreach ($request->subcat_id as $item) {
                             $offer_subcat = new OfferSubcatPivot();
                             $offer_subcat->offer_id = $offer->id;
