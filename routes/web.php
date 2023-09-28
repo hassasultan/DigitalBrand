@@ -16,6 +16,8 @@ use App\Http\Controllers\BannerController;
 
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Auth\VerificationController;
+
 
 use Illuminate\Support\Facades\Route;
 
