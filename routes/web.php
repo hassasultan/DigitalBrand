@@ -179,6 +179,7 @@ Route::get('/seller-guide/form', function () {
     return view('admin/pages/tutorials/seller-guide/create');
 });
 
+Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify');
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

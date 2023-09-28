@@ -67,7 +67,7 @@ class AuthController extends Controller
             return response()->json([
                 'status' => 'error',
                 'message' => $ex->getMessage()
-            ]);
+            ],500);
         }
     }
     public function customer_login(Request $request)
