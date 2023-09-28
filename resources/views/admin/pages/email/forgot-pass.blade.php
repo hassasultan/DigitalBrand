@@ -16,7 +16,7 @@
                            {{ __('A fresh verification link has been sent to your email address.') }}
                        </div>
                    @endif
-                   <a href="http://ms-hostingladz.com/DigitalBrand/password/reset/{{$token}}">Click Here</a>.
+                   <a href="{{$token}}">Click Here</a>.
                </div>
            </div>
        </div>

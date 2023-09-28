@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Validation\ValidationException;
+
 class ForgotPasswordController extends Controller
 {
     /*
@@ -31,49 +34,79 @@ class ForgotPasswordController extends Controller
 
     public function postEmail(Request $request)
     {
-        $request->validate([
-            'email' => 'required|email|exists:users',
-        ]);
+        // $request->validate([
+        //     'email' => 'required|email|exists:users',
+        // ]);
 
-        $token = Str::random(64);
+        // // $token = Str::random(64);
+        // $token = Str::random(64);
 
-        DB::table('password_resets')->insert(
-            ['email' => $request->email, 'token' => $token, 'created_at' => Carbon::now()]
+        // DB::table('password_resets')->insert(
+        //     ['email' => $request->email, 'token' => $token, 'created_at' => Carbon::now()]
+        // );
+
+        // $check = Mail::send('admin.pages.email.forgot-pass', ['token' => $token], function ($message) use ($request) {
+        //     $message->to($request->email);
+        //     $message->subject('Reset Password Notification');
+        // });
+        // // dd($check);
+        // return response()->json(['success'=>"we have sent you the Email..."]);
+        $this->validateEmail($request);
+
+        // We will send the password reset link to this user. Once we have attempted
+        // to send the link, we will examine the response then see the message we
+        // need to show to the user. Finally, we'll send out a proper response.
+        $response = $this->broker()->sendResetLink(
+            $this->credentials($request)
         );
 
-        $check = Mail::send('admin.pages.email.forgot-pass', ['token' => $token], function ($message) use ($request) {
-            $message->to($request->email);
-            $message->subject('Reset Password Notification');
-        });
-        // dd($check);
-        return response()->json(['success'=>"we have sent you the Email..."]);
+        return $response == Password::RESET_LINK_SENT
+                    ? $this->sendResetLinkResponse($request, $response)
+                    : $this->sendResetLinkFailedResponse($request, $response);
     }
-    public function forgot(Request $request)
+    public function sendResetLinkEmail(Request $request)
     {
-        $input = $request->all();
-        $rules = array(
-            'email' => "required|email",
+        $this->validateEmail($request);
+
+        // We will send the password reset link to this user. Once we have attempted
+        // to send the link, we will examine the response then see the message we
+        // need to show to the user. Finally, we'll send out a proper response.
+        $response = $this->broker()->sendResetLink(
+            $this->credentials($request)
         );
-        $validator = Validator::make($input, $rules);
-        if ($validator->fails()) {
-            $arr = array("status" => 400, "message" => $validator->errors()->first(), "data" => array());
-        } else {
-            try {
-                $response = Password::sendResetLink($request->only('email'), function (Message $message) {
-                    $message->subject($this->getEmailSubject());
-                });
-                switch ($response) {
-                    case Password::RESET_LINK_SENT:
-                        return \Response::json(array("status" => 200, "message" => trans($response), "data" => array()));
-                    case Password::INVALID_USER:
-                        return \Response::json(array("status" => 400, "message" => trans($response), "data" => array()));
-                }
-            } catch (\Swift_TransportException $ex) {
-                $arr = array("status" => 400, "message" => $ex->getMessage(), "data" => []);
-            } catch (Exception $ex) {
-                $arr = array("status" => 400, "message" => $ex->getMessage(), "data" => []);
-            }
+
+        return $response == Password::RESET_LINK_SENT
+                    ? $this->sendResetLinkResponse($request, $response)
+                    : $this->sendResetLinkFailedResponse($request, $response);
+    }
+    protected function validateEmail(Request $request)
+    {
+        $request->validate(['email' => 'required|email']);
+    }
+    protected function credentials(Request $request)
+    {
+        return $request->only('email');
+    }
+    protected function sendResetLinkResponse(Request $request, $response)
+    {
+        return $request->wantsJson()
+                    ? new JsonResponse(['message' => trans($response)], 200)
+                    : response()->json(['status'=> trans($response)]);
+    }
+    protected function sendResetLinkFailedResponse(Request $request, $response)
+    {
+        if ($request->wantsJson()) {
+            throw ValidationException::withMessages([
+                'email' => [trans($response)],
+            ]);
         }
-        return \Response::json($arr);
+
+        return response()
+                ->withInput($request->only('email'))
+                ->withErrors(['email' => trans($response)]);
+    }
+    public function broker()
+    {
+        return Password::broker();
     }
 }
