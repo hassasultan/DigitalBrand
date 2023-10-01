@@ -185,7 +185,8 @@
                                                                                                 <label
                                                                                                     for="title1">Category:
                                                                                                     {{ $row->category->name }},
-                                                                                                    {{ $row->subcategory->name }}</label>
+                                                                                                    {{-- {{ $row->subcategory->name }} --}}
+                                                                                                </label>
                                                                                             </div>
                                                                                             <div class="col-md-12 mb-3">
                                                                                                 <label
