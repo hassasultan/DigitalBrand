@@ -13,6 +13,7 @@ class Post extends Model
         "shop_id",
         "category_id",
         "banner",
+        "gender",
         "area",
         "title",
         "description",

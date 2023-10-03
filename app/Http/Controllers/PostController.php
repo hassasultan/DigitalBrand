@@ -67,6 +67,10 @@ class PostController extends Controller
                 // // $shop_id = auth('api')->user()->seller->shop->id;
                 $data = $request->all();
                 $data['banner'] = $banner;
+                if($request->has('gender'))
+                {
+                    $data['gender'] = $request->gender;
+                }
 
                 foreach ($request->shop_id as $row) {
                     $data['shop_id'] = $row;
