@@ -43,7 +43,7 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="#" id="action-form">
+                        <form action="#" method="POST" id="action-form">
                             @csrf
                             <table class="table table-ecommerce-simple table-borderless table-striped mb-0"
                                 id="datatable-ecommerce-list" style="min-width: 640px;">
@@ -51,8 +51,8 @@
                                 <thead>
 
                                     <tr>
-                                        <th width="8%"><input type="checkbox" name="select-all"
-                                                class="select-all checkbox-style-1 p-relative top-2" value="" /></th>
+                                        <th width="8%"><input type="checkbox" name="select_all"
+                                                class="select-all checkbox-style-1 p-relative top-2" value="" required/></th>
                                         {{--                                <th width="5%">ID</th> --}}
                                         <th width="10%">Shop</th>
                                         <th width="20%">Image</th>
@@ -251,8 +251,8 @@
                                         <div class="col-md-auto order-1 mb-3 mb-lg-0">
                                             <div class="d-flex align-items-stretch">
                                                 <div class="d-grid gap-3 d-md-flex justify-content-md-end me-4">
-                                                    <select class="form-control select-style-1 bulk-action"  name="bulk-action"
-                                                        style="min-width: 170px;">
+                                                    <select class="form-control select-style-1 bulk-action"  name="bulk_action"
+                                                        style="min-width: 170px;" required>
                                                         <option value="" selected>Bulk Actions</option>
                                                         <option value="delete">Delete</option>
                                                         <option value="status-active">Active</option>

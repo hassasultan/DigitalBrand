@@ -204,4 +204,35 @@ class PostController extends Controller
             return response()->json(['error' => $ex->getMessage()], 500);
         }
     }
+    public function perform_action(Request $request)
+    {
+        if($request->has('bulk_action'))
+        {
+            if($request->bulk_action == "delete")
+            {
+                if($request->has('offers'))
+                {
+                    foreach($request->bulk_action as $row)
+                    {
+                        $offer = Post::find($row);
+                        $offer->delete();
+                    }
+                }
+            }
+            if($request->bulk_action == "status-active")
+            {
+                if($request->has('offers'))
+                {
+                    foreach($request->bulk_action as $row)
+                    {
+                        $offer = Post::find($row);
+                        $offer->status = 0;
+                        $offer->save();
+                    }
+                }
+
+            }
+        }
+        return redirect()->back();
+    }
 }
