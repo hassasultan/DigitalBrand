@@ -74,6 +74,7 @@ class PostController extends Controller
 
                 foreach ($request->shop_id as $row) {
                     $data['shop_id'] = $row;
+                    $data['status'] = 2;
                     $offer = Post::create($data);
                     if ($request->has('subcat_id')) {
                         foreach ($request->subcat_id as $item) {
