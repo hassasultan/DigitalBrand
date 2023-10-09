@@ -43,7 +43,7 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="#" method="POST" id="action-form">
+                        <form action="{{ route('admin.change.action') }}" method="POST" id="action-form">
                             @csrf
                             <table class="table table-ecommerce-simple table-borderless table-striped mb-0"
                                 id="datatable-ecommerce-list" style="min-width: 640px;">
