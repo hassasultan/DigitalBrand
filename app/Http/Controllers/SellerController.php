@@ -248,4 +248,9 @@ class SellerController extends Controller
         $seller = Seller::with('user', 'shop')->orderBy('id', 'DESC')->paginate(10);
         return $seller;
     }
+    public function all_selller_list()
+    {
+        $seller = Seller::with('user', 'shop')->orderBy('business_name')->paginate(10);
+        return $seller;
+    }
 }
