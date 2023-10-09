@@ -251,14 +251,14 @@
                                         <div class="col-md-auto order-1 mb-3 mb-lg-0">
                                             <div class="d-flex align-items-stretch">
                                                 <div class="d-grid gap-3 d-md-flex justify-content-md-end me-4">
-                                                    <select class="form-control select-style-1 bulk-action" onchange="openActionModal()" name="bulk-action"
+                                                    <select class="form-control select-style-1 bulk-action"  name="bulk-action"
                                                         style="min-width: 170px;">
                                                         <option value="" selected>Bulk Actions</option>
                                                         <option value="delete">Delete</option>
                                                         <option value="status-active">Active</option>
                                                     </select>
-                                                    <a href="ecommerce-orders-detail.html"
-                                                        class="bulk-action-apply btn btn-light btn-px-4 py-3 border font-weight-semibold text-color-dark text-3">Apply</a>
+                                                    <button type="button" onclick="openActionModal()"
+                                                        class="bulk-action-apply btn btn-light btn-px-4 py-3 border font-weight-semibold text-color-dark text-3">Apply</button>
                                                 </div>
                                             </div>
                                         </div>
