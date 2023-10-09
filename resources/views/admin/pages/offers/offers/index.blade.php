@@ -75,8 +75,10 @@
                                             <select id="status_change-{{ $row->id }}" class="form-control"
                                                 data-id="{{ $row->id }}" onchange="status({{ $row->id }})">
                                                 <option @if ($row->status == 1) selected @endif value="1">
-                                                    Accepted</option>
+                                                    Active</option>
                                                 <option @if ($row->status == 0) selected @endif value="0">
+                                                    InActive</option>
+                                                <option @if ($row->status == 2) selected @endif value="2">
                                                     Rejected</option>
                                             </select>
 

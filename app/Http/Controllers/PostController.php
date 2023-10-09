@@ -190,7 +190,7 @@ class PostController extends Controller
         try {
             $this->validate($request, [
                 'offer_id' => 'required|numeric|exists:post,id',
-                'status' => 'required|numeric|In:1,0',
+                'status' => 'required|numeric|In:1,0,2',
             ]);
             $offer = Post::find($request->offer_id);
             if ($request->has('status')) {
