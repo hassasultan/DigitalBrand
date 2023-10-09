@@ -255,7 +255,7 @@
                                                         style="min-width: 170px;" required>
                                                         <option value="" selected>Bulk Actions</option>
                                                         <option value="delete">Delete</option>
-                                                        <option value="status-active">Active</option>
+                                                        <option value="status-active">InActive</option>
                                                     </select>
                                                     <button type="button" onclick="openActionModal()"
                                                         class="bulk-action-apply btn btn-light btn-px-4 py-3 border font-weight-semibold text-color-dark text-3">Apply</button>
