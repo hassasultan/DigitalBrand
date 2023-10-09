@@ -212,7 +212,7 @@ class PostController extends Controller
             {
                 if($request->has('offers'))
                 {
-                    foreach($request->bulk_action as $row)
+                    foreach($request->offers as $row)
                     {
                         $offer = Post::find($row);
                         $offer->delete();
@@ -223,7 +223,7 @@ class PostController extends Controller
             {
                 if($request->has('offers'))
                 {
-                    foreach($request->bulk_action as $row)
+                    foreach($request->offers as $row)
                     {
                         $offer = Post::find($row);
                         $offer->status = 0;
