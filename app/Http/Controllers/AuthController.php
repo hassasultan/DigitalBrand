@@ -178,11 +178,11 @@ class AuthController extends Controller
                     'isFeatured' => 'required|string',
                     'logo' => 'required|image',
                     'reference' => 'required|string',
-                    'shop_name' => 'required|string',
-                    'branch_name' => 'required|string',
+                    // 'shop_name' => 'required|string',
+                    // 'branch_name' => 'required|string',
                     'description' => 'required|string',
                     'shop_contact_number' => 'required|string',
-                    'business_name' => 'required|string',
+                    // 'business_name' => 'required|string',
                     'business_address' => 'required|string',
                     // 'cover_image' => 'required|image',
 
@@ -252,9 +252,9 @@ class AuthController extends Controller
                 }
                 $seller->save();
                 $data['seller_id'] = $seller->id;
-                $data['name'] = $request->shop_name;
+                $data['name'] = $request->name;
                 $data['area'] = $request->area_id;
-                $data['branch_name'] = $request->branch_name;
+                // $data['branch_name'] = $request->branch_name;
                 $data['description'] = $request->description;
                 $data['address'] = $request->business_address;
                 $data['contact_number'] = $request->shop_contact_number;
