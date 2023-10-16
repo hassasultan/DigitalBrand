@@ -11,6 +11,7 @@ use App\Models\Shop;
 use App\Models\Customer;
 use App\Traits\SaveImage;
 use Exception;
+use Illuminate\Support\Facades\Mail;
 
 
 class AuthController extends Controller
@@ -67,7 +68,7 @@ class AuthController extends Controller
             return response()->json([
                 'status' => 'error',
                 'message' => $ex->getMessage()
-            ],500);
+            ], 500);
         }
     }
     public function customer_login(Request $request)
@@ -294,6 +295,16 @@ class AuthController extends Controller
                 }
                 $customer->save();
             }
+            $verify_token =  $this->generateRandomString(100);
+            $data1 = array();
+            $data1['verify_token'] = "http://ms-hostingladz.com/DigitalBrand/email/verify/" . $request->email . "/" . $verify_token;
+            $cmd = DB::connection('mysql')->table('users')
+                ->where('email', $request->email)
+                ->update(['remember_token' => $verify_token, 'updated_at' => Carbon::now()]);
+            $data1['email'] = $request->email;
+            Mail::send('admin.pages.email.forgot-pass', ['data' => $data1], function ($message)use($data1) {
+                $message->to($data1['email'], 'Email Verification')->subject('Verify Your Email');
+            });
 
             return response()->json([
                 'status' => 'success',
@@ -310,6 +321,16 @@ class AuthController extends Controller
                 'message' => $ex->getMessage()
             ]);
         }
+    }
+    public function generateRandomString($length = 20)
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
     }
 
     public function logout()
