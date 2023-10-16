@@ -158,7 +158,7 @@ class PostController extends Controller
     }
     public function featured_offer_list()
     {
-        $post = Post::with('shop', 'shop.seller', 'category', 'subcategory')->where('IsFeature', 1)->paginate(10);
+        $post = Post::with('shop', 'shop.seller', 'category', 'subcategory')->where('status', 1)->where('IsFeature', 1)->paginate(10);
         return $post;
     }
     public function insights(Request $request)
