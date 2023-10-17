@@ -11,6 +11,7 @@ use App\Models\Shop;
 use App\Models\Customer;
 use App\Traits\SaveImage;
 use Exception;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 
