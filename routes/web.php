@@ -19,8 +19,8 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\VerificationController;
 
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,10 +32,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/password/reset', ForgotPasswordController::class,'showLinkRequestForm')->name('password.request');
-// Route::post('/password/email', ForgotPasswordController::class,'sendResetLinkEmail')->name('password.email');
-// Route::get('/password/reset/{token}', ResetPasswordController::class,'showResetForm')->name('password.reset');
-// Route::post('/password/reset', ResetPasswordController::class,'reset')->name('password.update');
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -68,9 +64,6 @@ Route::get('/user_role/form', function () {
     return view('admin/pages/users/user_role_form');
 });
 
-// Route::get('/home', function () {
-//     return view('admin/pages/home');
-// });
 
 Route::get('/salesman/form', function () {
     return view('admin/pages/salesman/salesman_form');
@@ -87,18 +80,6 @@ Route::get('/visitor/form', function () {
 
 // Sellers
 
-// Route::get('/sellers', function () {
-//     return view('admin/pages/sellers/sellers');
-// });
-
-// Route::get('/seller/form', function () {
-//     return view('admin/pages/sellers/create');
-// });
-
-// Seller Shops
-//  Route::get('/seller-shops', function () {
-//      return view('admin/pages/sellers/seller-shops/index');
-//  });
 
  Route::get('/seller-shops/form', function () {
      return view('admin/pages/sellers/seller-shops/create');
@@ -133,44 +114,7 @@ Route::get('/packages', function () {
 Route::get('/packages/form', function () {
     return view('admin/pages/premium/packages/create');
 });
-// Location
 
-// Provinces
-//  Route::get('/provinces', function () {
-//      return view('admin/pages/locations/Provinces/index');
-//  });
-
-//  Route::get('/provinces/form', function () {
-//      return view('admin/pages/locations/Provinces/create');
-//  });
-
-// Cities
-// Route::get('/cities', function () {
-//     return view('admin/pages/locations/Cities/index');
-// });
-
-// Route::get('/cities/form', function () {
-//     return view('admin/pages/locations/Cities/create');
-// });
-
-// Area
-
-// Route::get('/areas', function () {
-//     return view('admin/pages/locations/Areas/index');
-// });
-
-// Route::get('/areas/form', function () {
-//     return view('admin/pages/locations/Areas/create');
-// });
-
-// banners
-// Route::get('/banners', function () {
-//     return view('admin/pages/premium/banners/index');
-// });
-
-// Route::get('/banners/form', function () {
-//     return view('admin/pages/premium/banners/create');
-// });
 
 // Tutorials
 Route::get('/seller-guide', function () {
@@ -183,7 +127,6 @@ Route::get('/seller-guide/form', function () {
 
 Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify');
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 Route::prefix('/admin')->group(function () {
