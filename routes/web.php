@@ -38,7 +38,7 @@ use Illuminate\Support\Facades\Route;
 // Route::post('/password/reset', ResetPasswordController::class,'reset')->name('password.update');
 
 Route::get('/', function () {
-    return view('admin.pages.login');
+    return redirect()->route('login');
 });
 
 Route::get('/lock', function () {
