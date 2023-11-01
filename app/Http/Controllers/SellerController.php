@@ -113,7 +113,13 @@ class SellerController extends Controller
     public function destroy($id)
     {
         $seller = Seller::find($id);
-        $seller->delete();
+        $user = User::find($seller->user_id);
+        $del = DeletedUser::create([
+            'name' => $user->name,
+            'email' => $user->email,
+            'role'  => $user->role,
+        ]);
+        $user->delete();
         return redirect()->back();
     }
     public function ApiDestroy()
