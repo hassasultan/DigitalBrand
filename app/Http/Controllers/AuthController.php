@@ -252,8 +252,8 @@ class AuthController extends Controller
                         $seller->salesman_id = 0;
                     }
                 }
-                if ($request->has('cover_image')) {
-                    $seller->coverimage = $this->seller_logo($request->cover_image);
+                if ($request->has('coverimage')) {
+                    $seller->coverimage = $this->seller_logo($request->coverimage);
                 }
                 $seller->save();
                 $data['seller_id'] = $seller->id;
