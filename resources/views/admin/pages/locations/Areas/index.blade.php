@@ -32,18 +32,15 @@
 
                                 </div>
                                 <div class="col-12 col-lg-auto ps-lg-1">
-                                    <div class="search search-style-1 search-style-1-lg mx-lg-auto">
+                                    <div class="search search-style-1-lg mx-lg-auto">
                                         <div class="input-group">
-                                            <input type="text" class="search-term form-control" name="search-term" id="search-term" placeholder="Search Area">
-                                            <button class="btn btn-default" type="submit"><i class="bx bx-search"></i></button>
+                                            <input type="text" class="search-term form-control" name="search-term" id='myInput' onkeyup='searchTable()' placeholder="Search Area">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-ecommerce-simple table-borderless table-striped mb-0" id="datatable-ecommerce-list" style="min-width: 640px;">
-
-                            <thead>
+                        <table id='myTable' class="table table-ecommerce-simple table-borderless table-striped mb-0" style="min-width: 640px;">
                             <tr>
                                 <th width="10%"><input type="checkbox" name="select-all" class="select-all checkbox-style-1 p-relative top-2" value="" /></th>
                                 <th width="10%">ID</th>
@@ -52,13 +49,11 @@
                                 <th width="20%">Total Sellers</th>
                                 <th width="30" style="text-align: center">Action</th>
                             </tr>
-                            </thead>
-                            <tbody>
                             @foreach ($area as $key => $row)
                                 <tr>
                                     <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
                                     <td>{{ ++$key }}</td>
-                                    <td><strong>{{ $row->name }}</strong></td>
+                                    <td>{{ $row->name }}</td>
                                     <td>{{ $row->city->name }}</td>
                                     <td>30</td>
                                     <td style="text-align: center">
@@ -66,11 +61,10 @@
                                         </form>
                                         <button class="btn btn-danger" onclick="openDeleteModal({{ $row->id }})" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-trash"></i></button>
                                         <a  href="{{ route('area-management.edit',$row->id) }}" class="btn btn-warning" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-pen"></i></a>
-{{--                                        <button class="btn btn-primary" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></button>--}}
+                                        {{-- <button class="btn btn-primary" style="padding: 4px 6px;font-size: 12px;"><i class="fas fa-eye"></i></button>--}}
                                     </td>
                                 </tr>
                             @endforeach
-                            </tbody>
                         </table>
                         <hr class="solid mt-5 opacity-4">
                         <div class="datatable-footer">
@@ -133,6 +127,28 @@
         }
         function closeDeleteModal(){
             $('#deleteModal').modal('hide');
+        }
+
+        function searchTable() {
+            var input, filter, found, table, tr, td, i, j;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td");
+                for (j = 0; j < td.length; j++) {
+                    if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        found = true;
+                    }
+                }
+                if (found) {
+                    tr[i].style.display = "";
+                    found = false;
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
         }
     </script>
 @stop
