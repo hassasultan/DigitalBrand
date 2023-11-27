@@ -50,12 +50,12 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="nav-link" href="portal/seller-management">
+                                <a class="nav-link" href="{{ route('seller-management.index') }}">
                                     Sellers List
                                 </a>
                             </li>
                             <li>
-                                <a class="nav-link" href="portal/seller-shops">
+                                <a class="nav-link" href="{{ route('shop-management.index') }}">
                                     Sellers Shops
                                 </a>
                             </li>
@@ -68,17 +68,17 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="nav-link" href="portal/province-management">
+                                <a class="nav-link"  href="{{ route('province-management.index') }}">
                                     Provinces
                                 </a>
                             </li>
                             <li>
-                                <a class="nav-link" href="portal/city-management">
+                                <a class="nav-link" href="{{ route('city-management.index') }}">
                                     Cities
                                 </a>
                             </li>
                             <li>
-                                <a class="nav-link" href="portal/area-management">
+                                <a class="nav-link" href="{{ route('area-management.index') }}">
                                     Areas
                                 </a>
                             </li>
@@ -91,22 +91,29 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="nav-link" href="portal/offer-categories">
+                                <a class="nav-link" href="{{ route('offer-categories.index') }}">
                                     Categories
                                 </a>
                             </li>
                             <li>
-                                <a class="nav-link" href="portal/offer-sub-categories">
+                                <a class="nav-link" href="{{ route('offer-sub-categories.index') }}">
                                     Sub Categories
                                 </a>
                             </li>
                             <li>
-                                <a class="nav-link" href="portal/offer-management">
+                                <a class="nav-link" href="{{ route('offer-management.index') }}">
                                     Offers
                                 </a>
                             </li>
                         </ul>
                     </li>
+
+                    <li class="">
+                        <a class="nav-link" href="{{ route('feedback-management.index') }}">
+                            Feedback
+                        </a>
+                    </li>
+
 
                     <li class="dropdown">
                         <a class="nav-link dropdown-toggle" href="#">
@@ -119,8 +126,21 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="nav-link" href="portal/banners">
+                                <a class="nav-link" href="{{ route('banner-management.index') }}">
                                     Banners
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#">
+                            Tutorials
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="nav-link" href="{{ route('video-management.index') }}">
+                                    Seller Guide
                                 </a>
                             </li>
                         </ul>
