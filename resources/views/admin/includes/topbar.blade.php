@@ -50,12 +50,12 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="nav-link" href="/seller-management">
+                                <a class="nav-link" href="portal/seller-management">
                                     Sellers List
                                 </a>
                             </li>
                             <li>
-                                <a class="nav-link" href="/seller-shops">
+                                <a class="nav-link" href="portal/seller-shops">
                                     Sellers Shops
                                 </a>
                             </li>
@@ -68,17 +68,17 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="nav-link" href="/province-management">
+                                <a class="nav-link" href="portal/province-management">
                                     Provinces
                                 </a>
                             </li>
                             <li>
-                                <a class="nav-link" href="/city-management">
+                                <a class="nav-link" href="portal/city-management">
                                     Cities
                                 </a>
                             </li>
                             <li>
-                                <a class="nav-link" href="/area-management">
+                                <a class="nav-link" href="portal/area-management">
                                     Areas
                                 </a>
                             </li>
@@ -91,17 +91,17 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="nav-link" href="/offer-categories">
+                                <a class="nav-link" href="portal/offer-categories">
                                     Categories
                                 </a>
                             </li>
                             <li>
-                                <a class="nav-link" href="/offer-sub-categories">
+                                <a class="nav-link" href="portal/offer-sub-categories">
                                     Sub Categories
                                 </a>
                             </li>
                             <li>
-                                <a class="nav-link" href="/offer-management">
+                                <a class="nav-link" href="portal/offer-management">
                                     Offers
                                 </a>
                             </li>
@@ -114,12 +114,12 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="nav-link" href="/packages">
+                                <a class="nav-link" href="portal/packages">
                                     Packages
                                 </a>
                             </li>
                             <li>
-                                <a class="nav-link" href="/banners">
+                                <a class="nav-link" href="portal/banners">
                                     Banners
                                 </a>
                             </li>
@@ -127,7 +127,7 @@
                     </li>
 
 
-                    <li class="dropdown dropdown-mega">
+                    <!-- <li class="dropdown dropdown-mega">
                         <a class="nav-link dropdown-toggle" href="#">Reports</a>
                         <ul class="dropdown-menu">
                             <li>
@@ -324,7 +324,7 @@
                                 </div>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
 
                 </ul>
             </nav>
