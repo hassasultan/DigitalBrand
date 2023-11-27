@@ -11,7 +11,7 @@
             <nav id="menu" class="nav-main" role="navigation">
                 <ul class="nav nav-main">
                     <li>
-                        <a class="nav-link" href="/home">
+                        <a class="nav-link" href="home">
                             <i class="bx bx-home-alt" aria-hidden="true"></i>
                             <span>Home</span>
                         </a>

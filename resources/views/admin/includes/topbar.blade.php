@@ -1,5 +1,5 @@
 <div class="logo-container">
-    <a href="/home" class="logo">
+    <a href="home" class="logo">
         <img src="{{ asset('/assets/img/logo-modern.png') }}" class="logo-image" alt="PinkAd" /><img src="{{ asset('/assets/img/logo-default.png') }}" class="logo-image-mobile" width="90" height="41" alt="PinkAd" />
     </a>
     <button class="btn header-btn-collapse-nav d-lg-none" data-bs-toggle="collapse" data-bs-target=".header-nav">
