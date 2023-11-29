@@ -34,10 +34,11 @@ class AuthController extends Controller
 
             $credentials = $request->only('email', 'password');
             $check = User::where('email', $request->email)->where('role', $request->role)->first();
-            die($check);
+            
 
             if ($check) {
                 $token = auth('api')->attempt($credentials);
+                die($token);
                 if (!$token) {
                     return response()->json([
                         'status' => 'error',
