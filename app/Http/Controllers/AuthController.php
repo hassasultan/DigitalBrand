@@ -25,7 +25,7 @@ class AuthController extends Controller
 
     public function seller_login(Request $request)
     {
-        try {
+        // try {
             $request->validate([
                 'email' => 'required|string|email',
                 'password' => 'required|string',
@@ -34,11 +34,9 @@ class AuthController extends Controller
 
             $credentials = $request->only('email', 'password');
             $check = User::where('email', $request->email)->where('role', $request->role)->first();
-            
-
+        
             if ($check) {
                 $token = auth('api')->attempt($credentials);
-                die($token);
                 if (!$token) {
                     return response()->json([
                         'status' => 'error',
@@ -69,12 +67,12 @@ class AuthController extends Controller
                     'message' => "Invalid Credentials..."
                 ], 401);
             }
-        } catch (Exception $ex) {
-            return response()->json([
-                'status' => 'error',
-                'message' => $ex->getMessage()
-            ], 500);
-        }
+        // } catch (Exception $ex) {
+        //     return response()->json([
+        //         'status' => 'error',
+        //         'message' => $ex->getMessage()
+        //     ], 500);
+        // }
     }
     public function customer_login(Request $request)
     {
