@@ -25,13 +25,14 @@ class AuthController extends Controller
 
     public function seller_login(Request $request)
     {
-        die("hello");
         try {
             $request->validate([
                 'email' => 'required|string|email',
                 'password' => 'required|string',
                 'role' => 'required|numeric|In:2',
             ]);
+            die("hello");
+
             $credentials = $request->only('email', 'password');
             $check = User::where('email', $request->email)->where('role', $request->role)->first();
             if ($check) {
