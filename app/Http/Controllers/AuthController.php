@@ -25,6 +25,7 @@ class AuthController extends Controller
 
     public function seller_login(Request $request)
     {
+        die("hello");
         try {
             $request->validate([
                 'email' => 'required|string|email',
