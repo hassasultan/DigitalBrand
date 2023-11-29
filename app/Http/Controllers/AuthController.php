@@ -31,10 +31,11 @@ class AuthController extends Controller
                 'password' => 'required|string',
                 'role' => 'required|numeric|In:2',
             ]);
-            die("hello");
 
             $credentials = $request->only('email', 'password');
             $check = User::where('email', $request->email)->where('role', $request->role)->first();
+            die("hello 1");
+
             if ($check) {
                 $token = auth('api')->attempt($credentials);
                 if (!$token) {
